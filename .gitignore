@@ -1,5 +1,24 @@
+# Virtual environment
 venv/
+.venv/
+
+# Python bytecode cache
 __pycache__/
-*pyc
+*.py[cod]
+
+# Jupyter checkpoint files
 .ipynb_checkpoints/
+
+# Secrets / environment variables
 .env
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+
+# Raw scraped evidence — bulky, kept out of git.
+# Zip these separately and store in Google Drive; still a project deliverable.
+data/raw/html/*
+!data/raw/html/.gitkeep
+data/raw/images/*
+!data/raw/images/.gitkeep
