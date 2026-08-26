@@ -22,13 +22,18 @@ This project builds:
    * **D — Price Tier Classification**: classify products into budget / mid-range / premium using non-price attributes.
 3. **A single Streamlit application** that lets a non-technical user browse collected products and run all four features interactively.
 
-## 📊 Current Status
+## 📊 Current status
 
-**Early stage** — building the collection pipeline (`src/scraper/`).
+Collection pipeline in progress (`src/scraper/`).
 
-No data has been collected yet.
+- Search results page: scraping working — extracts ASIN, title, price, and
+  rating for each product on the first page of results. Output saved to
+  `data/raw/products_search_page.json`.
+- Product detail pages and reviews: not started yet.
+- Notebooks, features, and application: not started yet.
 
-See `logs/scraping_log.csv` for the request log format once collection starts.
+Every request is logged to `logs/scraping_log.csv` with a timestamp and
+outcome (success / blocked / empty).
 
 ## 📁 Planned Structure
 
