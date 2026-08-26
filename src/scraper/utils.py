@@ -1,6 +1,8 @@
 import csv
 from datetime import datetime
 from pathlib import Path
+import random
+import time
 
 LOG_FILE = Path(__file__).resolve().parent.parent.parent / "logs" / "scraping_log.csv"
 
@@ -24,7 +26,15 @@ def log_request(request_type, url, outcome, status_code="", note=""):
             note,
         ])
 
+def polite_delay(min_seconds=5, max_seconds=11):
+
+    delay = random.uniform(min_seconds, max_seconds)
+    time.sleep(delay)
+    return delay
+
 
 if __name__ == "__main__":
     print(Path(__file__).resolve())
     log_request("search", "https://amazon.com/s?k=test", "success", 200, "test entry")
+    waited = polite_delay()
+    print(f"Waited {waited:.2f} seconds")

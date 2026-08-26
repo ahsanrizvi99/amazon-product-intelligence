@@ -1,0 +1,3 @@
+timestamp,request_type,url,status_code,outcome,note
+2026-08-27T01:45:20,search,https://amazon.com/s?k=test,200,success,test entry
+2026-08-27T01:52:31,search,https://amazon.com/s?k=test,200,success,test entry
