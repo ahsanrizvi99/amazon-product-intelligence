@@ -26,14 +26,24 @@ This project builds:
 
 Collection pipeline in progress (`src/scraper/`).
 
-- Search results page: scraping working — extracts ASIN, title, price, and
-  rating for each product on the first page of results. Output saved to
-  `data/raw/products_search_page.json`.
-- Product detail pages and reviews: not started yet.
+- Search results page: working — extracts ASIN, title, price, and rating
+  for each product on the first page of results.
+- Product detail pages: working — visits each product's own page and
+  extracts title and price (more reliable than the search-page snapshot).
+- Reviews: working — extracts reviewer name, rating, title, verified
+  purchase status, and full review text for each review on a product page.
+- Full pipeline: search page → product pages → reviews are now combined
+  into one record per product, saved to `data/raw/products_full.json`.
 - Notebooks, features, and application: not started yet.
 
 Every request is logged to `logs/scraping_log.csv` with a timestamp and
 outcome (success / blocked / empty).
+
+Known issues, documented in the Project Questions & Clarifications Log:
+- Some reviews are in languages other than English.
+- Amazon occasionally returns a bot-check page on the very first request
+  of a fresh browser session; visiting the search page before any product
+  page avoids this.
 
 ## 📁 Planned Structure
 
