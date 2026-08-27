@@ -139,14 +139,20 @@ def save_products(products):
 
 def save_products_csv(products):
     DATA_DIR.mkdir(parents=True, exist_ok=True)
-    output_file = DATA_DIR / "products_search_page.csv"
+    output_file = DATA_DIR / "products_full.csv"
+
+    csv_ready_products = []
+    for product in products:
+        product_copy = product.copy()
+        product_copy["reviews"] = json.dumps(product["reviews"], ensure_ascii=False)
+        csv_ready_products.append(product_copy)
 
     with open(output_file, "w", newline="", encoding="utf-8") as f:
-        fieldnames = products[0].keys()
+        fieldnames = csv_ready_products[0].keys()
         writer = csv.DictWriter(f, fieldnames=fieldnames)
 
         writer.writeheader()
-        writer.writerows(products)
+        writer.writerows(csv_ready_products)
 
     print(f"Saved {len(products)} products to {output_file}")
 
@@ -175,3 +181,4 @@ if __name__ == "__main__":
         print(f"{item['asin']}: {len(item['reviews'])} reviews")
 
     save_products(data)
+    save_products_csv(data)

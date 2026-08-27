@@ -559,101 +559,101 @@
     ]
   },
   {
-    "asin": "B0BV45B8JB",
-    "title": "Satechi 7-in-1 USB-C Hub Pro Slim, 4K HDMI, USB 3.2 Gen 2, Space Gray",
-    "price": "$67.99",
-    "rating": "4.4 out of 5 stars",
+    "asin": "B0F5Q6P3G3",
+    "title": "USB C Hub,10Gbps USB Splitter with 4*USB-A and 3*USB-C Ports",
+    "price": "$36.99",
+    "rating": "4.3 out of 5 stars",
     "reviews": [
       {
-        "reviewer_name": "Frances",
+        "reviewer_name": "Tedyesca",
         "rating": "5 out of 5 stars",
-        "title": "Sleek and works",
+        "title": "Works right away. No drivers needed.",
         "verified_purchase": true,
-        "body": "This hub works well with the Macbook Air 13\" M4. The silver is not a 100% color match, but it comes close and is barely noticeable. This hub has all the ports I'd need and is slim, sitting flush with the laptop, doesn't block the charging port. I like the lack of labelling, the clean aesthetic of this port hub, and the port placement. It was lighter than I expected when I compared it with one from Anker, but like this one for all the already mentioned reasons."
+        "body": "It’s great. Uses one usb c, power is not required (it’ll just draw it from your laptop/pc/tablet. Mine does have a loose pierce but other than that this thing does everything I need it to do. Connects easily, the design is perfect for me and makes it easier than reach to the sides of my laptop and it stays on my table without moving from where I need it. I love the 10gbps and the power through functions this thing has."
       },
       {
-        "reviewer_name": "Javi",
+        "reviewer_name": "Anonymous",
         "rating": "5 out of 5 stars",
-        "title": "Handles my business.",
+        "title": "Good choice for my MacMini",
         "verified_purchase": true,
-        "body": "I like it! Just what I needed."
+        "body": "Very useful for extending the ports on my MacMini. I looked at many other Hubs before settling on this one. I am glad I chose this hub."
       },
       {
-        "reviewer_name": "FooBlah",
+        "reviewer_name": "Caribulou",
+        "rating": "5 out of 5 stars",
+        "title": "Nice USB hun",
+        "verified_purchase": true,
+        "body": "Needed from facing ports for my apple studio. This was a perfect solution. It makes the pathetic of my oc and is a quality product."
+      },
+      {
+        "reviewer_name": "neithernet",
         "rating": "4 out of 5 stars",
-        "title": "Nice, not great",
+        "title": "Looks good and works",
         "verified_purchase": true,
-        "body": "this does a good job all around as a USB-C hub. The only issue is with the display through the HDMI. The dimensions are just a little off. Maybe it’s my equipment, but never had this problem with other Satechi hubs. It is very compact, and otherwise works well, so I will def keep it."
+        "body": "It works fine. It's a hub. Does hub stuff."
       },
       {
-        "reviewer_name": "Orion P.",
+        "reviewer_name": "S. A. Hughes",
         "rating": "5 out of 5 stars",
-        "title": "Awesome product",
+        "title": "Good high speed I/O hub but not great for charging devices",
         "verified_purchase": true,
-        "body": "Seems to work very well. I used my 2012 MacBook Pro until 2024 when I started grad school and actually needed something that could function off a charger.. Well, I ended up with a MacBook Air and found out everything you ever needed to do had to run through a lightning port. This dock stayed in my laptop bag from the beginning and still is in there. It saved me and classmates numerous times with presentation issues. The double lightning connection makes it slightly specific to this model or era of MacBooks, but other than that, it’s worked fantastic and the color match is a great look. Plug and play use too, very easy."
+        "body": "Xiaobi 7 port USB-C hub with 5volt 3amp power supply When I got my new Dell tower PC, I realized I needed to buy a good USB hub. The Dell tower has a nice selection of USB ports, including some on the front of the case, but I don’t like constantly plugging and unplugging cables. Over time, the PC connectors may fail and that’s very awkward since there is usually no way to repair them except to replace the motherboard. The Xiaobi has 4 USB A ports and 3 USB C ports. All of which run at 10Gpbs. It’s important to note that to get that speed you need to have cables that will support it and the devices plugged into the hub must also support it. I’m mostly using it to move data to/from external SSD’s, and it does seem to run at the full 10Gpbs when everything is set up correctly. It is a little on the light side, and moved around too easily, so I put removeable adhesive Velcro on the top of my PC and on the hub. That holds the hub in place just fine. If you’re thinking of using it to charge things, do remember that it only has 15 watts of power running at 5 volts, so you’re not charging a notebook or anything else that needs heavy power. This is primary an I/O hub not a charging hub. Bottom line is that it works well for me and lets me not worry about damaging connectors on my PC."
       },
       {
-        "reviewer_name": "Wesley Kavanagh",
-        "rating": "5 out of 5 stars",
-        "title": "Empowering! I can again do anything.",
+        "reviewer_name": "Kasey M Kadinger",
+        "rating": "1 out of 5 stars",
+        "title": "Do not buy this",
         "verified_purchase": true,
-        "body": "Fits MacBook Air perfectly. Looks great. Probably best for use on a table. You must be careful pulling things out but I am not disappointed. This is my first MacBook after having a fully tricked out HP laptop. This accessory makes me feel like I can again do anything. Nice product. Not a perfect match for the finish on the Mac but very close."
+        "body": "This thing doesn't work at all every thing I attach to my computer through this turd does not connect"
       },
       {
-        "reviewer_name": "TBear",
+        "reviewer_name": "Gil",
         "rating": "3 out of 5 stars",
-        "title": "Good",
+        "title": "Misleading Speed Claims — Test Your Ports Before You Trust Them",
         "verified_purchase": true,
-        "body": "Great product my only complaint is the standard USB ports are so tight that it broke my memory stick when I was trying to remove it. The USB-C ports are fine."
+        "body": "I did a thorough technical investigation of this hub by analyzing Linux kernel USB enumeration logs, so this review is based on hard data rather than impressions. The good: The hub is solidly built and the included 5V 3A power adapter does improve stability. The two USB-A ports on the ends of the hub (ports 1 and 2 in my testing) delivered genuine SuperSpeed 5 Gbps throughput, and so did the two USB-A ports on the opposite end (ports 7 and 8). So four of the seven ports do actually perform well for fast storage devices. The bad: The title claims \"10Gbps\" — this is simply false. The hub is built around VIA Labs USB 3.1 Gen 1 silicon, which is a 5 Gbps technology, not 10 Gbps. Not a single port on this hub is capable of 10 Gbps under any circumstances. The ugly: All three USB-C ports — the ones most likely to be used with modern high-speed devices — are wired through a USB 2.0 only signal path internally. Despite the USB-C connector implying modern speeds, these ports max out at 480 Mbps, roughly 1/10th of what the product title advertises. Plugging anything into the USB-C ports also causes the hub's internal Terminus controller to reset and power cycle, briefly disrupting all other connected devices. This happened consistently with and without the power adapter connected. Internal topology for the technically curious: The hub contains three separate hub controllers internally — a Terminus Technology FE1.1 (USB 2.0) at the top level, and two VIA Labs 2824 controllers as sub-hubs. The USB-C ports are routed exclusively through the 2.0-only signal paths of these sub-hubs with no SuperSpeed wiring whatsoever. Bottom line: If you only need the USB-A ports and can live with 5 Gbps instead of the advertised 10 Gbps, it works fine. But if you bought this specifically for fast USB-C connectivity, you will be disappointed. The product title is misleading on both the speed rating and the implied capability of the USB-C ports."
       },
       {
-        "reviewer_name": "Sam Trendi",
+        "reviewer_name": "Rodney",
         "rating": "5 out of 5 stars",
-        "title": "Small, Lightweight, and Perfect Beside a MacBook",
+        "title": "Stylish AND the functional !",
         "verified_purchase": true,
-        "body": "Small, Lightweight, and Perfect Beside a MacBook I genuinely love this little hub. The Satechi 7-in-1 USB-C Multiport Adapter ended up being exactly what I wanted for a lightweight everyday setup. The biggest surprise for me was just how small and portable it is in person. In the video you can really see how easily it disappears into a tech pouch or laptop sleeve without adding bulk. It’s light enough that I barely notice it in my bag, which matters when you’re trying to keep a minimalist setup. The color matching with my MacBook is also excellent. It looks and feels like it was designed by Apple themselves instead of being some random accessory hanging off the side of the laptop. Performance-wise, it’s been reliable with no issues so far. I use it daily for charging, peripherals, and media access, and it keeps my setup clean without carrying multiple dongles everywhere. Five stars from me purely because it solves a real problem while staying compact, clean, and travel friendly."
+        "body": "Great hub to add to my number of ports. It seems very well made & for a reasonable price too. Also the angled base makes it so much easier to plug Devices in while being sure which type & speed of port you are using."
       },
       {
-        "reviewer_name": "Sebastian",
+        "reviewer_name": "Mario",
+        "rating": "2 out of 5 stars",
+        "title": "no me funciona",
+        "verified_purchase": true,
+        "body": "No me convence, conecto tres puestos dos discos duros de 1TB y un usb 2,5 y se pasma tengo que colocar un disco un usb y no poner a cargar nada porque se pasma"
+      },
+      {
+        "reviewer_name": "StandardN3rd",
         "rating": "5 out of 5 stars",
-        "title": "The one for MacBook Airs",
+        "title": "Looks smart, works well.",
         "verified_purchase": true,
-        "body": "Works like a charm with a MacBook Air M5. It gets recognized right away, the USB that is used for charging can be connected to an external dock for both, power and video output too. Something to keep in mind is that it lacks a bit of support below it when connected which could lead to the USB C connections breaking under extreme angles/ forces"
+        "body": "Nice build quality, looks good on my desk and saves me from fumbling under my desk to plug something in to my base unit. Works without the included power supply, so less cables if that's what you want. Simplicity itself to use. Compatible with anything that uses USB, with a blisteringly fast 10Gbps speed."
       },
       {
-        "reviewer_name": "Adriana",
+        "reviewer_name": "Amazon Customer",
         "rating": "5 out of 5 stars",
-        "title": "Funciona muy bien,",
-        "verified_purchase": true,
-        "body": "Funciona muy bien. Buscaría solo que tuviera un poco más de estabilidad o una forma de que no fuera tan fácil quitarse la laptop ya que con el movimiento se desconecta fácilmente Pero funciona muy bien."
+        "title": "Fast and easy to use",
+        "verified_purchase": false,
+        "body": "I really like how simple this hub is to set up. I plugged it in, and everything worked right away. It has plenty of ports for my drives and gadgets, and the transfer speed is super quick. It even powers my devices without slowing anything down. The shape takes a little space on my desk, but it looks clean and doesn’t heat up, even with a bunch of stuff connected. It feels sturdy and well-made. If you need extra ports and want something that just works, this one’s a solid pick."
       },
       {
-        "reviewer_name": "Dajny sprzęt , zastępuje trzecia rękę przy różnych ciężkich pracach !",
+        "reviewer_name": "klaus z.",
         "rating": "5 out of 5 stars",
-        "title": "Rozdzielacz",
+        "title": "Tolles Teil",
         "verified_purchase": true,
-        "body": "Super produkt , dużo różnych potrzebnych gniazd"
+        "body": "Klasse das Teil genau was ich gesucht habe . Schnelle Lieferung. Toll gemacht, Immer wieder gerne."
       },
       {
-        "reviewer_name": "Renata Sousa",
-        "rating": "4 out of 5 stars",
-        "title": "Makes your computer discharge",
-        "verified_purchase": true,
-        "body": "Great but it makes your computer discharge even when closed"
-      },
-      {
-        "reviewer_name": "Marsal27",
+        "reviewer_name": "john",
         "rating": "5 out of 5 stars",
-        "title": "MacBookユーザー必携！スタイリッシュ＆高性能なUSB-Cハブ",
+        "title": "exactly what i wanted",
         "verified_purchase": true,
-        "body": "Satechi USB-C ハブ スリム (ミッドナイト) 7 in 2 Pro を購入して大正解でした！ MacBookの拡張性を一気にアップ してくれる、見た目も機能も優れたハブです。 📌 ここが良かった！ ✅ USB4対応で高速データ転送＆100W充電 USB4ポート なので 40Gbpsの高速データ転送 が可能！外付けSSDとのファイル移動も一瞬です。 さらに 100W PD充電にも対応しているので、ハブ経由でもMacBookを快適に充電できます。 ✅ 豊富な7つのポートで拡張性抜群 USB-C×2、USB-A×2、HDMI、SD＆microSDカードスロットの7つのポートがこれ1つに。 特に4K60Hz対応のHDMI は、外部モニター接続時に滑らかな映像を出力できて◎。 ✅ MacBookに完璧にフィットするデザイン ミッドナイトカラーが MacBookと統一感があり、まるで純正品のよう ！ しっかりフィットして安定感も抜群です。 ✅ 軽量＆コンパクトで持ち運びやすい 薄型＆軽量なので 持ち運びにも便利。 カバンに入れてもかさばらず、外出先でも快適に使えます。 💡 こんな人におすすめ！ ✔ MacBookのポート不足を解消したい方 ✔ 外部モニターや周辺機器をまとめて接続したい方 ✔ デザインにもこだわりたい方 見た目も機能も 大満足のUSB-Cハブ でした！MacBookユーザーなら、間違いなく持っておくべきアイテムです"
-      },
-      {
-        "reviewer_name": "J.H.Hartgerink",
-        "rating": "5 out of 5 stars",
-        "title": "Plug and play",
-        "verified_purchase": true,
-        "body": "Veel poorten direct aan MacBook Air te koppelen"
+        "body": "works perfectly, connects to pc and allows an increase of usb ports. as it is also powered i find it useful for charging things when i cant be bothered to bend down and plug them in."
       }
     ]
   },
@@ -1054,165 +1054,101 @@
     ]
   },
   {
-    "asin": "B0FRZLHPS3",
-    "title": "1000W USB C Charger Block,10-Port USB C GaN Multiple Port Charging Station",
-    "price": "$44.06",
-    "rating": "3.8 out of 5 stars",
+    "asin": "B0C61LYRY5",
+    "title": "intpw 9-in-1 USB C Hub, P9 USB C to HDMI Adapter 4K@60Hz",
+    "price": "$24.29",
+    "rating": "4.4 out of 5 stars",
     "reviews": [
       {
-        "reviewer_name": "Russell A Salazar",
+        "reviewer_name": "G. K.",
         "rating": "5 out of 5 stars",
-        "title": "Charges fast",
+        "title": "External USB Hard Drives Lose Connection On Reboot (REVISED)",
         "verified_purchase": true,
-        "body": "Works well. Just as expected. Have purchased several. Charges very fast. Cuts down on ac adapters and saves a lot of space"
+        "body": "This hub is perfect in nearly every way. Sharp looking design. Plenty of ports and connection types. I have one serious quibble with it that forces me to give it 3 stars instead of 5 and that is that external hard drives connected to the hub do not reconnect to my computer (a Mac Mini M4, in this case). Instead, the green light on the hub flashes until I unplug one of my external drives from it and then reconnect it. Then all of my external USB hard drives connect where none of them would before. I haven't found a fix or workaround to this issue. If I cannot, I'll likely have to look for another hub solution that doesn't have this issue. A huge miss for an otherwise outstanding product. UPDATE: After posting my initial review, the team at intpw reached out to me, expressing concern that I wasn't 100% satisfied with my purchase and saying they wanted to make it right. After working out with their technical leads that I was going to need a powered hub, I was appreciative and figured that would be the end of it. But it was not. The fine folks at intpw weren't satisfied with just diagnosing my problem. They took it another ten steps forward and offered to provide me with a powered hub that would meet my needs. Up until I actually received the hub from them, I was skeptical that they would actually follow through. But they did, and the replacement hub they sent me (moswl #B0DT6Z3R4F) works absolutely perfectly! No more stalled out external hard drives, even upon a reboot of my system. I couldn't be happier. It's refreshing in this day and age to encounter a company that stands by their products and values their customers so strongly and passionately. It's sadly a rarity anymore, but intpw does it with enthusiasm and sincerity and have made me customer for life. Thank you!"
       },
       {
-        "reviewer_name": "SilverTrex",
-        "rating": "1 out of 5 stars",
-        "title": "NOT CAPABLE OF 1000W",
-        "verified_purchase": true,
-        "body": "Tested its power capability as demonstratedin the video by running cpu stress test on 3 laptops all plugged into this device: Materials used - 3 laptops, Asus ProArt 13in, Lenovo T14 gen 2, Lenovo x13 Gen 1 - 3 Stattik 3ft 100W magnetic charging type c cables -1 Anker 10ft 240W type c cable - 3 240w rated Power monitor device for Type c Ran stress test on all 3 laptops, unplugged one halfway thru test to show how device works. At best, its capable of 200w Tops. It just redistributes power everytime you plug in new device. During testing, 2 of the 140w, closer to middle and 2 of 100w type c ports, stopped functioning. This was my second test and 2nd day of owning the device and it failed miserably. It is NOT durable and is prone to overheating and will shut off power to middle ports due to lack of vents. Why did I buy it and why did I do it? Bought to run 4-6 old lenovo T14 in a server config, I did not want power draw being an issue and wanted clean cable management. Turns out, I was right. This device can't power multiple device and give them sufficient wattage simultaneously. Please watch video"
-      },
-      {
-        "reviewer_name": "Marco Pantalone",
+        "reviewer_name": "Knoximus",
         "rating": "5 out of 5 stars",
-        "title": "Impressive Power Management in a Tiny Footprint",
+        "title": "INTPW 9-in-1 USB-C Hub: One Hub Does It All!",
         "verified_purchase": true,
-        "body": "Let's look at the numbers on this little block. Pushing 1000 watts total out of something just over five inches long sounds highly suspicious right off the bat. Seeing it in action makes more sense of the math, though. The gallium nitride chips inside are doing the heavy lifting, allowing the unit to manage heat way better than older silicon chargers. When my husband plugs in his Dell and I connect my MacBook Pro to the top C1 and C2 ports, we genuinely get the fast 140W charge we expect. We can simultaneously run the kids' tablets and our phones on the remaining ports without anything shutting down or getting dangerously hot. The listing doesn't explicitly mention UL or ETL safety certifications, which usually gives me a lot of pause with power devices. The thermal performance has been surprisingly stable in our house so far, keeping everything fully charged without turning into a space heater. The detachable base and the five-foot cord mean we can finally keep the little ones from yanking cords straight out of the wall socket. A very solid buy for a tech-heavy household."
+        "body": "I recently got my hands on the INTPW 9-in-1 USB-C Hub, and let me tell you, it's a game-changer! This little powerhouse packs a serious punch, offering everything I need to connect all my peripherals to my laptop. Consolidated Connection King Gone are the days of scrambling for adapters. This hub boasts a whopping nine ports, including: A crystal-clear 4K HDMI port for stunning visuals on external monitors. A powerful 100W USB-C PD charging port to keep my laptop juiced up while connected. Two super-speed USB 3.0 ports for blazing-fast data transfer (perfect for copying large files). Two USB 2.0 ports for all my essential devices like a mouse and keyboard. An SD and TF card reader, eliminating the need for separate adapters when transferring photos from my camera. Built to Last The INTPW hub isn't just functional, it's built to impress. The sleek aluminum design not only looks fantastic on my desk, but it also feels incredibly sturdy. Plus, it barely gets warm even during extended use, giving me peace of mind about overheating. Universal Compatibility The best part? This hub works seamlessly with my MacBook Air, but I've also tried it with a friend's iPad and another laptop with a USB-C port, and it worked flawlessly every time. No need to worry about compatibility issues! Overall, the INTPW 9-in-1 USB-C Hub is a fantastic choice for anyone looking to simplify their workspace and expand their laptop's capabilities. It's a must-have for anyone who wants to stay connected and productive!"
       },
       {
-        "reviewer_name": "Kindle Customer",
+        "reviewer_name": "sylvia merkel",
         "rating": "5 out of 5 stars",
-        "title": "Nice, nice nice. Big Power. fast charge.",
+        "title": "Multifunctional",
         "verified_purchase": true,
-        "body": "1000 W, what a beast! This is the best price for a very small unit and a lot of output. The whole household plugs in tons of stuff and then all charges fast. No regrets on this one. The two ports of 240 W could power a laptop."
+        "body": "Yes it was wonderful and works exactly as I needed it to."
       },
       {
-        "reviewer_name": "Armando torres",
-        "rating": "5 out of 5 stars",
-        "title": "Love this I can charge my phone tablets an rechargeable fans at once",
-        "verified_purchase": true,
-        "body": "I love this I can charge my phones tablets my battery packs and my rechargeable fans all at once"
-      },
-      {
-        "reviewer_name": "Drew",
-        "rating": "1 out of 5 stars",
-        "title": "3 months later & I'm ready to scrap it",
-        "verified_purchase": true,
-        "body": "I bought this 3 months ago to power everything on my desk besides my laptop. The demand is not too high, but I wanted to have power to spare. This unit does not deliver 1000W. Even using a thunderbolt cable, my iPhone reports slow charging. And now, the unit will randomly cut out with barely anything plugged into it. Sometimes it will cut out & back on. Sometimes it just flat stops delivering power unless I unplug it & plug it back in. Of course, I am out of the return period, so I am stuck with this paperweight. Don't make the same mistake I made. Look elsewhere if you need a high powered USB hub. This one ain't it."
-      },
-      {
-        "reviewer_name": "Scott S.",
-        "rating": "5 out of 5 stars",
-        "title": "Charges my finicky laptop.",
-        "verified_purchase": true,
-        "body": "Big brother to my 800W. Powers my laptop easily."
-      },
-      {
-        "reviewer_name": "Zurik",
-        "rating": "5 out of 5 stars",
-        "title": "Organized and sturdy",
-        "verified_purchase": true,
-        "body": "The charger feels sturdy, doesn’t get overly hot, and keeps my desk much more organized. It’s perfect for home, the office, or traveling with multiple devices."
-      }
-    ]
-  },
-  {
-    "asin": "B0874M3KW4",
-    "title": "Anker Laptop Docking Station Dual Monitor, 8-in-1 USB C Hub with 4K HDMI",
-    "price": "$63.94",
-    "rating": "4.5 out of 5 stars",
-    "reviews": [
-      {
-        "reviewer_name": "Samzirra",
-        "rating": "5 out of 5 stars",
-        "title": "3 YEARS LATER REVIEW, and 2 YEARS LATER REVIEW",
-        "verified_purchase": true,
-        "body": "(3 years now I have had this and today is July 12th 2025. I literally love this thing so much I came back yet again to tell you after 3 years it works just as good as the day I originally got it. It is scuffed and scratched, has the remnants of tape and stickers i applied over the years, it has seen much wear, tear, and abuse by me, and works perfectly! ANKER makes great products, but especially nowadays when there is so much cheap garbage out there, everything i have brought by ANKER just works everytime. The only time I have had an issue? Is when I broke something, or dropped it under a car wheel (I actually did this with the first one I bought, not from Amazon, but a few months beforehand, it still worked until I started messing with it to see if it still functions lol), because I tend to be extremely irresponsible with my portable electronics. If you do buy this, and you forget to order a power supply, I bought a 100w power supply from Walmart for it, that is also three years old and works great as well. If it makes it 5 years, I'll be back to tell you about it. Now, keep reading to see the first review i left awhile ago) This thing is so awesome. I had to come back and write another review first off. You will need a 100 watt power supply to go with it separately just get that out-of-the-way. You can get one at Walmart for fairly cheap. That’s what I did and after about six months, I actually glued the hub permanently to the power supply so they would never be separated now let me tell you how versatile this thing is you can take your iPad plug it into the little USB-C sticking out of the end of it then you could take an HDMI cord from the hub and plug it into your TV. If you have a splitter, you can do it into several TVs or several monitors. It has a microSD card for all your pictures. It has a not as micro a little bigger memory card can’t remember what they’re called but they go in like cameras and stuff SD cards? It reads those two it’s got a USB-C out so you can charge your phone if you have an iPhone and an iPad like I do it connects your iPhone into your iPad together so you can play video games on your phone on your giant screen of your iPad running an HDMI cord to your TV now you’re playing on your phone on your monitor and your TV and your iPad all at the same time and see how awesome I’m saying this is you can plug a keyboard into it and a microphone and a mouse and now your live streaming your gaming on your iPad your monitor your TV your projector I’ve even hooked mine to a projector! I’ve literally spent hours trying to see how many items I could plug into this thing and run at the same time just so I could put it on my YouTube channel and show off and have people give me no props, shake their heads, and say I’ve got way too much free time on my hands. Doesn’t that sound amazing? That could be you. One guy who made fun of me relentlessly in the comment section a week later asked me where I could get one and guess what I told him I could get one for twice the amount that I paid for it and he paid me so I win guess what I do with the money? I bought a midi cord that I plugged into my MPC so I could play music on GarageBand on my phone. Had another cord going from the hub to a monitor where I could watch OBS for studio live streaming as a third cord projected the entire image on a wall, 6 feet across while I produce this music a microphone that I also had plugged it into the hub was recording me freestyle horribly because I cant rap, but all of those magic moments captured on a small SD card also plugged into the hub at the time I just left in the hub and when I was done, all I had to do was unplugged the USB-C from my phone into my computer and transfer all the information over i’ve plugged my GoPro into it from my GoPro. I was able to power a light and a microphone this thing is endless possibilities. Do yourself a favor and get one anchor products are amazing and guess what I’ve stepped on this thing countless times my dog thrown it across the room. It’s fallen downstairs. I dropped a puddle of water put it in a bowl of rice it still works. I should be selling these things man they’re incredible."
-      },
-      {
-        "reviewer_name": "A Fraser",
-        "rating": "5 out of 5 stars",
-        "title": "The Travel Dock in My Laptop Bag",
-        "verified_purchase": true,
-        "body": "What I like Plug-and-play. One USB-C cable in, several ports out. No drivers, no setup, no configuration. HDMI output for plugging into a hotel-room TV or conference projector without an adapter. SD card reader for moving photos off a camera. The microSD reader is a bonus. Two USB-A ports are enough for a mouse, a USB stick, or a card reader I already own. 85 W pass-through charging means I can keep my laptop charged through the hub when I have a USB-C charger handy. Lives in the laptop bag and is ready when I travel. It is the kind of accessory that pays for itself the first time you really need it. Compact and light. I forget it is in the bag until I need it. What annoys me Not a daily driver on my home desk. My home computers already have the ports I need, so the hub sits in the bag most of the time. Bus-powered. No battery, no separate power input. I am not trying to power a hungry external device through it, so this is fine, but it is not a “real docking station” with its own power supply. One HDMI output. If I wanted to drive two external monitors, I would need a different hub or a dock with display-multiplication support. The transcript says “second HDMI port,” and this hub gives me one, not two. No Ethernet port. Wireless works almost everywhere I travel, but a wired Ethernet jack would be a real bonus on hotel networks that block Wi-Fi or charge for it. I do not actually use it on my Mac mini. It would work, but I have not built the habit of plugging the mini through the hub. That is a me problem, not an Anker problem. Who it is for, and who should skip it If you travel with a laptop and need HDMI, an SD card reader, extra USB-A, and the option to charge the laptop through a single cable, this is the right tool. It is small enough to leave in the bag and useful enough to justify its weight. Skip it if you want a full desktop dock with its own power supply, multiple display outputs, Ethernet, and the ability to drive a multi-monitor workstation. That is a different product class, and a single USB-C hub with bus power will not do that job. Skip it if your laptop already has every port you need. The hub is solving a missing-port problem, and if you do not have one, it will just sit in your bag. Verdict The Anker USB-C 7-in-1 hub is a small, useful travel accessory that lives in my laptop bag and earns its place every time I take a trip. It is not exciting. It is not a daily driver. It is the kind of thing that disappears into your workflow and then you are grateful for it when you need it. Grade: A—if you want a single-cable travel dock for a laptop or Mac mini. Buy the linked listing if your use case matches mine."
-      },
-      {
-        "reviewer_name": "Kevin Carter",
+        "reviewer_name": "G. Sollner",
         "rating": "4 out of 5 stars",
-        "title": "Versatile hub for travel",
+        "title": "Works as well as powered hubs for music production",
         "verified_purchase": true,
-        "body": "Good hub though the SD card reader not fast does the job. Primarily bought for the power PD through and USB-C connection which perform ok for travel with iPad."
+        "body": "Update June 4, 2025: From 1 star to four stars After my review below I tried two other powered USB hubs. One did not work for my purpose described below, and the other performed just like this one, that is, it worked OK as long as I used the hub for the audio interface and laptop power, though it still complained that the power was low. I have since been told that my Dell XPS will issue that complaint because it has proprietary delivery. In either case, the battery stays well charged. So, I was hasty in dismissing this USB hub. It works as well or better than the other hubs I've tried since. Original review: This USB hub might be great for things like keyboards and mice, but I needed it to work with music production. I need to connect an audio interface (USB-A), an iLok license dongle (USB-C), and music samples on an SSD (USB-C). Since my Dell XPS has only three USB-C connectors, one of which is for power, I do need a USB hub. After a few weeks of misery, I discovered that if the SSD of music samples was plugged into this hub, the whole system would crash when I was running any Digital Audio Workstation (DAW). (For some reason it did not crash if I were running the stand-alone player, but piano notes would cut out occasionally.) Moving the SSD to a connector on the PC meant that I had to run power through this hub to the PC. My PC complained that the power was so low that I might observe a performance hit, but it did run. To free up a port for power, I tried plugging the iLok dongle into this hub, but then the sound from the music samples would halt after a few minutes. Bottom line is, I don't really know why this hub won't work with my music setup, but it does not. There is little consensus on the web about which hubs work best for music. I'll try a powered hub."
       },
       {
-        "reviewer_name": "Liz W",
-        "rating": "1 out of 5 stars",
-        "title": "Cannot attach peripherals that require power and use both USB ports",
+        "reviewer_name": "Rebecca",
+        "rating": "5 out of 5 stars",
+        "title": "Exactly What I Needed — Works Great!",
         "verified_purchase": true,
-        "body": "I bought this hub so I could connect both an HDMI cord (to my tv) and various USB-A peripherals to my MacBook Pro. I originally only used two ports. One for my HDMI cable and one for my Bluetooth keyboard/mouse. For weeks this worked perfectly and I was completely satisfied. However, when I needed to also hook up a CD player to the other USB-A port, the hub couldn’t handle it. While my music did play, suddenly my mouse and keyboard had horrible lag. Not just a little slowdown, but seconds between hitting a key and it showing up on screen. It frequently even failed to register keystrokes and mouse movements. I checked everything. I changed batteries. I turned off Bluetooth, disconnected the keyboard/mouse device, got both going again. I switched the CD player and keyboard/mouse’s ports. I moved the CD player a foot away from the hub, to make sure it wasn’t interfering with Bluetooth reception. Nothing improved. I even took the (ridiculous) step of checking my CPU usage, just in case — it was well under 10%. Nothing I did caused the lag to go away. Except when I disconnected the disc player from the hub. As soon as that second USB-A port wasn’t in use, my mouse and keyboard worked fine. Given that I was only using three of the ports on this multi-port hub, one that promotes its amazing data transfer capabilities, well, not being able to handle sending video to a tv, receiving Bluetooth data from a mouse and keyboard, and playing a cd all at the same time is a complete fail. I later tried again when I wanted to connect a backup drive to the port. The problem repeated identically. At that point I wasn’t even using the drive yet. Simply connecting it was enough to disrupt the data from my wireless keyboard and mouse from functioning. Both the CD player and disc drive require power from the computer. They don’t plug into a power outlet. Apparently the hub can’t handle these kind of peripherals well. So I’m returning it and trying again to find a different option. I’ve always preferred to buy Anker because I trust them, so this is a real disappointment. Would I spend $35 again on a hub that can't do what it advertises? No. Would I recommend it to anyone else? No."
+        "body": "I grabbed this InTopow USB-C hub because I needed more ports on my setup, and honestly, it’s been perfect. The aluminum body feels solid, not cheap or flimsy like some of the plastic hubs out there. It looks clean on my desk and doesn’t take up much space. The USB-A ports work flawlessly for my keyboard, mouse, and flash drives, and the USB-C “INT-POWER” ports are great for hooking up my external SSD and phone for data transfer. Everything connects instantly and stays stable — no random disconnects, no lag, no “device not recognized” nonsense. This thing does exactly what it claims: gives you more ports that just work. It’s not a docking station and it doesn’t do video output, but for a simple, reliable USB expansion hub, it’s spot-on. If you need extra ports and want something durable that actually performs the way it should, this is a no-brainer. Super happy with it."
       },
       {
-        "reviewer_name": "seks17",
-        "rating": "3 out of 5 stars",
-        "title": "WARNING: Works well except for Mouse Dongle",
+        "reviewer_name": "Jay K.",
+        "rating": "5 out of 5 stars",
+        "title": "A Must-Have for Any Tech Enthusiast!",
         "verified_purchase": true,
-        "body": "I recently bought a second of these Anker 341 hub. First one I bought years ago and it is awesome: Been using it when travelling without any issues. I bought a second one as a permanent install for a device at home, and immediately had issues (like many others on reddit apparently) that the 2.4 GHz mouse dongle does not work (mouse needs to be within a foot of the hub). Anker customer service eventually admitted that there is \"an interference between the USB3 ports and the 2.4 GHz frequency\", but they did not offer a solution, and suggested that I return the hub. The solution I found online is to buy a short USB cable extension so that the dongle is away from the hub, and voila: the range of my mouse went from 1 ft to the expected 10+ feet. Clearly something changed in their design (old one still works great), and frankly that interference issue is not acceptable (deduct one star). And deduct one star for customer service not suggesting the cable extension. I am keeping mine as it fits for my usage scenario though, and I like the price, size and shape."
+        "body": "I recently purchased the INTPW 9-in-1 USB C Hub Multiport Adapter, and it has been a game-changer for my daily tech needs. This hub is incredibly versatile and has made my life so much easier. Here are some of the highlights: 9-in-1 Functionality: This hub includes a USB-C charging port with 100W power delivery, 2 USB A 3.0 ports, 2 USB A 2.0 ports, an HDMI port, and an SD/TF card reader. It's perfect for connecting all my devices at once. Design: The aluminum construction not only looks sleek but also provides excellent heat dissipation. The ergonomic design with a 32-degree angle and rubber mats ensures stability and ease of use. 4K HDMI Output: The 4K video output at 30Hz delivers stunning visuals, making it ideal for presentations and streaming. Compatibility: I've used this hub with my MacBook Pro, iPad Pro, and other Type-C devices without any issues. It's truly a plug-and-play solution. Overall, the INTPW 9-in-1 USB C Hub Multiport Adapter is a reliable and efficient solution for expanding your device's connectivity options. I highly recommend it to anyone looking for a high-quality, multi-functional hub."
       },
       {
-        "reviewer_name": "Maui Boy",
-        "rating": "2 out of 5 stars",
-        "title": "Didn't last very long",
+        "reviewer_name": "Kevin",
+        "rating": "5 out of 5 stars",
+        "title": "Sturdy and well designed...........it just works!",
         "verified_purchase": true,
-        "body": "This USB-C Hub worked well for about 14 months. I was using it to power a laptop and to charge a couple of other USB devices. The power function started to fail intermittently and then died completely after about 15 months total life. Not very good in my opinion"
+        "body": "This USB power distributor was easy to set up on my Mac. It has all the connections that one might need to run various cabled PC accessories. I felt that it was a quality build out of extruded aluminum. The finish is impressive as well. My Mac immediately recognized the product and began communicating immediately upon plugging it into my Mac Mini. I also plug in a mic that my wife uses for Zoom meetings. It worked great. I particularly like the slanted ergonomic design. When plugging in devices, it doesn't float all over the place like most all of the linear designed devices do. I would highly recommend that you consider this item."
       },
       {
-        "reviewer_name": "Adriel V",
+        "reviewer_name": "JR",
         "rating": "4 out of 5 stars",
-        "title": "Lasted Two years with Moderate Use.",
+        "title": "Good Hub. May need external power source.",
         "verified_purchase": true,
-        "body": "Alright. It's been exactly 2 years since I bought this and it's only now giving me issues. It's doing something odd; the laptop computer turns off while the rest of the monitors are working fine. Overall, I think it was a good purchase. I used several days a week, so it hasn't been used full time like others may have, so expect the lifetime to be a year and a half. I would still buy another one."
+        "body": "I needed USB hub that also supported a monitor. Found this one and had it delivered next day. Unpacking, I noticed there was no external power source, although there is an input C connection. Set up is very easy. However, if you plan to attach an external monitor and/or powered microphone, you MUST provide power to that input connection. Otherwise, the hub just flashes. So, it is a good unit. Depending on how you use it, or what is attached, be prepared to need a power source other than your computer."
       },
       {
-        "reviewer_name": "Gator Bodine",
-        "rating": "1 out of 5 stars",
-        "title": "Sometimes works, sometimes doesn’t.",
-        "verified_purchase": true,
-        "body": "Great to have, when it actually works. I have 2 monitors connected to my laptop which I need to have for work, every morning when I start work I cross my fingers that it still works, well today it finally stopped working entirely. Display shows but won’t identify under display settings, I’ve gone through 4 of these in the last year and a half, this one was purchased just 5 months ago.."
-      },
-      {
-        "reviewer_name": "Akhlaq khan",
-        "rating": "4 out of 5 stars",
-        "title": "Nice",
-        "verified_purchase": true,
-        "body": "As per description"
-      },
-      {
-        "reviewer_name": "Giancarlo Dragonetti",
+        "reviewer_name": "Abraham Montalvo Rios",
         "rating": "5 out of 5 stars",
-        "title": "Hub USB-C Anker Premium 7-in-1",
+        "title": "Espacio y organización",
         "verified_purchase": true,
-        "body": "Ottimo hub compatto e robusto: offre 7 porte tra cui HDMI 4K, USB-A, USB-C PD e lettore SD/microSD. Trasmissione dati veloce, ricarica stabile e compatibilità perfetta con Windows e Mac. Ideale per chi vuole espandere le funzionalità del laptop senza problemi."
+        "body": "Funcionan todos los puertos a la perfección, me ha ayudado bastante a organizar los puertos sin tanto conectado a mi laptop"
       },
       {
-        "reviewer_name": "Sandeep kalansuriya",
+        "reviewer_name": "Honest Insights ⭐",
         "rating": "5 out of 5 stars",
-        "title": "Nice",
+        "title": "Great USB-C Hub That Does Everything I Need",
         "verified_purchase": true,
-        "body": "Nice"
+        "body": "I've been using the intpw P9 USB-C Hub for a while now, and it's been a great addition to my setup. It feels solid and well-made thanks to the aluminum body, and it's compact enough to toss in my laptop bag without adding extra bulk. One of my favorite features is the 4K@60Hz HDMI output. It connects to my external monitor with a sharp, smooth picture, making it perfect for work and streaming. The 100W PD charging also works well, so I can keep my laptop powered while using all my other devices. The mix of USB 3.0 and USB 2.0 ports is really practical. I use the faster ports for external drives and the other ports for my keyboard and mouse. The SD and microSD card readers are a nice bonus, especially if you work with photos or videos. Setup couldn't have been easier—it was truly plug and play. I've used it with my MacBook and iPad, and everything connected right away without any issues. What impressed me most is how reliable it's been. Even with multiple devices plugged in at the same time, I haven't experienced random disconnects or overheating. It just works, which is exactly what you want from a USB-C hub. For the price, I think this hub offers excellent value. If you're looking for a reliable way to add more ports to your laptop or tablet, this is definitely worth considering."
       },
       {
-        "reviewer_name": "أبو ياسين",
+        "reviewer_name": "Paul Stickland",
         "rating": "5 out of 5 stars",
-        "title": "عملي",
+        "title": "Prevents lots of cables running everywhere",
         "verified_purchase": true,
-        "body": "اشتغلت على ايباد برو 12.9 2022 M2 , ممتاز جدا يعمل بكفاءة حتى الان تم تجربته تشغيل هاردسكات و اس دي ومايكرو اس دي كارد وشحن الآيفون عن طريقها حجمها لطيف معها حقيبه على قدها ، وجاري تجربتها والعوده بتقييم بعد 20 يوم من الان بعد موسم الحج والكرف بعرف هل تستحق التقييم الي عليها او لا بعد التجربه المكثفه في نقل البيانات باستخدام الايباد وال ماك بوك ومختلف الاجهزه الصراحه يستاهل كل ريال وعملي حدا"
+        "body": "Good product very neat and does what it says."
       },
       {
-        "reviewer_name": "Adel ElMouassarani",
+        "reviewer_name": "Vlad",
         "rating": "5 out of 5 stars",
-        "title": "Indispensable product for seamless work experience",
+        "title": "Compacto, económico y funcional",
         "verified_purchase": true,
-        "body": "So far, it's been a great product. It's practical, works out of the box and just makes sense to have."
+        "body": "Hasta el momento todo increíble, tiene las entradas que necesito en un hub, lo recomiendo."
+      },
+      {
+        "reviewer_name": "Michael",
+        "rating": "5 out of 5 stars",
+        "title": "Solid Design, Great Quality – But Slow for Large File Transfers",
+        "verified_purchase": true,
+        "body": "This 9-in-1 USB-C hub is built like a tank—sleek metal design, good weight, and feels premium right out of the box. All the ports work as advertised: HDMI, USB-A 2.0 & 3.0, USB-C 3.0, PD charging, and SD/TF card readers—it’s got everything I need for my MacBook, Dell, and iPad. It handles everyday tasks like connecting keyboards, mice, and displays without any issue. Power Delivery works flawlessly, and it doesn’t overheat under normal use. The only real downside? If you’re writing a large file or ISO to a USB stick, it can be 3x slower compared to using your computer’s native USB port. Heads up: You only have 3 days to apply for the lifetime warranty. I missed that and applied a month later—I’ve contacted support, so let’s see if they get back to me with good news. Bottom line: Excellent hub for daily use, just not ideal for big file writes—and don’t sleep on that warranty window."
       }
     ]
   },
@@ -1479,105 +1415,6 @@
     ]
   },
   {
-    "asin": "B0F5Q6P3G3",
-    "title": "USB C Hub,10Gbps USB Splitter with 4*USB-A and 3*USB-C Ports",
-    "price": "$36.99",
-    "rating": "4.3 out of 5 stars",
-    "reviews": [
-      {
-        "reviewer_name": "Tedyesca",
-        "rating": "5 out of 5 stars",
-        "title": "Works right away. No drivers needed.",
-        "verified_purchase": true,
-        "body": "It’s great. Uses one usb c, power is not required (it’ll just draw it from your laptop/pc/tablet. Mine does have a loose pierce but other than that this thing does everything I need it to do. Connects easily, the design is perfect for me and makes it easier than reach to the sides of my laptop and it stays on my table without moving from where I need it. I love the 10gbps and the power through functions this thing has."
-      },
-      {
-        "reviewer_name": "Anonymous",
-        "rating": "5 out of 5 stars",
-        "title": "Good choice for my MacMini",
-        "verified_purchase": true,
-        "body": "Very useful for extending the ports on my MacMini. I looked at many other Hubs before settling on this one. I am glad I chose this hub."
-      },
-      {
-        "reviewer_name": "Caribulou",
-        "rating": "5 out of 5 stars",
-        "title": "Nice USB hun",
-        "verified_purchase": true,
-        "body": "Needed from facing ports for my apple studio. This was a perfect solution. It makes the pathetic of my oc and is a quality product."
-      },
-      {
-        "reviewer_name": "neithernet",
-        "rating": "4 out of 5 stars",
-        "title": "Looks good and works",
-        "verified_purchase": true,
-        "body": "It works fine. It's a hub. Does hub stuff."
-      },
-      {
-        "reviewer_name": "S. A. Hughes",
-        "rating": "5 out of 5 stars",
-        "title": "Good high speed I/O hub but not great for charging devices",
-        "verified_purchase": true,
-        "body": "Xiaobi 7 port USB-C hub with 5volt 3amp power supply When I got my new Dell tower PC, I realized I needed to buy a good USB hub. The Dell tower has a nice selection of USB ports, including some on the front of the case, but I don’t like constantly plugging and unplugging cables. Over time, the PC connectors may fail and that’s very awkward since there is usually no way to repair them except to replace the motherboard. The Xiaobi has 4 USB A ports and 3 USB C ports. All of which run at 10Gpbs. It’s important to note that to get that speed you need to have cables that will support it and the devices plugged into the hub must also support it. I’m mostly using it to move data to/from external SSD’s, and it does seem to run at the full 10Gpbs when everything is set up correctly. It is a little on the light side, and moved around too easily, so I put removeable adhesive Velcro on the top of my PC and on the hub. That holds the hub in place just fine. If you’re thinking of using it to charge things, do remember that it only has 15 watts of power running at 5 volts, so you’re not charging a notebook or anything else that needs heavy power. This is primary an I/O hub not a charging hub. Bottom line is that it works well for me and lets me not worry about damaging connectors on my PC."
-      },
-      {
-        "reviewer_name": "Kasey M Kadinger",
-        "rating": "1 out of 5 stars",
-        "title": "Do not buy this",
-        "verified_purchase": true,
-        "body": "This thing doesn't work at all every thing I attach to my computer through this turd does not connect"
-      },
-      {
-        "reviewer_name": "Gil",
-        "rating": "3 out of 5 stars",
-        "title": "Misleading Speed Claims — Test Your Ports Before You Trust Them",
-        "verified_purchase": true,
-        "body": "I did a thorough technical investigation of this hub by analyzing Linux kernel USB enumeration logs, so this review is based on hard data rather than impressions. The good: The hub is solidly built and the included 5V 3A power adapter does improve stability. The two USB-A ports on the ends of the hub (ports 1 and 2 in my testing) delivered genuine SuperSpeed 5 Gbps throughput, and so did the two USB-A ports on the opposite end (ports 7 and 8). So four of the seven ports do actually perform well for fast storage devices. The bad: The title claims \"10Gbps\" — this is simply false. The hub is built around VIA Labs USB 3.1 Gen 1 silicon, which is a 5 Gbps technology, not 10 Gbps. Not a single port on this hub is capable of 10 Gbps under any circumstances. The ugly: All three USB-C ports — the ones most likely to be used with modern high-speed devices — are wired through a USB 2.0 only signal path internally. Despite the USB-C connector implying modern speeds, these ports max out at 480 Mbps, roughly 1/10th of what the product title advertises. Plugging anything into the USB-C ports also causes the hub's internal Terminus controller to reset and power cycle, briefly disrupting all other connected devices. This happened consistently with and without the power adapter connected. Internal topology for the technically curious: The hub contains three separate hub controllers internally — a Terminus Technology FE1.1 (USB 2.0) at the top level, and two VIA Labs 2824 controllers as sub-hubs. The USB-C ports are routed exclusively through the 2.0-only signal paths of these sub-hubs with no SuperSpeed wiring whatsoever. Bottom line: If you only need the USB-A ports and can live with 5 Gbps instead of the advertised 10 Gbps, it works fine. But if you bought this specifically for fast USB-C connectivity, you will be disappointed. The product title is misleading on both the speed rating and the implied capability of the USB-C ports."
-      },
-      {
-        "reviewer_name": "Rodney",
-        "rating": "5 out of 5 stars",
-        "title": "Stylish AND the functional !",
-        "verified_purchase": true,
-        "body": "Great hub to add to my number of ports. It seems very well made & for a reasonable price too. Also the angled base makes it so much easier to plug Devices in while being sure which type & speed of port you are using."
-      },
-      {
-        "reviewer_name": "Mario",
-        "rating": "2 out of 5 stars",
-        "title": "no me funciona",
-        "verified_purchase": true,
-        "body": "No me convence, conecto tres puestos dos discos duros de 1TB y un usb 2,5 y se pasma tengo que colocar un disco un usb y no poner a cargar nada porque se pasma"
-      },
-      {
-        "reviewer_name": "StandardN3rd",
-        "rating": "5 out of 5 stars",
-        "title": "Looks smart, works well.",
-        "verified_purchase": true,
-        "body": "Nice build quality, looks good on my desk and saves me from fumbling under my desk to plug something in to my base unit. Works without the included power supply, so less cables if that's what you want. Simplicity itself to use. Compatible with anything that uses USB, with a blisteringly fast 10Gbps speed."
-      },
-      {
-        "reviewer_name": "Amazon Customer",
-        "rating": "5 out of 5 stars",
-        "title": "Fast and easy to use",
-        "verified_purchase": false,
-        "body": "I really like how simple this hub is to set up. I plugged it in, and everything worked right away. It has plenty of ports for my drives and gadgets, and the transfer speed is super quick. It even powers my devices without slowing anything down. The shape takes a little space on my desk, but it looks clean and doesn’t heat up, even with a bunch of stuff connected. It feels sturdy and well-made. If you need extra ports and want something that just works, this one’s a solid pick."
-      },
-      {
-        "reviewer_name": "klaus z.",
-        "rating": "5 out of 5 stars",
-        "title": "Tolles Teil",
-        "verified_purchase": true,
-        "body": "Klasse das Teil genau was ich gesucht habe . Schnelle Lieferung. Toll gemacht, Immer wieder gerne."
-      },
-      {
-        "reviewer_name": "john",
-        "rating": "5 out of 5 stars",
-        "title": "exactly what i wanted",
-        "verified_purchase": true,
-        "body": "works perfectly, connects to pc and allows an increase of usb ports. as it is also powered i find it useful for charging things when i cant be bothered to bend down and plug them in."
-      }
-    ]
-  },
-  {
     "asin": "B0CR6JBJDH",
     "title": "UGREEN USB C Hub 4 Ports, Multiple USB 3.2 Hub, 4x10Gbps Data Transfer",
     "price": "$15.98",
@@ -1677,101 +1514,200 @@
     ]
   },
   {
-    "asin": "B088F7SY6S",
-    "title": "Anker Laptop Docking Station, 13-in-1 USB C Docking Station, Triple Display",
-    "price": "",
-    "rating": "4.0 out of 5 stars",
+    "asin": "B0BV45B8JB",
+    "title": "Satechi 7-in-1 USB-C Hub Pro Slim, 4K HDMI, USB 3.2 Gen 2, Space Gray",
+    "price": "$67.99",
+    "rating": "4.4 out of 5 stars",
     "reviews": [
       {
-        "reviewer_name": "Amazon Customer",
+        "reviewer_name": "Frances",
         "rating": "5 out of 5 stars",
-        "title": "Works Great with Windows and Ubuntu/Linux",
+        "title": "Sleek and works",
         "verified_purchase": true,
-        "body": "I have had no issues running this with my work laptop HP Laptop running Windows 10 and my Dell Inspiron 17 running Ubuntu 20.10/Windows 10. Both laptops charge, and all ports seem to work well. In general, the worst part of the USB-C format is the confusing amount of different laptops that seem to implement it in different ways. Not this product's fault; as I said, it works well with Dell and HP while my HP Laptop dock runs with both laptops, but under Ubuntu or Windows 10 on my Dell, it falls short. The HP Dock is a Thunderbolt dock, and my Dell is a Display port marked with a DP; the DP Port on my Dell does charge and allows all ports to work with this dock. I mention it because USB-C gets confusing, and mileage may vary depending on the laptop itself. My Hp is marked as Thunderbolt, and my Dell as Display Port, and this product runs wonderfully with both. I found I could get a 4k Display using the DP port on the back of the dock in Ubuntu, but I found it a little problem some and instead switched to using the two HDMI ports instead. Sometimes 4k would flicker, but that can be my older KVM Switch (1080P KVM). I don't mind the two 1080p screens as the dock makes it so easy to switch computers. I wonder why the HDMI port only seems to pump out 1080P and the display port 4k from my experience. Still, my HP dock didn't do 4k at all, so this dock outperformed it. I have even booted my Dell and HP Laptops with a live USB of MX Linux, and with no configuration, it worked. I just changed the display settings a bit. So to sum it up. 1) Easy to use - NO Drivers to install! 2) Works across Windows and Linux. 3) Affordable and better than my work HP Thunderbolt dock. 4) Works with USB-C marked PD or Thunderbolt. Finally, I would like to say the PD port can get confusing another port format for USB-C. At first, I thought it did not work as I plugged in USB-C devices, and it was not recognized. Then I upgraded to a new Samsung phone with USB-C PD charging support, and it charged and was recognized from the PD port on the dock. So the device has to support USB-C PD. As I said, USB-C is confusing. Now, what are you waiting for? Buy this best Dock on Amazon; it is excellent for Windows and, more importantly, great with Linux. If you have Thunderbolt, the big thing you get from a Thunderbolt dock is the quicker data transfer speeds, but you need to know your laptop supports it. For me, I don't care about my work laptop having maximum data transfer speed. As I said, Thunderbolt does work with this also from what I can tell. 1/26/2024 - I am updating this because I also wanted to note that this works great with the Surface Pro 7. The only exception is the built in wired network does not seem to get recognized, but I don't care. I am using WIFI anyway. So Sound, video, and all other devices work perfectly."
+        "body": "This hub works well with the Macbook Air 13\" M4. The silver is not a 100% color match, but it comes close and is barely noticeable. This hub has all the ports I'd need and is slim, sitting flush with the laptop, doesn't block the charging port. I like the lack of labelling, the clean aesthetic of this port hub, and the port placement. It was lighter than I expected when I compared it with one from Anker, but like this one for all the already mentioned reasons."
       },
       {
-        "reviewer_name": "L. Gonsalves",
+        "reviewer_name": "Javi",
         "rating": "5 out of 5 stars",
-        "title": "Works great most of the time",
+        "title": "Handles my business.",
         "verified_purchase": true,
-        "body": "With this dock I can connect my laptop with a single cable to connect to a second monitor, ethernet, and power. It also has additional USB ports and an SD card reader, but I personally don't use any of those. Overall, it's super convenient. It's even better if you add a magnetic USB-C adapter, just make sure to get one that supports both high speed data and high power charging. I got a right-angle 240W+40Gb/s connector from Magtame (https://www.amazon.com/gp/product/B0CWGHXVFK), and it works great with this dock. My one complaint with this dock is that every now and then, video out doesn't work. My laptop says it can see the monitor, but my monitor doesn't see the laptop. When this has happened, disconnecting my laptop, turning the dock off and then on again, and then reconnecting my laptop fixes the issue. It's only happened 5 or 6 times, and I have used the dock hundreds of times. (On a typical day I connect my laptop to the dock 2 or 3 times, and I've had it for almost a year and a half.) Overall, it's a huge timesaver."
+        "body": "I like it! Just what I needed."
       },
       {
-        "reviewer_name": "M",
-        "rating": "1 out of 5 stars",
-        "title": "DO NOT BUY THIS PRODUCT.",
-        "verified_purchase": true,
-        "body": "**UPDATE** Now my rear USB port has died--the only one of two standard ports that didn't hiccup and glitch. This thing worked FAIR (front USB port always glitchy) for about a year and a half--MINUS any Mac capacities--and now is essentially an aftermarket power brick. The combination of misrepresented functionality (no Mac support despite showing Mac use), faulty design (front USB unreliable, irregular power supply to dual monitors), and poor reliability (multiple ports and functions dead within 18 months) have serious undermined my former respect for this brand. DO NOT BUY THIS PRODUCT. (ORIGINAL REVIEW:) Disappointing. First, it was not clear to me when I purchased this that it would not allow me to extend screens from my MacBook. There is now a slide that shows that all Mac screens will be identical. It’s possible I missed that a year and a half ago at purchase, but I think I would have noticed. In any case, claiming this is Mac compatible is inane. I don’t know anyone who purchases a docking hub so they can see 3+ screens of the SAME THING. Mac users, beware. I was willing to attribute that to careless comparisons on my part—partly based on a very high opinion of Anker in general. BUT unfortunately the problems do not end there. Though there are two standard USB ports, the way in which this device is wired makes it difficult to use them. If I place my keyboard dongle in the front USB port, and insert a flash drive into the USB-C port next to it, there is suddenly an irregular lag to my mouse movements. I cannot work all day with my mouse lagging. Of course I can move the dongle to the rear of the unit, but now my printer cable is projecting from the front and that’s the whole point of having rear USB ports. In short, why design the ports in a way that they interfere with each other? ANOTHER ISSUE is flickering in my monitor screen sometimes. I looked online and the only solution I found is turning down the refresh rate because “60 Hz on each screen is a lot for the hub to handle”. I thought 60 Hz was pretty much standard so again I’m not sure why a device would be advertised as handling up to three screens if two was going to tax it. This problem also seems intermittent but it ought to happen never. LASTLY, just this past week, the device suddenly can no longer extend more than one screen on my Windows work computer. I’ve tried two computers and multiple cables but whatever I do Windows will not recognize that I have two monitors attached and allow me to extend them. Both monitors are actually live and connected but show the same image, so somehow the hub has lost the ability to differentiate between them. Now the hub is useless. I have disconnected my second monitor from the hub and connected it directly to my laptop. I have actually moved my keyboard/mouse dongle and attached it directly to the laptop as well. This removes all purpose for having a hub at all. And again, this is for my Windows work computer—my MacBook has all these issues but would not extend screens even when the hub was fully functional. I bought this because I had faith in the Anker brand and because it was slightly less expensive than the hub Apple promoted on its website. I regret this purchase. Now I have a $150 hub that combines only two of the five cable connections I connect and disconnect every time I move my computer from work to home. Very, very disappointed. Pay more to get a better and more reliable product."
-      },
-      {
-        "reviewer_name": "Harry Longshanks",
-        "rating": "5 out of 5 stars",
-        "title": "Really some of the best docking stations on the market",
-        "verified_purchase": true,
-        "body": "Anker has been making quality products for years. They've become very proud of their goods of late, as they should be, but sometimes the price-to-value ratio seems out of balance. I got this one on sale, and after having worked with some units from the Chinese random-letter companies, it was refreshing to work with a unit again from Anker. I can just feel the quality. We're literally using all of the ports on the docking station. It works seamlessly between a Chromebook, Ubuntu, and a Windows laptop, so compatibility has not been an issue, and they all charge just fine. I've had no heat problems or noticed any noises. This is used for business and productivity, and I was looking for just 2 standard HDMI connections. It's REALLY hard to find good ones with lots of ports. Videos look great. Not sure it's gaming-performance worthy on secondary monitors, but for what we need it for, this Anker docking station is perfect."
-      },
-      {
-        "reviewer_name": "Taylor",
+        "reviewer_name": "FooBlah",
         "rating": "4 out of 5 stars",
-        "title": "Transformed my desk setup",
+        "title": "Nice, not great",
         "verified_purchase": true,
-        "body": "Transformed my desk setup — just one important caveat for Mac users. This docking station has completely changed how my desk looks and feels. With just one cable, I went from a tangled mess of peripherals to a clean, minimal workspace. If desk organization matters to you, this hub is a game-changer. The 13-in-1 port selection covers everything I need — display output, USB-A, USB-C, SD card, ethernet, and more. Performance has been reliable across the board, and the build quality feels solid and premium for the price. That said, there is one important thing Mac users need to know before buying: dual monitor output does not work on macOS. This is an Apple limitation, not a flaw in the product itself — but I'll be honest, I didn't read the product description carefully enough and assumed it would work. I was caught off guard when it didn't. If you're a Mac user planning to run two external displays, please double-check compatibility before purchasing. Windows users should have no issues. Aside from that, I'm very happy with this purchase and would recommend it without hesitation to anyone who wants to clean up their desk and simplify their cable management."
+        "body": "this does a good job all around as a USB-C hub. The only issue is with the display through the HDMI. The dimensions are just a little off. Maybe it’s my equipment, but never had this problem with other Satechi hubs. It is very compact, and otherwise works well, so I will def keep it."
       },
       {
-        "reviewer_name": "david williams",
+        "reviewer_name": "Orion P.",
         "rating": "5 out of 5 stars",
-        "title": "Good Product/Great Customer Service",
+        "title": "Awesome product",
         "verified_purchase": true,
-        "body": "when i bought this hub i had a couple of problems with the hub right out of the box. i was busy fixing other things on other machines and missed the Amazon exchange window and reached out to Anker via their email providing them with a description of the problem, it was dropping a monitor and eventually was cycling my ethernet off and on constantly. their customer service returned my email on the same day and flawlessly provided me with things to check and eventually sent me a new device and a shipping label for the bad one. just hooked up the new hub and it's running like a new buick. this is my second all i one hub i bought from Anker and i will continue to buy their products in the future for the quality of their products and that of their customer service. Thank you Anker!"
+        "body": "Seems to work very well. I used my 2012 MacBook Pro until 2024 when I started grad school and actually needed something that could function off a charger.. Well, I ended up with a MacBook Air and found out everything you ever needed to do had to run through a lightning port. This dock stayed in my laptop bag from the beginning and still is in there. It saved me and classmates numerous times with presentation issues. The double lightning connection makes it slightly specific to this model or era of MacBooks, but other than that, it’s worked fantastic and the color match is a great look. Plug and play use too, very easy."
       },
       {
-        "reviewer_name": "M Dexter",
+        "reviewer_name": "Wesley Kavanagh",
         "rating": "5 out of 5 stars",
-        "title": "Works Flawlessly!",
+        "title": "Empowering! I can again do anything.",
         "verified_purchase": true,
-        "body": "I wanted to get rid of my desktop and just use a laptop. I'm used to using a desktop at home and wanted to keep using my external keyboard, mouse, and two large monitors when I'm home. I bought an Asus laptop that is fast and has lots of storage. With this docking station, it works perfectly for me. I keep the monitors, keyboard, and mouse plugged into the Anker docking station. I have one USB-C cable that connects to my laptop. This one cable charges the laptop and connects it -- via the docking station -- to the monitors, keyboard, and mouse. When I travel, I unplug the one USB-C cable and I'm ready to go. When I return, I plug in the one USB-C cable, turn on my docking station and monitors, and I'm up and running as a desktop. I tried a cheaper docking station (LIONWEI USB C Hub) first. It mostly worked but required two USB-C cables (one to charge the laptop, one to connect to the docking station) and it was not stable. It would often glitch out and require me to reconnect or reboot. The Anker docking station has been very solid and, in 4 months has never glitched out or required any type of rebooting. Pro tip: I also use an \"aucun Magnetic USB C Adapter\" for the USB cable. This connects via a magnet so I don't even have to plug and unplug the USB cable, I just pull off the magnet."
+        "body": "Fits MacBook Air perfectly. Looks great. Probably best for use on a table. You must be careful pulling things out but I am not disappointed. This is my first MacBook after having a fully tricked out HP laptop. This accessory makes me feel like I can again do anything. Nice product. Not a perfect match for the finish on the Mac but very close."
       },
       {
-        "reviewer_name": "DL",
+        "reviewer_name": "TBear",
         "rating": "3 out of 5 stars",
-        "title": "Pretty good docking station with a few problems",
+        "title": "Good",
         "verified_purchase": true,
-        "body": "The docking station worked pretty well right out of the box. A few observations: 1. The instructions, as many do now, are in multiple languages and a very small part was applicable. The key diagram and explanatory table were buried among all the other text, but it would have been helpful to have that information at the very top of the instructions, rather than in the middle of multiple languages. 2. I have an HP Spectre 360, and the charging function of the docking station is variable, i.e. sometimes it charges, sometimes it does not. I have to check periodically to make sure it's charging, otherwise I risk using all the battery reserve. It's a relatively minor issue and perhaps due to the detection by the computer of a non-HP power source. 3. Update: I had 2 HDMI monitors and a third was connected through a USB expansion device with an HDMI port. Decided to try using the display port instead of the USB expansion device, and when I plugged the third monitor into the display port using a converter cable for DP to HDMI, one of the other monitors would not show. No matter what combination I used, if I plugged the third monitor into the DP port, only 2 would show. So, I plugged my USB expansion device back in and voila! All three monitors showed again. I couldn't find any documentation online regarding this issue, so I have to assume that using the DP port along with the two HDMI ports negates one of the three. Interesting, but it decreases the score. Overall, the device is still a nice addition to my desk. Prior to now, I had a number of USB hubs strung together with a mass of wires like a bowl of spaghetti, so the docking station with multiple ports is a definite improvement."
+        "body": "Great product my only complaint is the standard USB ports are so tight that it broke my memory stick when I was trying to remove it. The USB-C ports are fine."
       },
       {
-        "reviewer_name": "iPadUser",
-        "rating": "2 out of 5 stars",
-        "title": "No funciona bien conexión con el monitor",
-        "verified_purchase": true,
-        "body": "No funciona al 100%, no es compatible con mi PC de HP, no funciona para el Monitor, todo lo demás como teclados externos, micrófono funciona bien, pero lo principal que es la conexión entre laptop y monitor no funciona bien."
-      },
-      {
-        "reviewer_name": "Rogerio",
+        "reviewer_name": "Sam Trendi",
         "rating": "5 out of 5 stars",
-        "title": "Docking Station Review - 4month experience",
+        "title": "Small, Lightweight, and Perfect Beside a MacBook",
         "verified_purchase": true,
-        "body": "Good quality, fast and powerful for my laptop. As they say you get what you pay for It would be awesome if it had 1 extra USB or USB-C, but that is just for my specific use. However in general it works great, no issues and replaces my laptop charger (meaning powerful enough to charge of the latest Asus laptops, and all the other devices connected to it"
+        "body": "Small, Lightweight, and Perfect Beside a MacBook I genuinely love this little hub. The Satechi 7-in-1 USB-C Multiport Adapter ended up being exactly what I wanted for a lightweight everyday setup. The biggest surprise for me was just how small and portable it is in person. In the video you can really see how easily it disappears into a tech pouch or laptop sleeve without adding bulk. It’s light enough that I barely notice it in my bag, which matters when you’re trying to keep a minimalist setup. The color matching with my MacBook is also excellent. It looks and feels like it was designed by Apple themselves instead of being some random accessory hanging off the side of the laptop. Performance-wise, it’s been reliable with no issues so far. I use it daily for charging, peripherals, and media access, and it keeps my setup clean without carrying multiple dongles everywhere. Five stars from me purely because it solves a real problem while staying compact, clean, and travel friendly."
       },
       {
-        "reviewer_name": "Chad Infeld",
+        "reviewer_name": "Sebastian",
         "rating": "5 out of 5 stars",
-        "title": "Great Windows/Linux dock!",
+        "title": "The one for MacBook Airs",
         "verified_purchase": true,
-        "body": "This is for the \"Anker Docking Station, PowerExpand 13-in-1 USB-C Dock, 85W Charging for Laptop\" ** Update March 9th, 2023 ** So pretty much everything in the original review stands, but there is one issue that I touched on originally about the display refresh rate and resolution that I can clarify now. To get the resolution how you want it, you need to set the monitors to the same refresh rate first, then once the resolution is set and applied, change the refresh rate. That being said, I'm not sure if the refresh rate actually changes or if it just says it does. ** End of update ** So I just got this about an hour ago, and everything just worked! Both in Ubuntu 22.04 and Windows 10. Here's my setup. Everything is plugged into the dock and only the single USB-C dock cable is plugged into the laptop. Laptop: Dell XPS 13 9370 1TB SanDisk USB-C SSD (for booting into Ubuntu) 2x Monitors + laptop monitor (One monitor is Ultra Wide 2560x1080 144Hz, other is 1080p 60Hz) - Note: I'm using one DP port and one HDMI port Wireless keyboard/mouse Speakers Ethernet connection for Internet First of all, I was using a Dell TB16 dock before this but I had multiple issues with it. Long story short, I don't recommend the Dell docks, especially if you use Linux. ** Long story about Dell TB16 Dock ** Using the Dell dock, my monitor would randomly go out, and the network only connected at 100mbps, the soundcard is super quiet (even at max volume), it's always on and can get noisy when it heats up (it has a fan), the cable is built into the unit (non-replaceable) and is only about a foot and a half long (coming out of the left side of the unit) and the unit itself is rather large. Also, I boot off a USB-C SSD drive for Linux (which allows me to plug the USB SSD into almost any computer and boot into my Ubuntu OS); For whatever reason, I could never get it to show up as a boot option when plugged into the dock, even with ThunderBolt boot support and pre-module stuff enabled. ** End of the Long story about Dell TB16 Dock ** Now the Anker dock on the other hand is about a 1/4 of the size of the Dell dock, connects @ 1GB with no problem, allows me to boot off my USB-C SSD, has a power button to turn it off when not in use, it's silent, works without having to install any drivers on either Windows or Ubuntu, comes with a decently long USB-C cable (3 ft?) to plug into the computer (which can also be replaced and yes it charges my laptop too) and the sound volume is great. There is one oddity that happened, but I was able to fix it easily enough and it's likely not a problem with the dock but a software issue in Ubuntu. When changing the resolution + refresh rate in Ubuntu, it didn't properly scale the resolution (the resolution was right, but much of it was cut off or shrunk down as if the monitor itself didn't change resolutions but the computer did), I had to change the resolution + refresh rate to something else, then to what I wanted to make it work. To be clear, it worked when I plugged it in initially, but changing it to my preference required multiple changes to set it in properly. Once set, it worked as normal. I highly recommend this dock!"
+        "body": "Works like a charm with a MacBook Air M5. It gets recognized right away, the USB that is used for charging can be connected to an external dock for both, power and video output too. Something to keep in mind is that it lacks a bit of support below it when connected which could lead to the USB C connections breaking under extreme angles/ forces"
       },
       {
-        "reviewer_name": "Batstar",
+        "reviewer_name": "Adriana",
         "rating": "5 out of 5 stars",
-        "title": "Worked perfectly out of the box.",
+        "title": "Funciona muy bien,",
         "verified_purchase": true,
-        "body": "Zero issues with this versatile dock as it replaced a Belkin hub which was virtually cluttering up my desk. All of the cords run out the back of the unit including ones for an external monitor (HDMI), printer, external hard drive and power cord for my Windows 11 laptop. I only have a Bluetooth dongle for a mouse plugged into the front. Very clean look and I love the fact that there are two SD card slots and two additional USB C ports out front for charging devices. I snagged this puppy while it was on sale which was a bonus."
+        "body": "Funciona muy bien. Buscaría solo que tuviera un poco más de estabilidad o una forma de que no fuera tan fácil quitarse la laptop ya que con el movimiento se desconecta fácilmente Pero funciona muy bien."
       },
       {
-        "reviewer_name": "Andrew Hughes",
+        "reviewer_name": "Dajny sprzęt , zastępuje trzecia rękę przy różnych ciężkich pracach !",
+        "rating": "5 out of 5 stars",
+        "title": "Rozdzielacz",
+        "verified_purchase": true,
+        "body": "Super produkt , dużo różnych potrzebnych gniazd"
+      },
+      {
+        "reviewer_name": "Renata Sousa",
+        "rating": "4 out of 5 stars",
+        "title": "Makes your computer discharge",
+        "verified_purchase": true,
+        "body": "Great but it makes your computer discharge even when closed"
+      },
+      {
+        "reviewer_name": "Marsal27",
+        "rating": "5 out of 5 stars",
+        "title": "MacBookユーザー必携！スタイリッシュ＆高性能なUSB-Cハブ",
+        "verified_purchase": true,
+        "body": "Satechi USB-C ハブ スリム (ミッドナイト) 7 in 2 Pro を購入して大正解でした！ MacBookの拡張性を一気にアップ してくれる、見た目も機能も優れたハブです。 📌 ここが良かった！ ✅ USB4対応で高速データ転送＆100W充電 USB4ポート なので 40Gbpsの高速データ転送 が可能！外付けSSDとのファイル移動も一瞬です。 さらに 100W PD充電にも対応しているので、ハブ経由でもMacBookを快適に充電できます。 ✅ 豊富な7つのポートで拡張性抜群 USB-C×2、USB-A×2、HDMI、SD＆microSDカードスロットの7つのポートがこれ1つに。 特に4K60Hz対応のHDMI は、外部モニター接続時に滑らかな映像を出力できて◎。 ✅ MacBookに完璧にフィットするデザイン ミッドナイトカラーが MacBookと統一感があり、まるで純正品のよう ！ しっかりフィットして安定感も抜群です。 ✅ 軽量＆コンパクトで持ち運びやすい 薄型＆軽量なので 持ち運びにも便利。 カバンに入れてもかさばらず、外出先でも快適に使えます。 💡 こんな人におすすめ！ ✔ MacBookのポート不足を解消したい方 ✔ 外部モニターや周辺機器をまとめて接続したい方 ✔ デザインにもこだわりたい方 見た目も機能も 大満足のUSB-Cハブ でした！MacBookユーザーなら、間違いなく持っておくべきアイテムです"
+      },
+      {
+        "reviewer_name": "J.H.Hartgerink",
+        "rating": "5 out of 5 stars",
+        "title": "Plug and play",
+        "verified_purchase": true,
+        "body": "Veel poorten direct aan MacBook Air te koppelen"
+      }
+    ]
+  },
+  {
+    "asin": "B0874M3KW4",
+    "title": "Anker Laptop Docking Station Dual Monitor, 8-in-1 USB C Hub with 4K HDMI",
+    "price": "$63.94",
+    "rating": "4.5 out of 5 stars",
+    "reviews": [
+      {
+        "reviewer_name": "Samzirra",
+        "rating": "5 out of 5 stars",
+        "title": "3 YEARS LATER REVIEW, and 2 YEARS LATER REVIEW",
+        "verified_purchase": true,
+        "body": "(3 years now I have had this and today is July 12th 2025. I literally love this thing so much I came back yet again to tell you after 3 years it works just as good as the day I originally got it. It is scuffed and scratched, has the remnants of tape and stickers i applied over the years, it has seen much wear, tear, and abuse by me, and works perfectly! ANKER makes great products, but especially nowadays when there is so much cheap garbage out there, everything i have brought by ANKER just works everytime. The only time I have had an issue? Is when I broke something, or dropped it under a car wheel (I actually did this with the first one I bought, not from Amazon, but a few months beforehand, it still worked until I started messing with it to see if it still functions lol), because I tend to be extremely irresponsible with my portable electronics. If you do buy this, and you forget to order a power supply, I bought a 100w power supply from Walmart for it, that is also three years old and works great as well. If it makes it 5 years, I'll be back to tell you about it. Now, keep reading to see the first review i left awhile ago) This thing is so awesome. I had to come back and write another review first off. You will need a 100 watt power supply to go with it separately just get that out-of-the-way. You can get one at Walmart for fairly cheap. That’s what I did and after about six months, I actually glued the hub permanently to the power supply so they would never be separated now let me tell you how versatile this thing is you can take your iPad plug it into the little USB-C sticking out of the end of it then you could take an HDMI cord from the hub and plug it into your TV. If you have a splitter, you can do it into several TVs or several monitors. It has a microSD card for all your pictures. It has a not as micro a little bigger memory card can’t remember what they’re called but they go in like cameras and stuff SD cards? It reads those two it’s got a USB-C out so you can charge your phone if you have an iPhone and an iPad like I do it connects your iPhone into your iPad together so you can play video games on your phone on your giant screen of your iPad running an HDMI cord to your TV now you’re playing on your phone on your monitor and your TV and your iPad all at the same time and see how awesome I’m saying this is you can plug a keyboard into it and a microphone and a mouse and now your live streaming your gaming on your iPad your monitor your TV your projector I’ve even hooked mine to a projector! I’ve literally spent hours trying to see how many items I could plug into this thing and run at the same time just so I could put it on my YouTube channel and show off and have people give me no props, shake their heads, and say I’ve got way too much free time on my hands. Doesn’t that sound amazing? That could be you. One guy who made fun of me relentlessly in the comment section a week later asked me where I could get one and guess what I told him I could get one for twice the amount that I paid for it and he paid me so I win guess what I do with the money? I bought a midi cord that I plugged into my MPC so I could play music on GarageBand on my phone. Had another cord going from the hub to a monitor where I could watch OBS for studio live streaming as a third cord projected the entire image on a wall, 6 feet across while I produce this music a microphone that I also had plugged it into the hub was recording me freestyle horribly because I cant rap, but all of those magic moments captured on a small SD card also plugged into the hub at the time I just left in the hub and when I was done, all I had to do was unplugged the USB-C from my phone into my computer and transfer all the information over i’ve plugged my GoPro into it from my GoPro. I was able to power a light and a microphone this thing is endless possibilities. Do yourself a favor and get one anchor products are amazing and guess what I’ve stepped on this thing countless times my dog thrown it across the room. It’s fallen downstairs. I dropped a puddle of water put it in a bowl of rice it still works. I should be selling these things man they’re incredible."
+      },
+      {
+        "reviewer_name": "A Fraser",
+        "rating": "5 out of 5 stars",
+        "title": "The Travel Dock in My Laptop Bag",
+        "verified_purchase": true,
+        "body": "What I like Plug-and-play. One USB-C cable in, several ports out. No drivers, no setup, no configuration. HDMI output for plugging into a hotel-room TV or conference projector without an adapter. SD card reader for moving photos off a camera. The microSD reader is a bonus. Two USB-A ports are enough for a mouse, a USB stick, or a card reader I already own. 85 W pass-through charging means I can keep my laptop charged through the hub when I have a USB-C charger handy. Lives in the laptop bag and is ready when I travel. It is the kind of accessory that pays for itself the first time you really need it. Compact and light. I forget it is in the bag until I need it. What annoys me Not a daily driver on my home desk. My home computers already have the ports I need, so the hub sits in the bag most of the time. Bus-powered. No battery, no separate power input. I am not trying to power a hungry external device through it, so this is fine, but it is not a “real docking station” with its own power supply. One HDMI output. If I wanted to drive two external monitors, I would need a different hub or a dock with display-multiplication support. The transcript says “second HDMI port,” and this hub gives me one, not two. No Ethernet port. Wireless works almost everywhere I travel, but a wired Ethernet jack would be a real bonus on hotel networks that block Wi-Fi or charge for it. I do not actually use it on my Mac mini. It would work, but I have not built the habit of plugging the mini through the hub. That is a me problem, not an Anker problem. Who it is for, and who should skip it If you travel with a laptop and need HDMI, an SD card reader, extra USB-A, and the option to charge the laptop through a single cable, this is the right tool. It is small enough to leave in the bag and useful enough to justify its weight. Skip it if you want a full desktop dock with its own power supply, multiple display outputs, Ethernet, and the ability to drive a multi-monitor workstation. That is a different product class, and a single USB-C hub with bus power will not do that job. Skip it if your laptop already has every port you need. The hub is solving a missing-port problem, and if you do not have one, it will just sit in your bag. Verdict The Anker USB-C 7-in-1 hub is a small, useful travel accessory that lives in my laptop bag and earns its place every time I take a trip. It is not exciting. It is not a daily driver. It is the kind of thing that disappears into your workflow and then you are grateful for it when you need it. Grade: A—if you want a single-cable travel dock for a laptop or Mac mini. Buy the linked listing if your use case matches mine."
+      },
+      {
+        "reviewer_name": "Kevin Carter",
+        "rating": "4 out of 5 stars",
+        "title": "Versatile hub for travel",
+        "verified_purchase": true,
+        "body": "Good hub though the SD card reader not fast does the job. Primarily bought for the power PD through and USB-C connection which perform ok for travel with iPad."
+      },
+      {
+        "reviewer_name": "Liz W",
         "rating": "1 out of 5 stars",
-        "title": "Warranty Support Is a Nightmare",
+        "title": "Cannot attach peripherals that require power and use both USB ports",
         "verified_purchase": true,
-        "body": "1 Star I was very happy with this docking station when I first purchased it. It worked well for several months, charging my laptop and running my dual-monitor setup without any issues. Unfortunately, the dock developed what appears to be an internal hardware failure while still under warranty. It stopped charging my laptop properly, and my monitors constantly disconnected and reconnected. To rule out every other possibility, I purchased an Anker Prime 14-in-1 Docking Station using the exact same laptop, monitors, cables, and power outlet. The new dock worked perfectly immediately, confirming that the original 13-in-1 dock was defective. What turned this into a one-star review was not the product failure itself. Electronics can fail. It was the warranty experience. I have spent over a week providing proof of purchase, completing troubleshooting, answering repeated requests, and following up multiple times. The process has been slow, confusing, and frustrating, with incomplete return instructions and unnecessary delays. I expected Anker to stand behind its warranty. Instead, I have had to escalate my case and file a Better Business Bureau complaint in an effort to have my warranty honored. Based on my experience, I cannot recommend this product. A good warranty experience is just as important as a good product, and unfortunately Anker has fallen well short of my expectations."
+        "body": "I bought this hub so I could connect both an HDMI cord (to my tv) and various USB-A peripherals to my MacBook Pro. I originally only used two ports. One for my HDMI cable and one for my Bluetooth keyboard/mouse. For weeks this worked perfectly and I was completely satisfied. However, when I needed to also hook up a CD player to the other USB-A port, the hub couldn’t handle it. While my music did play, suddenly my mouse and keyboard had horrible lag. Not just a little slowdown, but seconds between hitting a key and it showing up on screen. It frequently even failed to register keystrokes and mouse movements. I checked everything. I changed batteries. I turned off Bluetooth, disconnected the keyboard/mouse device, got both going again. I switched the CD player and keyboard/mouse’s ports. I moved the CD player a foot away from the hub, to make sure it wasn’t interfering with Bluetooth reception. Nothing improved. I even took the (ridiculous) step of checking my CPU usage, just in case — it was well under 10%. Nothing I did caused the lag to go away. Except when I disconnected the disc player from the hub. As soon as that second USB-A port wasn’t in use, my mouse and keyboard worked fine. Given that I was only using three of the ports on this multi-port hub, one that promotes its amazing data transfer capabilities, well, not being able to handle sending video to a tv, receiving Bluetooth data from a mouse and keyboard, and playing a cd all at the same time is a complete fail. I later tried again when I wanted to connect a backup drive to the port. The problem repeated identically. At that point I wasn’t even using the drive yet. Simply connecting it was enough to disrupt the data from my wireless keyboard and mouse from functioning. Both the CD player and disc drive require power from the computer. They don’t plug into a power outlet. Apparently the hub can’t handle these kind of peripherals well. So I’m returning it and trying again to find a different option. I’ve always preferred to buy Anker because I trust them, so this is a real disappointment. Would I spend $35 again on a hub that can't do what it advertises? No. Would I recommend it to anyone else? No."
+      },
+      {
+        "reviewer_name": "seks17",
+        "rating": "3 out of 5 stars",
+        "title": "WARNING: Works well except for Mouse Dongle",
+        "verified_purchase": true,
+        "body": "I recently bought a second of these Anker 341 hub. First one I bought years ago and it is awesome: Been using it when travelling without any issues. I bought a second one as a permanent install for a device at home, and immediately had issues (like many others on reddit apparently) that the 2.4 GHz mouse dongle does not work (mouse needs to be within a foot of the hub). Anker customer service eventually admitted that there is \"an interference between the USB3 ports and the 2.4 GHz frequency\", but they did not offer a solution, and suggested that I return the hub. The solution I found online is to buy a short USB cable extension so that the dongle is away from the hub, and voila: the range of my mouse went from 1 ft to the expected 10+ feet. Clearly something changed in their design (old one still works great), and frankly that interference issue is not acceptable (deduct one star). And deduct one star for customer service not suggesting the cable extension. I am keeping mine as it fits for my usage scenario though, and I like the price, size and shape."
+      },
+      {
+        "reviewer_name": "Maui Boy",
+        "rating": "2 out of 5 stars",
+        "title": "Didn't last very long",
+        "verified_purchase": true,
+        "body": "This USB-C Hub worked well for about 14 months. I was using it to power a laptop and to charge a couple of other USB devices. The power function started to fail intermittently and then died completely after about 15 months total life. Not very good in my opinion"
+      },
+      {
+        "reviewer_name": "Adriel V",
+        "rating": "4 out of 5 stars",
+        "title": "Lasted Two years with Moderate Use.",
+        "verified_purchase": true,
+        "body": "Alright. It's been exactly 2 years since I bought this and it's only now giving me issues. It's doing something odd; the laptop computer turns off while the rest of the monitors are working fine. Overall, I think it was a good purchase. I used several days a week, so it hasn't been used full time like others may have, so expect the lifetime to be a year and a half. I would still buy another one."
+      },
+      {
+        "reviewer_name": "Gator Bodine",
+        "rating": "1 out of 5 stars",
+        "title": "Sometimes works, sometimes doesn’t.",
+        "verified_purchase": true,
+        "body": "Great to have, when it actually works. I have 2 monitors connected to my laptop which I need to have for work, every morning when I start work I cross my fingers that it still works, well today it finally stopped working entirely. Display shows but won’t identify under display settings, I’ve gone through 4 of these in the last year and a half, this one was purchased just 5 months ago.."
+      },
+      {
+        "reviewer_name": "Akhlaq khan",
+        "rating": "4 out of 5 stars",
+        "title": "Nice",
+        "verified_purchase": true,
+        "body": "As per description"
+      },
+      {
+        "reviewer_name": "Giancarlo Dragonetti",
+        "rating": "5 out of 5 stars",
+        "title": "Hub USB-C Anker Premium 7-in-1",
+        "verified_purchase": true,
+        "body": "Ottimo hub compatto e robusto: offre 7 porte tra cui HDMI 4K, USB-A, USB-C PD e lettore SD/microSD. Trasmissione dati veloce, ricarica stabile e compatibilità perfetta con Windows e Mac. Ideale per chi vuole espandere le funzionalità del laptop senza problemi."
+      },
+      {
+        "reviewer_name": "Sandeep kalansuriya",
+        "rating": "5 out of 5 stars",
+        "title": "Nice",
+        "verified_purchase": true,
+        "body": "Nice"
+      },
+      {
+        "reviewer_name": "أبو ياسين",
+        "rating": "5 out of 5 stars",
+        "title": "عملي",
+        "verified_purchase": true,
+        "body": "اشتغلت على ايباد برو 12.9 2022 M2 , ممتاز جدا يعمل بكفاءة حتى الان تم تجربته تشغيل هاردسكات و اس دي ومايكرو اس دي كارد وشحن الآيفون عن طريقها حجمها لطيف معها حقيبه على قدها ، وجاري تجربتها والعوده بتقييم بعد 20 يوم من الان بعد موسم الحج والكرف بعرف هل تستحق التقييم الي عليها او لا بعد التجربه المكثفه في نقل البيانات باستخدام الايباد وال ماك بوك ومختلف الاجهزه الصراحه يستاهل كل ريال وعملي حدا"
+      },
+      {
+        "reviewer_name": "Adel ElMouassarani",
+        "rating": "5 out of 5 stars",
+        "title": "Indispensable product for seamless work experience",
+        "verified_purchase": true,
+        "body": "So far, it's been a great product. It's practical, works out of the box and just makes sense to have."
       }
     ]
   },
@@ -1974,66 +1910,165 @@
     ]
   },
   {
-    "asin": "B0GLJ4P85L",
-    "title": "VANGREE Powered USB Hub,16 Ports 10Gbps USB C Hub, 8*USB-A 3.2+8*USB-C 3.2",
-    "price": "$79.99",
-    "rating": "4.6 out of 5 stars",
+    "asin": "B088F7SY6S",
+    "title": "Anker Laptop Docking Station, 13-in-1 USB C Docking Station, Triple Display",
+    "price": "",
+    "rating": "4.0 out of 5 stars",
     "reviews": [
       {
-        "reviewer_name": "Jeffrey Osborne",
+        "reviewer_name": "Amazon Customer",
         "rating": "5 out of 5 stars",
-        "title": "TOO MANY PORTS",
+        "title": "Works Great with Windows and Ubuntu/Linux",
         "verified_purchase": true,
-        "body": "I made the mistake of buying this USB-A and USB-C hub because I thought I needed \"more connectivity.\" What I actually got was a tiny docking station determined to connect me to every electronic device within a three-mile radius. There are so many ports that I spent ten minutes trying to remember which one I plugged my keyboard into. At one point I was convinced the hub had added another port while I wasn't looking. I plugged in a flash drive, a mouse, a keyboard, headphones, and my phone. The hub just sat there, silently judging me, as if to say, \"Is that all you've got?\" My desk now looks like mission control. Friends come over and ask if I'm running a data center. Even my cat seems intimidated by the cable management. If you're the kind of person who enjoys having an unreasonable number of places to plug things in, this is the product for you. Personally, I think it has at least three ports too many. Five stars for functionality, one star because it keeps reminding me how few USB devices I actually own."
+        "body": "I have had no issues running this with my work laptop HP Laptop running Windows 10 and my Dell Inspiron 17 running Ubuntu 20.10/Windows 10. Both laptops charge, and all ports seem to work well. In general, the worst part of the USB-C format is the confusing amount of different laptops that seem to implement it in different ways. Not this product's fault; as I said, it works well with Dell and HP while my HP Laptop dock runs with both laptops, but under Ubuntu or Windows 10 on my Dell, it falls short. The HP Dock is a Thunderbolt dock, and my Dell is a Display port marked with a DP; the DP Port on my Dell does charge and allows all ports to work with this dock. I mention it because USB-C gets confusing, and mileage may vary depending on the laptop itself. My Hp is marked as Thunderbolt, and my Dell as Display Port, and this product runs wonderfully with both. I found I could get a 4k Display using the DP port on the back of the dock in Ubuntu, but I found it a little problem some and instead switched to using the two HDMI ports instead. Sometimes 4k would flicker, but that can be my older KVM Switch (1080P KVM). I don't mind the two 1080p screens as the dock makes it so easy to switch computers. I wonder why the HDMI port only seems to pump out 1080P and the display port 4k from my experience. Still, my HP dock didn't do 4k at all, so this dock outperformed it. I have even booted my Dell and HP Laptops with a live USB of MX Linux, and with no configuration, it worked. I just changed the display settings a bit. So to sum it up. 1) Easy to use - NO Drivers to install! 2) Works across Windows and Linux. 3) Affordable and better than my work HP Thunderbolt dock. 4) Works with USB-C marked PD or Thunderbolt. Finally, I would like to say the PD port can get confusing another port format for USB-C. At first, I thought it did not work as I plugged in USB-C devices, and it was not recognized. Then I upgraded to a new Samsung phone with USB-C PD charging support, and it charged and was recognized from the PD port on the dock. So the device has to support USB-C PD. As I said, USB-C is confusing. Now, what are you waiting for? Buy this best Dock on Amazon; it is excellent for Windows and, more importantly, great with Linux. If you have Thunderbolt, the big thing you get from a Thunderbolt dock is the quicker data transfer speeds, but you need to know your laptop supports it. For me, I don't care about my work laptop having maximum data transfer speed. As I said, Thunderbolt does work with this also from what I can tell. 1/26/2024 - I am updating this because I also wanted to note that this works great with the Surface Pro 7. The only exception is the built in wired network does not seem to get recognized, but I don't care. I am using WIFI anyway. So Sound, video, and all other devices work perfectly."
       },
       {
-        "reviewer_name": "JB",
+        "reviewer_name": "L. Gonsalves",
         "rating": "5 out of 5 stars",
-        "title": "Connects and powers all your devices",
+        "title": "Works great most of the time",
         "verified_purchase": true,
-        "body": "Usb-a and usb-c hub to connect devices or charge battery powered devices. No more connecting and disconnecting."
+        "body": "With this dock I can connect my laptop with a single cable to connect to a second monitor, ethernet, and power. It also has additional USB ports and an SD card reader, but I personally don't use any of those. Overall, it's super convenient. It's even better if you add a magnetic USB-C adapter, just make sure to get one that supports both high speed data and high power charging. I got a right-angle 240W+40Gb/s connector from Magtame (https://www.amazon.com/gp/product/B0CWGHXVFK), and it works great with this dock. My one complaint with this dock is that every now and then, video out doesn't work. My laptop says it can see the monitor, but my monitor doesn't see the laptop. When this has happened, disconnecting my laptop, turning the dock off and then on again, and then reconnecting my laptop fixes the issue. It's only happened 5 or 6 times, and I have used the dock hundreds of times. (On a typical day I connect my laptop to the dock 2 or 3 times, and I've had it for almost a year and a half.) Overall, it's a huge timesaver."
       },
       {
-        "reviewer_name": "Sahel",
-        "rating": "5 out of 5 stars",
-        "title": "Best option in the market",
+        "reviewer_name": "M",
+        "rating": "1 out of 5 stars",
+        "title": "DO NOT BUY THIS PRODUCT.",
         "verified_purchase": true,
-        "body": "Best option if you want 3.2 USB with individual switches, looked everywhere this is the best value for money"
+        "body": "**UPDATE** Now my rear USB port has died--the only one of two standard ports that didn't hiccup and glitch. This thing worked FAIR (front USB port always glitchy) for about a year and a half--MINUS any Mac capacities--and now is essentially an aftermarket power brick. The combination of misrepresented functionality (no Mac support despite showing Mac use), faulty design (front USB unreliable, irregular power supply to dual monitors), and poor reliability (multiple ports and functions dead within 18 months) have serious undermined my former respect for this brand. DO NOT BUY THIS PRODUCT. (ORIGINAL REVIEW:) Disappointing. First, it was not clear to me when I purchased this that it would not allow me to extend screens from my MacBook. There is now a slide that shows that all Mac screens will be identical. It’s possible I missed that a year and a half ago at purchase, but I think I would have noticed. In any case, claiming this is Mac compatible is inane. I don’t know anyone who purchases a docking hub so they can see 3+ screens of the SAME THING. Mac users, beware. I was willing to attribute that to careless comparisons on my part—partly based on a very high opinion of Anker in general. BUT unfortunately the problems do not end there. Though there are two standard USB ports, the way in which this device is wired makes it difficult to use them. If I place my keyboard dongle in the front USB port, and insert a flash drive into the USB-C port next to it, there is suddenly an irregular lag to my mouse movements. I cannot work all day with my mouse lagging. Of course I can move the dongle to the rear of the unit, but now my printer cable is projecting from the front and that’s the whole point of having rear USB ports. In short, why design the ports in a way that they interfere with each other? ANOTHER ISSUE is flickering in my monitor screen sometimes. I looked online and the only solution I found is turning down the refresh rate because “60 Hz on each screen is a lot for the hub to handle”. I thought 60 Hz was pretty much standard so again I’m not sure why a device would be advertised as handling up to three screens if two was going to tax it. This problem also seems intermittent but it ought to happen never. LASTLY, just this past week, the device suddenly can no longer extend more than one screen on my Windows work computer. I’ve tried two computers and multiple cables but whatever I do Windows will not recognize that I have two monitors attached and allow me to extend them. Both monitors are actually live and connected but show the same image, so somehow the hub has lost the ability to differentiate between them. Now the hub is useless. I have disconnected my second monitor from the hub and connected it directly to my laptop. I have actually moved my keyboard/mouse dongle and attached it directly to the laptop as well. This removes all purpose for having a hub at all. And again, this is for my Windows work computer—my MacBook has all these issues but would not extend screens even when the hub was fully functional. I bought this because I had faith in the Anker brand and because it was slightly less expensive than the hub Apple promoted on its website. I regret this purchase. Now I have a $150 hub that combines only two of the five cable connections I connect and disconnect every time I move my computer from work to home. Very, very disappointed. Pay more to get a better and more reliable product."
       },
       {
-        "reviewer_name": "F. Stuart Leeds",
+        "reviewer_name": "Harry Longshanks",
+        "rating": "5 out of 5 stars",
+        "title": "Really some of the best docking stations on the market",
+        "verified_purchase": true,
+        "body": "Anker has been making quality products for years. They've become very proud of their goods of late, as they should be, but sometimes the price-to-value ratio seems out of balance. I got this one on sale, and after having worked with some units from the Chinese random-letter companies, it was refreshing to work with a unit again from Anker. I can just feel the quality. We're literally using all of the ports on the docking station. It works seamlessly between a Chromebook, Ubuntu, and a Windows laptop, so compatibility has not been an issue, and they all charge just fine. I've had no heat problems or noticed any noises. This is used for business and productivity, and I was looking for just 2 standard HDMI connections. It's REALLY hard to find good ones with lots of ports. Videos look great. Not sure it's gaming-performance worthy on secondary monitors, but for what we need it for, this Anker docking station is perfect."
+      },
+      {
+        "reviewer_name": "Taylor",
         "rating": "4 out of 5 stars",
-        "title": "Mostly good. But a caveat...",
+        "title": "Transformed my desk setup",
         "verified_purchase": true,
-        "body": "A well-conceived product for the most part. One possibly important caveat – it does not support USB 2.0 cameras, including many popular Logitech units. The cameras will be recognized by apps like Zoom, but will not stream video. It's apparently UVC streaming protocol/design problem (per ChatGPT)? Ironically, it does fine with 10 gbps USB-C/USB 3 device (like drives), suggesting there are two different circuit topologies handling USB 2 vs. 3."
+        "body": "Transformed my desk setup — just one important caveat for Mac users. This docking station has completely changed how my desk looks and feels. With just one cable, I went from a tangled mess of peripherals to a clean, minimal workspace. If desk organization matters to you, this hub is a game-changer. The 13-in-1 port selection covers everything I need — display output, USB-A, USB-C, SD card, ethernet, and more. Performance has been reliable across the board, and the build quality feels solid and premium for the price. That said, there is one important thing Mac users need to know before buying: dual monitor output does not work on macOS. This is an Apple limitation, not a flaw in the product itself — but I'll be honest, I didn't read the product description carefully enough and assumed it would work. I was caught off guard when it didn't. If you're a Mac user planning to run two external displays, please double-check compatibility before purchasing. Windows users should have no issues. Aside from that, I'm very happy with this purchase and would recommend it without hesitation to anyone who wants to clean up their desk and simplify their cable management."
       },
       {
-        "reviewer_name": "TruthInReview",
+        "reviewer_name": "david williams",
         "rating": "5 out of 5 stars",
-        "title": "Versatile simple single connection for lots of devices.",
+        "title": "Good Product/Great Customer Service",
         "verified_purchase": true,
-        "body": "Worked great for me. Only using half the ports but have used some devices having high power requirements like a 4k burner on one of the USB C ports. Also some lowered powered SSD drives which maintained their 500-600 speed, of course since connected to Mac via USB C it is limited to that port’s throughput for all devices connected. Love one place to hook up all the devices with versatility of both USB A and USB C ports."
+        "body": "when i bought this hub i had a couple of problems with the hub right out of the box. i was busy fixing other things on other machines and missed the Amazon exchange window and reached out to Anker via their email providing them with a description of the problem, it was dropping a monitor and eventually was cycling my ethernet off and on constantly. their customer service returned my email on the same day and flawlessly provided me with things to check and eventually sent me a new device and a shipping label for the bad one. just hooked up the new hub and it's running like a new buick. this is my second all i one hub i bought from Anker and i will continue to buy their products in the future for the quality of their products and that of their customer service. Thank you Anker!"
       },
       {
-        "reviewer_name": "Don Lucius",
+        "reviewer_name": "M Dexter",
         "rating": "5 out of 5 stars",
-        "title": "Great unit.",
+        "title": "Works Flawlessly!",
         "verified_purchase": true,
-        "body": "This thing is great. I have had a hard time finding USB C hubs with sufficient space for my external drives. The one I had been using, slows down, occasionally dropping a drive. The speed is great across all units. Would highly recommend for individuals who need high speed in a hub."
+        "body": "I wanted to get rid of my desktop and just use a laptop. I'm used to using a desktop at home and wanted to keep using my external keyboard, mouse, and two large monitors when I'm home. I bought an Asus laptop that is fast and has lots of storage. With this docking station, it works perfectly for me. I keep the monitors, keyboard, and mouse plugged into the Anker docking station. I have one USB-C cable that connects to my laptop. This one cable charges the laptop and connects it -- via the docking station -- to the monitors, keyboard, and mouse. When I travel, I unplug the one USB-C cable and I'm ready to go. When I return, I plug in the one USB-C cable, turn on my docking station and monitors, and I'm up and running as a desktop. I tried a cheaper docking station (LIONWEI USB C Hub) first. It mostly worked but required two USB-C cables (one to charge the laptop, one to connect to the docking station) and it was not stable. It would often glitch out and require me to reconnect or reboot. The Anker docking station has been very solid and, in 4 months has never glitched out or required any type of rebooting. Pro tip: I also use an \"aucun Magnetic USB C Adapter\" for the USB cable. This connects via a magnet so I don't even have to plug and unplug the USB cable, I just pull off the magnet."
       },
       {
-        "reviewer_name": "Mike & Heather",
-        "rating": "5 out of 5 stars",
-        "title": "Works as it should",
+        "reviewer_name": "DL",
+        "rating": "3 out of 5 stars",
+        "title": "Pretty good docking station with a few problems",
         "verified_purchase": true,
-        "body": "I have a music studio in my basement with lots of things plugged in…. No issues. It’s great. I have many keyboards and an audio interface going into one port on my 2024 Apple MacBook. I use the second port for a monitor, but I have zero issues."
+        "body": "The docking station worked pretty well right out of the box. A few observations: 1. The instructions, as many do now, are in multiple languages and a very small part was applicable. The key diagram and explanatory table were buried among all the other text, but it would have been helpful to have that information at the very top of the instructions, rather than in the middle of multiple languages. 2. I have an HP Spectre 360, and the charging function of the docking station is variable, i.e. sometimes it charges, sometimes it does not. I have to check periodically to make sure it's charging, otherwise I risk using all the battery reserve. It's a relatively minor issue and perhaps due to the detection by the computer of a non-HP power source. 3. Update: I had 2 HDMI monitors and a third was connected through a USB expansion device with an HDMI port. Decided to try using the display port instead of the USB expansion device, and when I plugged the third monitor into the display port using a converter cable for DP to HDMI, one of the other monitors would not show. No matter what combination I used, if I plugged the third monitor into the DP port, only 2 would show. So, I plugged my USB expansion device back in and voila! All three monitors showed again. I couldn't find any documentation online regarding this issue, so I have to assume that using the DP port along with the two HDMI ports negates one of the three. Interesting, but it decreases the score. Overall, the device is still a nice addition to my desk. Prior to now, I had a number of USB hubs strung together with a mass of wires like a bowl of spaghetti, so the docking station with multiple ports is a definite improvement."
       },
       {
-        "reviewer_name": "Stephen Wigley",
-        "rating": "5 out of 5 stars",
-        "title": "Mr Stevador",
+        "reviewer_name": "iPadUser",
+        "rating": "2 out of 5 stars",
+        "title": "No funciona bien conexión con el monitor",
         "verified_purchase": true,
-        "body": "Stevador Good items"
+        "body": "No funciona al 100%, no es compatible con mi PC de HP, no funciona para el Monitor, todo lo demás como teclados externos, micrófono funciona bien, pero lo principal que es la conexión entre laptop y monitor no funciona bien."
+      },
+      {
+        "reviewer_name": "Rogerio",
+        "rating": "5 out of 5 stars",
+        "title": "Docking Station Review - 4month experience",
+        "verified_purchase": true,
+        "body": "Good quality, fast and powerful for my laptop. As they say you get what you pay for It would be awesome if it had 1 extra USB or USB-C, but that is just for my specific use. However in general it works great, no issues and replaces my laptop charger (meaning powerful enough to charge of the latest Asus laptops, and all the other devices connected to it"
+      },
+      {
+        "reviewer_name": "Chad Infeld",
+        "rating": "5 out of 5 stars",
+        "title": "Great Windows/Linux dock!",
+        "verified_purchase": true,
+        "body": "This is for the \"Anker Docking Station, PowerExpand 13-in-1 USB-C Dock, 85W Charging for Laptop\" ** Update March 9th, 2023 ** So pretty much everything in the original review stands, but there is one issue that I touched on originally about the display refresh rate and resolution that I can clarify now. To get the resolution how you want it, you need to set the monitors to the same refresh rate first, then once the resolution is set and applied, change the refresh rate. That being said, I'm not sure if the refresh rate actually changes or if it just says it does. ** End of update ** So I just got this about an hour ago, and everything just worked! Both in Ubuntu 22.04 and Windows 10. Here's my setup. Everything is plugged into the dock and only the single USB-C dock cable is plugged into the laptop. Laptop: Dell XPS 13 9370 1TB SanDisk USB-C SSD (for booting into Ubuntu) 2x Monitors + laptop monitor (One monitor is Ultra Wide 2560x1080 144Hz, other is 1080p 60Hz) - Note: I'm using one DP port and one HDMI port Wireless keyboard/mouse Speakers Ethernet connection for Internet First of all, I was using a Dell TB16 dock before this but I had multiple issues with it. Long story short, I don't recommend the Dell docks, especially if you use Linux. ** Long story about Dell TB16 Dock ** Using the Dell dock, my monitor would randomly go out, and the network only connected at 100mbps, the soundcard is super quiet (even at max volume), it's always on and can get noisy when it heats up (it has a fan), the cable is built into the unit (non-replaceable) and is only about a foot and a half long (coming out of the left side of the unit) and the unit itself is rather large. Also, I boot off a USB-C SSD drive for Linux (which allows me to plug the USB SSD into almost any computer and boot into my Ubuntu OS); For whatever reason, I could never get it to show up as a boot option when plugged into the dock, even with ThunderBolt boot support and pre-module stuff enabled. ** End of the Long story about Dell TB16 Dock ** Now the Anker dock on the other hand is about a 1/4 of the size of the Dell dock, connects @ 1GB with no problem, allows me to boot off my USB-C SSD, has a power button to turn it off when not in use, it's silent, works without having to install any drivers on either Windows or Ubuntu, comes with a decently long USB-C cable (3 ft?) to plug into the computer (which can also be replaced and yes it charges my laptop too) and the sound volume is great. There is one oddity that happened, but I was able to fix it easily enough and it's likely not a problem with the dock but a software issue in Ubuntu. When changing the resolution + refresh rate in Ubuntu, it didn't properly scale the resolution (the resolution was right, but much of it was cut off or shrunk down as if the monitor itself didn't change resolutions but the computer did), I had to change the resolution + refresh rate to something else, then to what I wanted to make it work. To be clear, it worked when I plugged it in initially, but changing it to my preference required multiple changes to set it in properly. Once set, it worked as normal. I highly recommend this dock!"
+      },
+      {
+        "reviewer_name": "Batstar",
+        "rating": "5 out of 5 stars",
+        "title": "Worked perfectly out of the box.",
+        "verified_purchase": true,
+        "body": "Zero issues with this versatile dock as it replaced a Belkin hub which was virtually cluttering up my desk. All of the cords run out the back of the unit including ones for an external monitor (HDMI), printer, external hard drive and power cord for my Windows 11 laptop. I only have a Bluetooth dongle for a mouse plugged into the front. Very clean look and I love the fact that there are two SD card slots and two additional USB C ports out front for charging devices. I snagged this puppy while it was on sale which was a bonus."
+      },
+      {
+        "reviewer_name": "Andrew Hughes",
+        "rating": "1 out of 5 stars",
+        "title": "Warranty Support Is a Nightmare",
+        "verified_purchase": true,
+        "body": "1 Star I was very happy with this docking station when I first purchased it. It worked well for several months, charging my laptop and running my dual-monitor setup without any issues. Unfortunately, the dock developed what appears to be an internal hardware failure while still under warranty. It stopped charging my laptop properly, and my monitors constantly disconnected and reconnected. To rule out every other possibility, I purchased an Anker Prime 14-in-1 Docking Station using the exact same laptop, monitors, cables, and power outlet. The new dock worked perfectly immediately, confirming that the original 13-in-1 dock was defective. What turned this into a one-star review was not the product failure itself. Electronics can fail. It was the warranty experience. I have spent over a week providing proof of purchase, completing troubleshooting, answering repeated requests, and following up multiple times. The process has been slow, confusing, and frustrating, with incomplete return instructions and unnecessary delays. I expected Anker to stand behind its warranty. Instead, I have had to escalate my case and file a Better Business Bureau complaint in an effort to have my warranty honored. Based on my experience, I cannot recommend this product. A good warranty experience is just as important as a good product, and unfortunately Anker has fallen well short of my expectations."
+      }
+    ]
+  },
+  {
+    "asin": "B0FRZLHPS3",
+    "title": "1000W USB C Charger Block,10-Port USB C GaN Multiple Port Charging Station",
+    "price": "$44.06",
+    "rating": "3.8 out of 5 stars",
+    "reviews": [
+      {
+        "reviewer_name": "Russell A Salazar",
+        "rating": "5 out of 5 stars",
+        "title": "Charges fast",
+        "verified_purchase": true,
+        "body": "Works well. Just as expected. Have purchased several. Charges very fast. Cuts down on ac adapters and saves a lot of space"
+      },
+      {
+        "reviewer_name": "SilverTrex",
+        "rating": "1 out of 5 stars",
+        "title": "NOT CAPABLE OF 1000W",
+        "verified_purchase": true,
+        "body": "Tested its power capability as demonstratedin the video by running cpu stress test on 3 laptops all plugged into this device: Materials used - 3 laptops, Asus ProArt 13in, Lenovo T14 gen 2, Lenovo x13 Gen 1 - 3 Stattik 3ft 100W magnetic charging type c cables -1 Anker 10ft 240W type c cable - 3 240w rated Power monitor device for Type c Ran stress test on all 3 laptops, unplugged one halfway thru test to show how device works. At best, its capable of 200w Tops. It just redistributes power everytime you plug in new device. During testing, 2 of the 140w, closer to middle and 2 of 100w type c ports, stopped functioning. This was my second test and 2nd day of owning the device and it failed miserably. It is NOT durable and is prone to overheating and will shut off power to middle ports due to lack of vents. Why did I buy it and why did I do it? Bought to run 4-6 old lenovo T14 in a server config, I did not want power draw being an issue and wanted clean cable management. Turns out, I was right. This device can't power multiple device and give them sufficient wattage simultaneously. Please watch video"
+      },
+      {
+        "reviewer_name": "Marco Pantalone",
+        "rating": "5 out of 5 stars",
+        "title": "Impressive Power Management in a Tiny Footprint",
+        "verified_purchase": true,
+        "body": "Let's look at the numbers on this little block. Pushing 1000 watts total out of something just over five inches long sounds highly suspicious right off the bat. Seeing it in action makes more sense of the math, though. The gallium nitride chips inside are doing the heavy lifting, allowing the unit to manage heat way better than older silicon chargers. When my husband plugs in his Dell and I connect my MacBook Pro to the top C1 and C2 ports, we genuinely get the fast 140W charge we expect. We can simultaneously run the kids' tablets and our phones on the remaining ports without anything shutting down or getting dangerously hot. The listing doesn't explicitly mention UL or ETL safety certifications, which usually gives me a lot of pause with power devices. The thermal performance has been surprisingly stable in our house so far, keeping everything fully charged without turning into a space heater. The detachable base and the five-foot cord mean we can finally keep the little ones from yanking cords straight out of the wall socket. A very solid buy for a tech-heavy household."
+      },
+      {
+        "reviewer_name": "Kindle Customer",
+        "rating": "5 out of 5 stars",
+        "title": "Nice, nice nice. Big Power. fast charge.",
+        "verified_purchase": true,
+        "body": "1000 W, what a beast! This is the best price for a very small unit and a lot of output. The whole household plugs in tons of stuff and then all charges fast. No regrets on this one. The two ports of 240 W could power a laptop."
+      },
+      {
+        "reviewer_name": "Armando torres",
+        "rating": "5 out of 5 stars",
+        "title": "Love this I can charge my phone tablets an rechargeable fans at once",
+        "verified_purchase": true,
+        "body": "I love this I can charge my phones tablets my battery packs and my rechargeable fans all at once"
+      },
+      {
+        "reviewer_name": "Drew",
+        "rating": "1 out of 5 stars",
+        "title": "3 months later & I'm ready to scrap it",
+        "verified_purchase": true,
+        "body": "I bought this 3 months ago to power everything on my desk besides my laptop. The demand is not too high, but I wanted to have power to spare. This unit does not deliver 1000W. Even using a thunderbolt cable, my iPhone reports slow charging. And now, the unit will randomly cut out with barely anything plugged into it. Sometimes it will cut out & back on. Sometimes it just flat stops delivering power unless I unplug it & plug it back in. Of course, I am out of the return period, so I am stuck with this paperweight. Don't make the same mistake I made. Look elsewhere if you need a high powered USB hub. This one ain't it."
+      },
+      {
+        "reviewer_name": "Scott S.",
+        "rating": "5 out of 5 stars",
+        "title": "Charges my finicky laptop.",
+        "verified_purchase": true,
+        "body": "Big brother to my 800W. Powers my laptop easily."
+      },
+      {
+        "reviewer_name": "Zurik",
+        "rating": "5 out of 5 stars",
+        "title": "Organized and sturdy",
+        "verified_purchase": true,
+        "body": "The charger feels sturdy, doesn’t get overly hot, and keeps my desk much more organized. It’s perfect for home, the office, or traveling with multiple devices."
       }
     ]
   }
