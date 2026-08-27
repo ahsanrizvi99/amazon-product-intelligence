@@ -1,6 +1,7 @@
 from playwright.sync_api import sync_playwright
 import json, csv, re
 from pathlib import Path
+from utils import log_request, polite_delay
 
 SEARCH_URL = "https://www.amazon.com/s?k=usb+c+hub"
 DATA_DIR = Path(__file__).resolve().parent.parent.parent / "data" / "raw"
@@ -86,9 +87,51 @@ def get_reviews(page):
 
     return reviews
 
+def collect_all_products():
+    with sync_playwright() as playwright:
+        browser = playwright.chromium.launch(headless=False)
+        page = browser.new_page()
+
+        page.goto(SEARCH_URL)
+        page.wait_for_timeout(5000)
+        log_request("search", SEARCH_URL, "success")
+
+        product_list = get_products_from_page(page)
+        product_list = product_list[:3]
+        print(f"Found {len(product_list)} products on search page\n")
+
+        full_data = []
+
+        for index, product in enumerate(product_list, start=1):
+            asin = product["asin"]
+            print(f"[{index}/{len(product_list)}] Visiting {asin}...")
+
+            polite_delay()
+
+            details = get_product_details(page, asin)
+            reviews = get_reviews(page)
+
+            product_url = f"https://www.amazon.com/dp/{asin}"
+            if details["title"]:
+                log_request("product", product_url, "success")
+            else:
+                log_request("product", product_url, "empty")
+
+            combined = {
+                "asin": asin,
+                "title": details["title"],
+                "price": details["price"],
+                "rating": product["rating"],
+                "reviews": reviews,
+            }
+            full_data.append(combined)
+
+        browser.close()
+        return full_data
+
 def save_products(products):
     DATA_DIR.mkdir(parents=True, exist_ok=True)
-    output_file = DATA_DIR / "products_search_page.json"
+    output_file = DATA_DIR / "products_full.json"
 
     with open(output_file, "w", encoding="utf-8") as f:
         json.dump(products, f, indent=2, ensure_ascii=False)
@@ -127,19 +170,9 @@ def open_search_page():
 
 
 if __name__ == "__main__":
-    with sync_playwright() as playwright:
-        browser = playwright.chromium.launch(headless=False)
-        page = browser.new_page()
+    data = collect_all_products()
+    print(f"\nCollected data for {len(data)} products")
+    for item in data:
+        print(f"{item['asin']}: {len(item['reviews'])} reviews")
 
-        page.goto(SEARCH_URL)
-        page.wait_for_timeout(5000)
-
-        details = get_product_details(page, "B0BR3M8XHK")
-        print(details)
-
-        reviews = get_reviews(page)
-        print(f"\nFound {len(reviews)} reviews")
-        for review in reviews:
-            print(review)
-
-        browser.close()
+    save_products(data)

@@ -1,3 +1,12 @@
 timestamp,request_type,url,status_code,outcome,note
 2026-08-27T01:45:20,search,https://amazon.com/s?k=test,200,success,test entry
 2026-08-27T01:52:31,search,https://amazon.com/s?k=test,200,success,test entry
+2026-08-27T11:58:47,search,https://www.amazon.com/s?k=usb+c+hub,,success,
+2026-08-27T11:59:09,product,https://www.amazon.com/dp/B0GXZ62GF8,,success,
+2026-08-27T11:59:25,product,https://www.amazon.com/dp/B0FSKZ7TFG,,success,
+2026-08-27T11:59:41,product,https://www.amazon.com/dp/B0BR3M8XHK,,success,
+2026-08-27T12:01:49,search,https://www.amazon.com/s?k=usb+c+hub,,success,
+2026-08-27T12:02:37,search,https://www.amazon.com/s?k=usb+c+hub,,success,
+2026-08-27T12:02:53,product,https://www.amazon.com/dp/B0GXZ62GF8,,success,
+2026-08-27T12:03:11,product,https://www.amazon.com/dp/B0FSKZ7TFG,,success,
+2026-08-27T12:03:29,product,https://www.amazon.com/dp/B0BR3M8XHK,,success,
