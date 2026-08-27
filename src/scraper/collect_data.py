@@ -1,5 +1,5 @@
 from playwright.sync_api import sync_playwright
-import json
+import json, csv
 from pathlib import Path
 
 SEARCH_URL = "https://www.amazon.com/s?k=usb+c+hub"
@@ -41,12 +41,26 @@ def save_products(products):
 
     print(f"Saved {len(products)} products to {output_file}")
 
+def save_products_csv(products):
+    DATA_DIR.mkdir(parents=True, exist_ok=True)
+    output_file = DATA_DIR / "products_search_page.csv"
+
+    with open(output_file, "w", newline="", encoding="utf-8") as f:
+        fieldnames = products[0].keys()
+        writer = csv.DictWriter(f, fieldnames=fieldnames)
+
+        writer.writeheader()
+        writer.writerows(products)
+
+    print(f"Saved {len(products)} products to {output_file}")
+
 def open_search_page():
     with sync_playwright() as playwright:
         browser = playwright.chromium.launch(headless=False)
         page = browser.new_page()
         page.goto(SEARCH_URL)
         page.wait_for_timeout(5000)
+        page.screenshot(path="debug_screenshot.png")
 
         products = get_products_from_page(page)
 
@@ -54,6 +68,7 @@ def open_search_page():
         for product in products:
             print(product)
         save_products(products)
+        save_products_csv(products)
         browser.close()
 
 
