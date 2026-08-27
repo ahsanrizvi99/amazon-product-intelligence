@@ -3,7 +3,42 @@ import json, csv, re
 from pathlib import Path
 from utils import log_request, polite_delay
 
-SEARCH_URL = "https://www.amazon.com/s?k=usb+c+hub"
+SEARCH_KEYWORDS = [
+    "wireless earbuds",
+    "gaming mouse",
+    "USB-C hub",
+    "mechanical keyboard",
+    "smartwatch",
+    "phone case",
+    "portable charger",
+    "webcam HD",
+    "desk lamp LED",
+    "air purifier",
+    "instant pot",
+    "electric toothbrush",
+    "budget laptop",
+    "bluetooth speaker",
+    "kitchen knife set",
+    "DSLR camera",
+    "coffee maker",
+    "gaming chair",
+    "backpack",
+    "monitor 27 inch",
+    "water bottle",
+    "t-shirt",
+    "notebook journal",
+    "sneakers",
+    "candle",
+    "sunglasses",
+    "phone stand",
+    "yamaha acoustic guitar",
+]
+
+def build_search_url(keyword):
+    formatted_keyword = keyword.replace(" ", "+")
+    return f"https://www.amazon.com/s?k={formatted_keyword}"
+
+PROGRESS_FILE = DATA_DIR / "completed_keywords.json"
 DATA_DIR = Path(__file__).resolve().parent.parent.parent / "data" / "raw"
 
 
@@ -87,46 +122,46 @@ def get_reviews(page):
 
     return reviews
 
-def collect_all_products():
-    with sync_playwright() as playwright:
-        browser = playwright.chromium.launch(headless=False)
-        page = browser.new_page()
+def collect_all_products(keyword, page):
+    search_url = build_search_url(keyword)
 
-        page.goto(SEARCH_URL)
-        page.wait_for_timeout(5000)
-        log_request("search", SEARCH_URL, "success")
+    page.goto(search_url)
+    page.wait_for_timeout(5000)
+    log_request("search", search_url, "success")
 
-        product_list = get_products_from_page(page)
-        print(f"Found {len(product_list)} products on search page\n")
+    product_list = get_products_from_page(page)
+    print(f"Found {len(product_list)} products for '{keyword}'\n")
 
-        full_data = []
+    full_data = []
 
-        for index, product in enumerate(product_list, start=1):
-            asin = product["asin"]
-            print(f"[{index}/{len(product_list)}] Visiting {asin}...")
+    for index, product in enumerate(product_list, start=1):
+        asin = product["asin"]
+        print(f"[{index}/{len(product_list)}] Visiting {asin}...")
 
-            polite_delay()
+        polite_delay()
 
-            details = get_product_details(page, asin)
-            reviews = get_reviews(page)
+        details = get_product_details(page, asin)
+        reviews = get_reviews(page)
 
-            product_url = f"https://www.amazon.com/dp/{asin}"
-            if details["title"]:
-                log_request("product", product_url, "success")
-            else:
-                log_request("product", product_url, "empty")
+        product_url = f"https://www.amazon.com/dp/{asin}"
+        if details["title"]:
+            log_request("product", product_url, "success")
+            print(f"    OK — {len(reviews)} reviews")
+        else:
+            log_request("product", product_url, "empty")
+            print(f"    EMPTY — page did not load correctly")
 
-            combined = {
-                "asin": asin,
-                "title": details["title"],
-                "price": details["price"],
-                "rating": product["rating"],
-                "reviews": reviews,
-            }
-            full_data.append(combined)
+        combined = {
+            "search_keyword": keyword,
+            "asin": asin,
+            "title": details["title"],
+            "price": details["price"],
+            "rating": product["rating"],
+            "reviews": reviews,
+        }
+        full_data.append(combined)
 
-        browser.close()
-        return full_data
+    return full_data
 
 def save_products(products):
     DATA_DIR.mkdir(parents=True, exist_ok=True)
@@ -156,29 +191,28 @@ def save_products_csv(products):
 
     print(f"Saved {len(products)} products to {output_file}")
 
-def open_search_page():
+
+def collect_everything():
+    all_products = []
+
     with sync_playwright() as playwright:
         browser = playwright.chromium.launch(headless=False)
         page = browser.new_page()
-        page.goto(SEARCH_URL)
-        page.wait_for_timeout(5000)
-        page.screenshot(path="debug_screenshot.png")
 
-        products = get_products_from_page(page)
+        for keyword_index, keyword in enumerate(SEARCH_KEYWORDS, start=1):
+            print(f"\n=== Keyword {keyword_index}/{len(SEARCH_KEYWORDS)}: '{keyword}' ===\n")
 
-        print(f"Found {len(products)} products")
-        for product in products:
-            print(product)
-        save_products(products)
-        save_products_csv(products)
+            products = collect_all_products(keyword, page)
+            all_products.extend(products)
+
         browser.close()
+
+    return all_products
 
 
 if __name__ == "__main__":
-    data = collect_all_products()
-    print(f"\nCollected data for {len(data)} products")
-    for item in data:
-        print(f"{item['asin']}: {len(item['reviews'])} reviews")
+    data = collect_everything()
+    print(f"\n\nTOTAL collected: {len(data)} products across {len(SEARCH_KEYWORDS)} keywords")
 
     save_products(data)
     save_products_csv(data)

@@ -2,3 +2,4 @@ playwright
 pandas
 jupyter
 streamlit
+openpyxl
