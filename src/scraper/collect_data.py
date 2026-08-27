@@ -97,7 +97,6 @@ def collect_all_products():
         log_request("search", SEARCH_URL, "success")
 
         product_list = get_products_from_page(page)
-        product_list = product_list[:3]
         print(f"Found {len(product_list)} products on search page\n")
 
         full_data = []
