@@ -34,12 +34,13 @@ SEARCH_KEYWORDS = [
     "yamaha acoustic guitar",
 ]
 
+DATA_DIR = Path(__file__).resolve().parent.parent.parent / "data" / "raw"
+PROGRESS_FILE = DATA_DIR / "completed_keywords.json"
+
+
 def build_search_url(keyword):
     formatted_keyword = keyword.replace(" ", "+")
     return f"https://www.amazon.com/s?k={formatted_keyword}"
-
-PROGRESS_FILE = DATA_DIR / "completed_keywords.json"
-DATA_DIR = Path(__file__).resolve().parent.parent.parent / "data" / "raw"
 
 
 def get_products_from_page(page):
@@ -68,6 +69,7 @@ def get_products_from_page(page):
 
     return products
 
+
 def get_product_details(page, asin):
     product_url = f"https://www.amazon.com/dp/{asin}"
     page.goto(product_url)
@@ -89,6 +91,7 @@ def get_product_details(page, asin):
         "title": title,
         "price": price,
     }
+
 
 def get_reviews(page):
     reviews = []
@@ -122,12 +125,18 @@ def get_reviews(page):
 
     return reviews
 
+
 def collect_all_products(keyword, page):
     search_url = build_search_url(keyword)
 
-    page.goto(search_url)
-    page.wait_for_timeout(5000)
-    log_request("search", search_url, "success")
+    try:
+        page.goto(search_url)
+        page.wait_for_timeout(5000)
+        log_request("search", search_url, "success")
+    except Exception as error:
+        print(f"ERROR loading search page for '{keyword}': {error}")
+        log_request("search", search_url, "error", note=str(error))
+        return []
 
     product_list = get_products_from_page(page)
     print(f"Found {len(product_list)} products for '{keyword}'\n")
@@ -140,8 +149,13 @@ def collect_all_products(keyword, page):
 
         polite_delay()
 
-        details = get_product_details(page, asin)
-        reviews = get_reviews(page)
+        try:
+            details = get_product_details(page, asin)
+            reviews = get_reviews(page)
+        except Exception as error:
+            print(f"    ERROR — skipping this product: {error}")
+            log_request("product", f"https://www.amazon.com/dp/{asin}", "error", note=str(error))
+            continue
 
         product_url = f"https://www.amazon.com/dp/{asin}"
         if details["title"]:
@@ -163,14 +177,39 @@ def collect_all_products(keyword, page):
 
     return full_data
 
-def save_products(products):
+
+def load_completed_keywords():
+    if PROGRESS_FILE.exists():
+        with open(PROGRESS_FILE, encoding="utf-8") as f:
+            return json.load(f)
+    return []
+
+
+def mark_keyword_done(keyword):
+    completed = load_completed_keywords()
+    completed.append(keyword)
+
+    with open(PROGRESS_FILE, "w", encoding="utf-8") as f:
+        json.dump(completed, f, indent=2)
+
+
+def append_products(new_products):
     DATA_DIR.mkdir(parents=True, exist_ok=True)
     output_file = DATA_DIR / "products_full.json"
 
-    with open(output_file, "w", encoding="utf-8") as f:
-        json.dump(products, f, indent=2, ensure_ascii=False)
+    if output_file.exists():
+        with open(output_file, encoding="utf-8") as f:
+            existing_products = json.load(f)
+    else:
+        existing_products = []
 
-    print(f"Saved {len(products)} products to {output_file}")
+    existing_products.extend(new_products)
+
+    with open(output_file, "w", encoding="utf-8") as f:
+        json.dump(existing_products, f, indent=2, ensure_ascii=False)
+
+    print(f"Saved {len(new_products)} new products (total now: {len(existing_products)})")
+
 
 def save_products_csv(products):
     DATA_DIR.mkdir(parents=True, exist_ok=True)
@@ -193,26 +232,35 @@ def save_products_csv(products):
 
 
 def collect_everything():
-    all_products = []
+    completed = load_completed_keywords()
+    remaining_keywords = [kw for kw in SEARCH_KEYWORDS if kw not in completed]
+
+    print(f"{len(completed)} keywords already done, {len(remaining_keywords)} remaining\n")
 
     with sync_playwright() as playwright:
         browser = playwright.chromium.launch(headless=False)
         page = browser.new_page()
 
-        for keyword_index, keyword in enumerate(SEARCH_KEYWORDS, start=1):
-            print(f"\n=== Keyword {keyword_index}/{len(SEARCH_KEYWORDS)}: '{keyword}' ===\n")
+        for keyword_index, keyword in enumerate(remaining_keywords, start=1):
+            print(f"\n=== Keyword {keyword_index}/{len(remaining_keywords)}: '{keyword}' ===\n")
 
             products = collect_all_products(keyword, page)
-            all_products.extend(products)
+
+            if len(products) == 0:
+                print(f"    WARNING: 0 products found for '{keyword}' — will retry next run")
+                continue
+
+            append_products(products)
+            mark_keyword_done(keyword)
 
         browser.close()
 
-    return all_products
-
 
 if __name__ == "__main__":
-    data = collect_everything()
-    print(f"\n\nTOTAL collected: {len(data)} products across {len(SEARCH_KEYWORDS)} keywords")
+    collect_everything()
 
-    save_products(data)
-    save_products_csv(data)
+    with open(DATA_DIR / "products_full.json", encoding="utf-8") as f:
+        all_data = json.load(f)
+
+    print(f"\n\nTOTAL collected: {len(all_data)} products")
+    save_products_csv(all_data)
