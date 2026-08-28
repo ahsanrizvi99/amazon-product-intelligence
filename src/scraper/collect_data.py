@@ -73,7 +73,11 @@ def get_products_from_page(page):
 def get_product_details(page, asin):
     product_url = f"https://www.amazon.com/dp/{asin}"
     page.goto(product_url)
-    page.wait_for_timeout(5000)
+
+    try:
+        page.wait_for_selector("#productTitle", timeout=10000)
+    except Exception:
+        pass
 
     title_element = page.query_selector("#productTitle")
     title = title_element.inner_text().strip() if title_element else ""
@@ -86,10 +90,41 @@ def get_product_details(page, asin):
     else:
         price = ""
 
+    brand_element = page.query_selector("#bylineInfo")
+    if brand_element:
+        brand_text = brand_element.inner_text().strip()
+        brand = brand_text.replace("Visit the ", "").replace(" Store", "")
+    else:
+        brand = ""
+
+    image_element = page.query_selector("#landingImage")
+    main_image_url = image_element.get_attribute("src") if image_element else ""
+
+    bullet_elements = page.query_selector_all(
+        "#feature-bullets ul.a-unordered-list li span.a-list-item"
+    )
+    bullet_points = [b.inner_text().strip() for b in bullet_elements if b.inner_text().strip()]
+
+    review_count_element = page.query_selector('span[data-hook="total-review-count"]')
+    if review_count_element:
+        count_text = review_count_element.inner_text()
+        match = re.search(r"[\d,]+", count_text)
+        review_count = match.group().replace(",", "") if match else ""
+    else:
+        review_count = ""
+
+    video_urls = re.findall(r"https://[^\s\"'\\&]+?\.mp4", page.content())
+    video_urls = list(dict.fromkeys(video_urls))
+
     return {
         "asin": asin,
         "title": title,
         "price": price,
+        "brand": brand,
+        "main_image_url": main_image_url,
+        "bullet_points": bullet_points,
+        "review_count": review_count,
+        "video_urls": video_urls,
     }
 
 
@@ -131,7 +166,7 @@ def collect_all_products(keyword, page):
 
     try:
         page.goto(search_url)
-        page.wait_for_timeout(5000)
+        page.wait_for_selector('div[data-component-type="s-search-result"]', timeout=10000)
         log_request("search", search_url, "success")
     except Exception as error:
         print(f"ERROR loading search page for '{keyword}': {error}")
@@ -169,8 +204,13 @@ def collect_all_products(keyword, page):
             "search_keyword": keyword,
             "asin": asin,
             "title": details["title"],
+            "brand": details["brand"],
             "price": details["price"],
             "rating": product["rating"],
+            "review_count": details["review_count"],
+            "bullet_points": details["bullet_points"],
+            "main_image_url": details["main_image_url"],
+            "video_urls": details["video_urls"],
             "reviews": reviews,
         }
         full_data.append(combined)
@@ -219,6 +259,8 @@ def save_products_csv(products):
     for product in products:
         product_copy = product.copy()
         product_copy["reviews"] = json.dumps(product["reviews"], ensure_ascii=False)
+        product_copy["bullet_points"] = json.dumps(product["bullet_points"], ensure_ascii=False)
+        product_copy["video_urls"] = json.dumps(product["video_urls"], ensure_ascii=False)
         csv_ready_products.append(product_copy)
 
     with open(output_file, "w", newline="", encoding="utf-8") as f:
