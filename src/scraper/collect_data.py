@@ -113,7 +113,7 @@ def get_product_details(page, asin):
     else:
         review_count = ""
 
-    video_urls = re.findall(r"https://[^\s\"'\\&]+?\.mp4", page.content())
+    video_urls = re.findall(r"https://[^\s\"'\\&]+?\.m3u8", page.content())
     video_urls = list(dict.fromkeys(video_urls))
 
     return {
