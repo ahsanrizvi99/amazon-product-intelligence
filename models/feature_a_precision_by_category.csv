@@ -1,0 +1,29 @@
+category,embedding,hybrid,tfidf
+bluetooth speaker,0.2,0.2,0.2
+budget laptop,0.4,0.4,0.4
+coffee maker,0.4,0.4,0.4
+phone case,0.2,0.4,0.4
+sneakers,0.6,0.6,0.6
+t-shirt,0.8,0.8,0.6
+gaming chair,1.0,1.0,0.8
+DSLR camera,0.8,0.8,0.8
+smartwatch,0.4,0.6,0.8
+sunglasses,1.0,1.0,0.8
+electric toothbrush,1.0,1.0,1.0
+desk lamp LED,1.0,1.0,1.0
+candle,1.0,1.0,1.0
+backpack,1.0,1.0,1.0
+USB-C hub,0.6,1.0,1.0
+air purifier,1.0,1.0,1.0
+monitor 27 inch,1.0,1.0,1.0
+mechanical keyboard,1.0,1.0,1.0
+kitchen knife set,1.0,1.0,1.0
+instant pot,1.0,1.0,1.0
+gaming mouse,0.8,1.0,1.0
+portable charger,1.0,1.0,1.0
+notebook journal,1.0,1.0,1.0
+phone stand,1.0,1.0,1.0
+water bottle,1.0,1.0,1.0
+webcam HD,1.0,1.0,1.0
+wireless earbuds,1.0,1.0,1.0
+yamaha acoustic guitar,0.8,1.0,1.0
