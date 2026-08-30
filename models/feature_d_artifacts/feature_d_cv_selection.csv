@@ -1,0 +1,4 @@
+model,cv_macro_f1,cv_std
+Random Forest,0.509,0.041
+Gradient Boosting,0.498,0.014
+Logistic Regression,0.482,0.033

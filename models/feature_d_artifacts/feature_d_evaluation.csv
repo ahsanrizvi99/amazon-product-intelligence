@@ -1,0 +1,2 @@
+selected_model,cv_macro_f1,cv_std,test_accuracy,test_macro_f1,baseline_macro_f1
+Random Forest,0.509,0.041,0.4205607476635514,0.4063292507504137,0.171
