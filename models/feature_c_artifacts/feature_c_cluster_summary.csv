@@ -1,0 +1,26 @@
+cluster,size,dominant_category,purity_%
+0,45,yamaha acoustic guitar,97.8
+1,21,instant pot,100.0
+2,39,t-shirt,100.0
+3,34,USB-C hub,64.7
+4,58,sneakers,100.0
+5,48,desk lamp LED,97.9
+6,48,sunglasses,100.0
+7,55,kitchen knife set,96.4
+8,50,candle,94.0
+9,63,water bottle,65.1
+10,58,electric toothbrush,94.8
+11,22,monitor 27 inch,100.0
+12,57,gaming chair,100.0
+13,59,coffee maker,98.3
+14,61,notebook journal,93.4
+15,17,backpack,94.1
+16,47,webcam HD,42.6
+17,35,gaming mouse,54.3
+18,21,t-shirt,95.2
+19,16,DSLR camera,100.0
+20,19,smartwatch,100.0
+21,26,air purifier,73.1
+22,53,wireless earbuds,30.2
+23,32,phone case,59.4
+24,20,budget laptop,100.0

@@ -1,0 +1,4 @@
+method,n_clusters,silhouette
+KMeans (k=25),25,0.1739
+Agglomerative (k=25),25,0.1643
+DBSCAN,19,0.3731
