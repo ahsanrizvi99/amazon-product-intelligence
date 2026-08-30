@@ -2,4 +2,7 @@ playwright
 pandas
 jupyter
 streamlit
-openpyxl
+scikit-learn
+joblib
+numpy
+matplotlib
