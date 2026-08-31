@@ -199,7 +199,9 @@ logs/           Scraping request logs
 ## 👨‍💻 Author
 
 **Ahsan Rizvi**
+
 AI Engineer Trainee — YSD Training Program, Batch 05
+
 Trainee ID: 30219
 
 
