@@ -11,6 +11,11 @@ import plotly.graph_objects as go
 from pathlib import Path
 from sklearn.metrics.pairwise import cosine_similarity
 
+# NOTE ON STREAMLIT VERSION
+# This file uses st.dialog (modal popups, Streamlit >= 1.31) and
+# st.link_button (Streamlit >= 1.27). If either call errors out on your
+# installed version, run `pip install -U streamlit` first.
+
 # ============================================================
 # CONFIGURATION & PATHS
 # ============================================================
@@ -152,6 +157,77 @@ div[data-testid="stRadio"] label:hover { background: var(--blue-soft); }
 }
 
 div[data-testid="stDataFrame"] { border: 1px solid var(--line); border-radius: 18px; overflow: hidden; box-shadow: var(--shadow-sm); }
+
+/* ============================================================
+   CLICKABLE PRODUCT GRID (Overview)
+   ============================================================ */
+.product-tile-inner {
+    background: var(--surface-solid);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 0.9rem 0.9rem 0.7rem;
+    box-shadow: var(--shadow-sm);
+    margin-bottom: -0.6rem;
+    transition: transform .28s cubic-bezier(.16,1,.3,1), box-shadow .28s ease, border-color .28s ease;
+}
+.product-tile-inner:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--line-strong);
+}
+.product-tile-inner img { width: 100%; height: 118px; object-fit: contain; border-radius: 10px; background: #fafcfe; margin-bottom: .6rem; }
+.pt-cat { font-size: .62rem; font-weight: 800; letter-spacing: .07em; color: var(--muted); text-transform: uppercase; margin-bottom: .3rem; }
+.pt-title { font-size: .85rem; font-weight: 700; line-height: 1.3; height: 2.6em; overflow: hidden; margin-bottom: .5rem; color: var(--ink); }
+.pt-bottom { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: .3rem; }
+.pt-price { font-weight: 800; color: #1d6fa9; font-size: 1.02rem; }
+.pt-rating { font-size: .72rem; color: var(--muted); }
+
+/* Every st.button in this app is a "view details" / quick-action
+   trigger, so it's safe to theme all buttons the same premium way. */
+.stButton > button {
+    border-radius: 999px !important;
+    border: 1px solid var(--line-strong) !important;
+    background: var(--surface-solid) !important;
+    color: var(--blue-dark) !important;
+    font-weight: 700 !important;
+    font-size: 0.82rem !important;
+    padding: 0.45rem 1rem !important;
+    transition: all .2s cubic-bezier(.16,1,.3,1) !important;
+    box-shadow: var(--shadow-sm) !important;
+}
+.stButton > button:hover {
+    background: var(--blue-dark) !important;
+    color: #fff !important;
+    border-color: var(--blue-dark) !important;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md) !important;
+}
+.stLinkButton > a {
+    border-radius: 999px !important;
+    font-weight: 700 !important;
+    transition: all .2s cubic-bezier(.16,1,.3,1) !important;
+}
+
+/* ============================================================
+   PRODUCT DETAIL MODAL — smooth, premium entrance
+   Streamlit doesn't publish stable class/testid names for
+   st.dialog's internal DOM, so these selectors target the ones
+   commonly used in recent releases. If your installed version
+   renders the dialog without this animation, it still opens and
+   closes correctly — it just skips the extra motion.
+   ============================================================ */
+div[data-testid="stDialog"] { animation: piOverlayFade .22s ease-out; }
+div[data-testid="stDialog"] [role="dialog"],
+div[data-testid="stDialog"] > div > div {
+    animation: piDialogPop .38s cubic-bezier(0.16, 1, 0.3, 1);
+    border-radius: 26px !important;
+    box-shadow: var(--shadow-lg) !important;
+}
+@keyframes piOverlayFade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes piDialogPop {
+    from { opacity: 0; transform: scale(.93) translateY(18px); }
+    to   { opacity: 1; transform: scale(1) translateY(0); }
+}
 </style>
 """)
 
@@ -217,6 +293,10 @@ def get_image_fallback(url):
         "https://dummyimage.com/200x200/eef7ff/102a43&text=No+Image"
 
 
+def get_amazon_url(asin):
+    return f"https://www.amazon.com/dp/{asin}"
+
+
 def render_product_card(product, extra_meta=""):
     md(f"""
     <div class="product-row animate-in">
@@ -232,11 +312,123 @@ def render_product_card(product, extra_meta=""):
 
 
 # ============================================================
+# PRODUCT DETAIL POPUP
+# Triggered from anywhere in the app by calling
+# show_product_details(asin) inside an `if st.button(...):` block.
+# ============================================================
+@st.dialog("Product Details")
+def show_product_details(asin):
+    match = df_all[df_all["asin"] == asin]
+    if match.empty:
+        st.error("Product not found.")
+        return
+    product = match.iloc[0]
+
+    brand_html = ""
+    if pd.notna(product.get("brand")) and str(product.get("brand")).strip():
+        brand_html = f" &nbsp;·&nbsp; {esc(product['brand'])}"
+
+    col_img, col_info = st.columns([1, 1.4])
+
+    with col_img:
+        md(f"""
+        <img src="{get_image_fallback(product['main_image_url'])}"
+             onerror="this.onerror=null;this.src='https://dummyimage.com/200x200/eef7ff/102a43&text=No+Image';"
+             style="width:100%; max-height:280px; object-fit:contain; border-radius:16px; background:#fafcfe;">
+        """)
+        st.link_button("View on Amazon ↗", get_amazon_url(asin), use_container_width=True)
+
+    with col_info:
+        rating_txt = f"⭐ {product['rating']:.1f}" if pd.notna(product["rating"]) else "No rating yet"
+        count = int(product["review_count"]) if pd.notna(product["review_count"]) else 0
+        md(f"""
+        <div class="pt-cat">{esc(product['search_keyword'])}{brand_html}</div>
+        <div class="product-row-title" style="font-size:1.32rem; margin:0.35rem 0 0.6rem;">{esc(product['title'])}</div>
+        <div style="display:flex; align-items:baseline; gap:0.9rem; margin-bottom:0.9rem;">
+            <span class="product-row-price" style="font-size:1.55rem;">${product['price']:.2f}</span>
+            <span style="color:var(--muted); font-size:0.85rem;">{rating_txt} &nbsp;·&nbsp; {count:,} ratings</span>
+        </div>
+        """)
+
+        bp = product.get("bullet_points", [])
+        if not isinstance(bp, list):
+            bp = []
+        if bp:
+            md('<div class="panel-head" style="text-align:left; margin-bottom:0.4rem;">Highlights</div>')
+            items = "".join(f"<li>{esc(b)}</li>" for b in bp[:6])
+            md(f"<ul style='margin:0 0 0.2rem 1.1rem; padding:0; color:var(--ink); "
+               f"font-size:0.87rem; line-height:1.55;'>{items}</ul>")
+
+    st.divider()
+
+    reviews = product.get("reviews", [])
+    if not isinstance(reviews, list):
+        reviews = []
+
+    if reviews:
+        sentiments = [star_sentiment(r) for r in reviews]
+        pos, neu, neg = sentiments.count("positive"), sentiments.count("neutral"), sentiments.count("negative")
+
+        md('<div class="panel-head" style="text-align:left;">Customer sentiment</div>')
+        md(f"""
+        <div style="margin-bottom:0.9rem;">
+            <span class="pill pos">{pos} positive</span>
+            <span class="pill neu">{neu} neutral</span>
+            <span class="pill neg">{neg} negative</span>
+        </div>
+        """)
+
+        for r, s in list(zip(reviews, sentiments))[:3]:
+            try:
+                star_val = round(float(re.search(r"([\d.]+)", str(r.get("rating", "0"))).group(1)))
+            except Exception:
+                star_val = 0
+            css = {"positive": "green", "neutral": "orange", "negative": "red"}.get(s, "blue")
+            with st.expander(f"{'⭐' * star_val} — {r.get('title', 'Review')[:60]}"):
+                md(f'<span class="tag-pill tag-{css}">{s.upper()}</span>')
+                st.write(r.get("body_en") or r.get("body") or "No text provided.")
+
+        if len(reviews) > 3:
+            st.caption(f"+ {len(reviews) - 3} more review(s) in the full sentiment view →")
+    else:
+        st.info("No scraped reviews available for this product.")
+
+    st.divider()
+    md('<div class="panel-head" style="text-align:left;">Explore this product further</div>')
+
+    qa1, qa2, qa3, qa4 = st.columns(4)
+    with qa1:
+        if st.button("🔍 Similar", key="qa_a", use_container_width=True):
+            st.session_state["nav_radio"] = "Feature A: Similarity"
+            st.session_state["category_filter"] = "All"
+            st.session_state["a_mode"] = "Target Product"
+            st.session_state["sel_a"] = product["title"]
+            st.rerun()
+    with qa2:
+        if st.button("💬 Sentiment", key="qa_b", use_container_width=True):
+            st.session_state["nav_radio"] = "Feature B: Sentiment"
+            st.session_state["category_filter"] = "All"
+            st.session_state["sel_b"] = product["title"]
+            st.rerun()
+    with qa3:
+        if st.button("🖼️ Visual group", key="qa_c", use_container_width=True):
+            st.session_state["nav_radio"] = "Feature C: Visual Groups"
+            st.session_state["c_search"] = product["title"]
+            st.rerun()
+    with qa4:
+        if st.button("🏷️ Price tier", key="qa_d", use_container_width=True):
+            st.session_state["nav_radio"] = "Feature D: Price Tier"
+            st.session_state["category_filter"] = "All"
+            st.session_state["sel_d"] = product["title"]
+            st.rerun()
+
+
+# ============================================================
 # LOAD DATA
 # ============================================================
-df = load_products()
+df_all = load_products()
 
-if df.empty:
+if df_all.empty:
     st.error("Dataset not found. Ensure products_cleaned.json exists.")
     st.stop()
 
@@ -246,6 +438,7 @@ app_mode = st.radio(
      "Feature C: Visual Groups", "Feature D: Price Tier"],
     horizontal=True,
     label_visibility="collapsed",
+    key="nav_radio",
 )
 
 topbar_map = {
@@ -257,11 +450,14 @@ topbar_map = {
 }
 render_topbar(*topbar_map[app_mode])
 
+df = df_all.copy()
+
 if app_mode in ["Feature A: Similarity", "Feature B: Sentiment", "Feature D: Price Tier"]:
     c1, _ = st.columns([1, 4])
     with c1:
         keyword_list = ["All"] + sorted(df["search_keyword"].dropna().unique().tolist())
-        selected_keyword = st.selectbox("Category Filter", keyword_list, label_visibility="collapsed")
+        selected_keyword = st.selectbox("Category Filter", keyword_list,
+                                         label_visibility="collapsed", key="category_filter")
     if selected_keyword != "All":
         df = df[df["search_keyword"] == selected_keyword]
 
@@ -270,7 +466,7 @@ if df.empty:
     st.stop()
 
 # ============================================================
-# OVERVIEW
+# OVERVIEW — clickable product grid
 # ============================================================
 if app_mode == "Overview":
     md(f"""
@@ -281,12 +477,78 @@ if app_mode == "Overview":
         <div class="stat"><div class="stat-lbl">Avg Rating</div><div class="stat-val">⭐ {df["rating"].mean():.2f}</div></div>
     </div>
     """)
-    st.dataframe(
-        df.drop(columns=["reviews", "bullet_points"], errors="ignore"),
-        column_config={"main_image_url": st.column_config.ImageColumn("Thumbnail")},
-        use_container_width=True,
-        height=550,
-    )
+
+    search_col, _ = st.columns([2, 3])
+    with search_col:
+        search_q = st.text_input(
+            "Search products",
+            placeholder="🔍 Search by title or brand…",
+            label_visibility="collapsed",
+            key="overview_search",
+        )
+
+    view_df = df
+    if search_q:
+        q = search_q.strip().lower()
+        mask = (
+            view_df["title"].str.lower().str.contains(q, na=False)
+            | view_df["brand"].astype(str).str.lower().str.contains(q, na=False)
+        )
+        view_df = view_df[mask]
+
+    # Reset to page 1 whenever the search term changes
+    if st.session_state.get("_last_search") != search_q:
+        st.session_state["overview_page"] = 0
+        st.session_state["_last_search"] = search_q
+
+    PAGE_SIZE = 20
+    N_COLS = 5
+    total = len(view_df)
+    total_pages = max(1, -(-total // PAGE_SIZE))  # ceil division
+    page = max(0, min(st.session_state.get("overview_page", 0), total_pages - 1))
+    start = page * PAGE_SIZE
+    page_df = view_df.iloc[start:start + PAGE_SIZE]
+
+    if page_df.empty:
+        st.info("No products match your search.")
+    else:
+        for row_start in range(0, len(page_df), N_COLS):
+            row_products = page_df.iloc[row_start:row_start + N_COLS]
+            cols = st.columns(N_COLS)
+            for col, (_, product) in zip(cols, row_products.iterrows()):
+                with col:
+                    rating_txt = f"⭐ {product['rating']:.1f}" if pd.notna(product["rating"]) else "No rating"
+                    md(f"""
+                    <div class="product-tile-inner animate-in">
+                        <img src="{get_image_fallback(product['main_image_url'])}"
+                             onerror="this.onerror=null;this.src='https://dummyimage.com/200x200/eef7ff/102a43&text=No+Image';">
+                        <div class="pt-cat">{esc(product['search_keyword'])}</div>
+                        <div class="pt-title">{esc(product['title'])}</div>
+                        <div class="pt-bottom">
+                            <span class="pt-price">${product['price']:.2f}</span>
+                            <span class="pt-rating">{rating_txt}</span>
+                        </div>
+                    </div>
+                    """)
+                    if st.button("View details →", key=f"tile_{product['asin']}", use_container_width=True):
+                        show_product_details(product["asin"])
+
+    st.markdown("<div style='height:0.6rem'></div>", unsafe_allow_html=True)
+    nav_l, nav_mid, nav_r = st.columns([1, 2, 1])
+    with nav_l:
+        if st.button("← Previous", disabled=page <= 0, key="prev_page"):
+            st.session_state["overview_page"] = page - 1
+            st.rerun()
+    with nav_mid:
+        md(f"""
+        <div style="text-align:center; color:var(--muted); font-size:0.85rem; padding-top:0.55rem;">
+            Page {page + 1} of {total_pages} &nbsp;·&nbsp; {total:,} products
+        </div>
+        """)
+    with nav_r:
+        if st.button("Next →", disabled=page >= total_pages - 1, key="next_page"):
+            st.session_state["overview_page"] = page + 1
+            st.rerun()
 
 # ============================================================
 # FEATURE A — SIMILARITY
@@ -297,7 +559,8 @@ elif app_mode == "Feature A: Similarity":
         st.warning("Model files missing.")
     else:
         tfidf, matrix, asins = fa["vectorizer"], fa["matrix"], fa["asins"]
-        mode = st.radio("Search by", ["Target Product", "Text Description"], horizontal=True)
+        mode = st.radio("Search by", ["Target Product", "Text Description"],
+                         horizontal=True, key="a_mode")
 
         def render_carousel(cards):
             body = "".join(cards)
@@ -305,9 +568,11 @@ elif app_mode == "Feature A: Similarity":
 
         if mode == "Target Product":
             selected_title = st.selectbox("Select product", df["title"].tolist(),
-                                          label_visibility="collapsed")
+                                          label_visibility="collapsed", key="sel_a")
             product = df[df["title"] == selected_title].iloc[0]
             render_product_card(product, extra_meta=" &nbsp;·&nbsp; TARGET PRODUCT")
+            if st.button("View full details", key="details_a"):
+                show_product_details(product["asin"])
             st.markdown("**Similar products**")
 
             if product["asin"] not in asins:
@@ -388,10 +653,13 @@ elif app_mode == "Feature A: Similarity":
 # FEATURE B — SENTIMENT
 # ============================================================
 elif app_mode == "Feature B: Sentiment":
-    selected_title = st.selectbox("Select product", df["title"].tolist(), label_visibility="collapsed")
+    selected_title = st.selectbox("Select product", df["title"].tolist(),
+                                  label_visibility="collapsed", key="sel_b")
     product = df[df["title"] == selected_title].iloc[0]
     count = int(product["review_count"]) if pd.notna(product["review_count"]) else 0
     render_product_card(product, extra_meta=f" &nbsp;·&nbsp; {count:,} ratings")
+    if st.button("View full details", key="details_b"):
+        show_product_details(product["asin"])
 
     reviews = product.get("reviews", [])
     if not reviews:
@@ -512,6 +780,8 @@ elif app_mode == "Feature C: Visual Groups":
 
                 render_product_card(target_product,
                                     extra_meta=f" &nbsp;·&nbsp; cluster {cid} · {len(merged_s)} similar-looking items")
+                if st.button("View full details", key="details_c"):
+                    show_product_details(target_product["asin"])
                 render_cluster_grid(merged_s, highlight_asin=target_product["asin"])
 
     st.caption("CLIP image embeddings clustered with KMeans (k=25), fitted without "
@@ -525,9 +795,12 @@ elif app_mode == "Feature D: Price Tier":
     if not fd:
         st.warning("Model file missing.")
     else:
-        selected_title = st.selectbox("Select product", df["title"].tolist(), label_visibility="collapsed")
+        selected_title = st.selectbox("Select product", df["title"].tolist(),
+                                      label_visibility="collapsed", key="sel_d")
         product = df[df["title"] == selected_title].iloc[0]
         render_product_card(product)
+        if st.button("View full details", key="details_d"):
+            show_product_details(product["asin"])
 
         bp = product.get("bullet_points", [])
         if not isinstance(bp, list):
