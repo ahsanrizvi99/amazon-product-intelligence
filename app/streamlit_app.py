@@ -8,25 +8,26 @@ from pathlib import Path
 from sklearn.metrics.pairwise import cosine_similarity
 
 
+# ──────────────────────────────────────────────────────────────
+# Paths & Page Config
+# ──────────────────────────────────────────────────────────────
+
 ROOT = Path(__file__).resolve().parent.parent
 DATA_FILE = ROOT / "data" / "cleaned" / "products_cleaned.json"
 MODEL_DIR = ROOT / "models"
 
-
-# ──────────────────────────────────────────────────────────────
-# Page configuration
-# ──────────────────────────────────────────────────────────────
 st.set_page_config(
     page_title="Product Intelligence",
     page_icon="◆",
     layout="wide",
-    initial_sidebar_state="expanded",
+    initial_sidebar_state="collapsed",
 )
 
 
 # ──────────────────────────────────────────────────────────────
-# Custom CSS
+# Styling
 # ──────────────────────────────────────────────────────────────
+
 st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap');
@@ -69,7 +70,6 @@ html, body, [class*="css"], .stApp {
     background: #bfe7ff;
     color: var(--ink);
 }
-
 
 /* ── top chrome ───────────────────────────────────────────── */
 
@@ -146,7 +146,7 @@ html, body, [class*="css"], .stApp {
     border: 1px solid rgba(185,216,239,.8);
     box-shadow: var(--shadow-sm);
     border-radius: 14px;
-    margin: 0 0 1.5rem 0;
+    margin: 0 0 1.2rem 0;
     padding: .7rem 1rem;
     color: #54728a;
     font-size: .79rem;
@@ -157,6 +157,29 @@ html, body, [class*="css"], .stApp {
 .subbar b {
     color: var(--blue-dark);
     font-weight: 800;
+}
+
+
+/* ── top controls ─────────────────────────────────────────── */
+
+.control-bar {
+    background: rgba(255,255,255,.72);
+    backdrop-filter: blur(14px);
+    border: 1px solid rgba(185,216,239,.8);
+    box-shadow: var(--shadow-sm);
+    border-radius: 18px;
+    padding: 1rem 1.1rem;
+    margin-bottom: 1.25rem;
+    animation: riseIn .7s .1s ease both;
+}
+
+.control-label {
+    font-size: .63rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 800;
+    margin-bottom: .35rem;
 }
 
 
@@ -478,34 +501,6 @@ html, body, [class*="css"], .stApp {
 }
 
 
-/* ── sidebar ─────────────────────────────────────────────── */
-
-section[data-testid="stSidebar"] {
-    background: linear-gradient(
-        180deg,
-        #eef8ff 0%,
-        #e8f4fc 100%
-    );
-    border-right: 1px solid #cfe2f1;
-    box-shadow: 8px 0 30px rgba(42,105,146,.07);
-}
-
-section[data-testid="stSidebar"] h2 {
-    font-family: 'Manrope', sans-serif;
-    font-size: .76rem;
-    letter-spacing: .13em;
-    text-transform: uppercase;
-    color: #4c718c;
-    font-weight: 800;
-}
-
-section[data-testid="stSidebar"]
-[data-testid="stWidgetLabel"] p {
-    color: #486b83;
-    font-weight: 700;
-}
-
-
 /* ── inputs ──────────────────────────────────────────────── */
 
 .stTextInput input,
@@ -555,11 +550,7 @@ hr {
 /* ── footer ──────────────────────────────────────────────── */
 
 .foot {
-    background: linear-gradient(
-        135deg,
-        #d9efff 0%,
-        #cbe9f8 100%
-    );
+    background: linear-gradient(135deg, #d9efff 0%, #cbe9f8 100%);
     color: #58758a;
     border: 1px solid #c2ddeb;
     border-radius: 20px;
@@ -578,6 +569,16 @@ hr {
 .foot .accent {
     color: var(--blue-dark);
 }
+
+
+/* ── Completely hide Streamlit sidebar ───────────────────── */
+
+section[data-testid="stSidebar"] {
+    display: none;
+}
+
+
+/* ── Hide Streamlit chrome ───────────────────────────────── */
 
 #MainMenu,
 footer,
@@ -601,7 +602,7 @@ header {
 }
 
 
-/* ── responsive ─────────────────────────────────────────── */
+/* ── responsive ──────────────────────────────────────────── */
 
 @media (max-width: 900px) {
     .block-container {
@@ -624,6 +625,7 @@ header {
 # ──────────────────────────────────────────────────────────────
 # Loaders
 # ──────────────────────────────────────────────────────────────
+
 @st.cache_data
 def load_products():
     with open(DATA_FILE, encoding="utf-8") as f:
@@ -651,6 +653,7 @@ def load_feature_d():
 # ──────────────────────────────────────────────────────────────
 # Helpers
 # ──────────────────────────────────────────────────────────────
+
 def stars(rating):
     if pd.isna(rating):
         return ""
@@ -666,9 +669,6 @@ def stars(rating):
 
 
 def price_html(value, imputed=False):
-    if pd.isna(value):
-        return '<span class="price">Price unavailable</span>'
-
     whole, cents = f"{value:.2f}".split(".")
 
     est = (
@@ -695,91 +695,145 @@ def star_sentiment(review):
     if not m:
         return "unknown"
 
-    value = float(m.group(1))
+    v = float(m.group(1))
 
-    if value >= 4:
+    if v >= 4:
         return "positive"
-    elif value == 3:
+
+    if v == 3:
         return "neutral"
-    else:
-        return "negative"
+
+    return "negative"
 
 
 # ──────────────────────────────────────────────────────────────
-# Load dataset
+# Data
 # ──────────────────────────────────────────────────────────────
+
 df = load_products()
 
 
 # ──────────────────────────────────────────────────────────────
 # Header
 # ──────────────────────────────────────────────────────────────
+
 st.markdown(
     '<div class="topbar">'
     '<div class="mark">product<span>intelligence</span></div>'
     '<div class="tag">Amazon marketplace analysis</div>'
     '</div>'
-    '<div class="subbar">'
+
+    f'<div class="subbar">'
     f'<b>{len(df):,}</b> products &nbsp;·&nbsp; '
     f'<b>{df["search_keyword"].nunique()}</b> categories &nbsp;·&nbsp; '
     f'<b>{sum(len(r) for r in df["reviews"]):,}</b> reviews collected'
-    '</div>',
+    f'</div>',
     unsafe_allow_html=True,
 )
 
 
 # ──────────────────────────────────────────────────────────────
-# Sidebar
+# TOP NAVIGATION + FILTERS
 # ──────────────────────────────────────────────────────────────
-st.sidebar.markdown("## View")
 
-view = st.sidebar.radio(
-    "Mode",
-    ["Catalogue", "Single product"],
-    label_visibility="collapsed"
+st.markdown('<div class="control-bar">', unsafe_allow_html=True)
+
+c1, c2, c3, c4 = st.columns(
+    [1.1, 2.6, 1.7, 1.7],
+    gap="medium"
 )
 
-st.sidebar.markdown("## Filter")
+with c1:
+    st.markdown(
+        '<div class="control-label">View</div>',
+        unsafe_allow_html=True
+    )
 
-category = st.sidebar.selectbox(
-    "Category",
-    [
-        "All categories"
-    ] + sorted(df["search_keyword"].unique().tolist())
-)
+    view = st.radio(
+        "Mode",
+        ["Catalogue", "Single product"],
+        horizontal=True,
+        label_visibility="collapsed"
+    )
 
-filtered = (
-    df
-    if category == "All categories"
-    else df[df["search_keyword"] == category]
-)
+with c2:
+    st.markdown(
+        '<div class="control-label">Search products</div>',
+        unsafe_allow_html=True
+    )
+
+    search = st.text_input(
+        "Search",
+        placeholder="Search product titles...",
+        label_visibility="collapsed"
+    )
+
+with c3:
+    st.markdown(
+        '<div class="control-label">Category</div>',
+        unsafe_allow_html=True
+    )
+
+    category = st.selectbox(
+        "Category",
+        ["All categories"]
+        + sorted(df["search_keyword"].unique().tolist()),
+        label_visibility="collapsed"
+    )
+
+with c4:
+    st.markdown(
+        '<div class="control-label">Sort</div>',
+        unsafe_allow_html=True
+    )
+
+    sort_by = st.selectbox(
+        "Sort",
+        [
+            "Relevance",
+            "Price: low to high",
+            "Price: high to low",
+            "Highest rated",
+            "Most reviewed"
+        ],
+        label_visibility="collapsed"
+    )
+
+st.markdown('</div>', unsafe_allow_html=True)
 
 
 # ──────────────────────────────────────────────────────────────
-# Sidebar sorting
+# Filtering
 # ──────────────────────────────────────────────────────────────
-sort_by = st.sidebar.selectbox(
-    "Sort by",
-    [
-        "Relevance",
-        "Price: low to high",
-        "Price: high to low",
-        "Highest rated",
-        "Most reviewed"
+
+filtered = df.copy()
+
+if category != "All categories":
+    filtered = filtered[
+        filtered["search_keyword"] == category
     ]
-)
+
+if search:
+    filtered = filtered[
+        filtered["title"].str.contains(
+            search,
+            case=False,
+            na=False
+        )
+    ]
+
+
+# ──────────────────────────────────────────────────────────────
+# Sorting
+# ──────────────────────────────────────────────────────────────
 
 if sort_by == "Price: low to high":
-    filtered = filtered.sort_values(
-        "price",
-        na_position="last"
-    )
+    filtered = filtered.sort_values("price")
 
 elif sort_by == "Price: high to low":
     filtered = filtered.sort_values(
         "price",
-        ascending=False,
-        na_position="last"
+        ascending=False
     )
 
 elif sort_by == "Highest rated":
@@ -797,14 +851,10 @@ elif sort_by == "Most reviewed":
     )
 
 
-st.sidebar.caption(
-    f"{len(filtered)} matching products"
-)
-
-
 # ──────────────────────────────────────────────────────────────
-# Stop if sidebar filters return nothing
+# Empty result
 # ──────────────────────────────────────────────────────────────
+
 if len(filtered) == 0:
     st.warning(
         "No products match those filters. "
@@ -816,29 +866,9 @@ if len(filtered) == 0:
 # ──────────────────────────────────────────────────────────────
 # CATALOGUE VIEW
 # ──────────────────────────────────────────────────────────────
+
 if view == "Catalogue":
 
-    # ──────────────────────────────────────────────────────────
-    # Working search bar moved from sidebar to top
-    # ──────────────────────────────────────────────────────────
-    search = st.text_input(
-        "Search products",
-        placeholder="Search 1,005 products…",
-        label_visibility="collapsed"
-    )
-
-    if search:
-        filtered = filtered[
-            filtered["title"].str.contains(
-                search,
-                case=False,
-                na=False
-            )
-        ]
-
-    # ──────────────────────────────────────────────────────────
-    # Pagination
-    # ──────────────────────────────────────────────────────────
     per_page = 24
 
     pages = max(
@@ -846,16 +876,52 @@ if view == "Catalogue":
         -(-len(filtered) // per_page)
     )
 
-    page = (
-        st.sidebar.number_input(
-            "Page",
-            min_value=1,
-            max_value=pages,
-            value=1
+    if pages > 1:
+        page_col1, page_col2 = st.columns(
+            [1, 5],
+            gap="medium"
         )
-        if pages > 1
-        else 1
-    )
+
+        with page_col1:
+            page = st.number_input(
+                "Page",
+                min_value=1,
+                max_value=pages,
+                value=1,
+                step=1
+            )
+
+        with page_col2:
+            category_text = (
+                ""
+                if category == "All categories"
+                else f" in {category}"
+            )
+
+            st.markdown(
+                f'<div class="rowmeta" '
+                f'style="padding-top:1.9rem">'
+                f'{len(filtered)} products{category_text}'
+                f' · page {page} of {pages}'
+                f'</div>',
+                unsafe_allow_html=True
+            )
+    else:
+        page = 1
+
+        category_text = (
+            ""
+            if category == "All categories"
+            else f" in {category}"
+        )
+
+        st.markdown(
+            f'<div class="rowmeta" '
+            f'style="margin-bottom:1rem">'
+            f'{len(filtered)} products{category_text}'
+            f'</div>',
+            unsafe_allow_html=True
+        )
 
     page_items = filtered.iloc[
         (page - 1) * per_page:
@@ -863,113 +929,66 @@ if view == "Catalogue":
     ]
 
 
-    # ──────────────────────────────────────────────────────────
-    # Meta information
-    # ──────────────────────────────────────────────────────────
-    category_text = (
-        ""
-        if category == "All categories"
-        else f" in {category}"
-    )
+    # ── Product grid ─────────────────────────────────────────
 
-    page_text = (
-        f" · page {page} of {pages}"
-        if pages > 1
-        else ""
-    )
+    for start in range(
+        0,
+        len(page_items),
+        4
+    ):
 
-    st.markdown(
-        f'<div class="rowmeta" style="margin-bottom:1rem">'
-        f'{len(filtered)} products'
-        f'{category_text}'
-        f'{page_text}'
-        f'</div>',
-        unsafe_allow_html=True
-    )
-
-
-    # ──────────────────────────────────────────────────────────
-    # Product grid
-    # ──────────────────────────────────────────────────────────
-    if len(page_items) == 0:
-
-        st.info(
-            "No products match your search. "
-            "Try a broader search."
+        cols = st.columns(
+            4,
+            gap="medium"
         )
 
-    else:
-
-        for start in range(
-            0,
-            len(page_items),
-            4
+        for col, (_, p) in zip(
+            cols,
+            page_items.iloc[start:start + 4].iterrows()
         ):
 
-            cols = st.columns(
-                4,
-                gap="medium"
-            )
+            with col:
 
-            for col, (_, p) in zip(
-                cols,
-                page_items.iloc[start:start + 4].iterrows()
-            ):
-
-                with col:
-
-                    if p["main_image_url"]:
-                        st.image(
-                            p["main_image_url"],
-                            use_container_width=True
-                        )
-
-                    title = str(p["title"])
-
-                    display_title = (
-                        title[:58] + "…"
-                        if len(title) > 58
-                        else title
+                if p["main_image_url"]:
+                    st.image(
+                        p["main_image_url"],
+                        use_container_width=True
                     )
 
-                    price = (
-                        f"${p['price']:.0f}"
-                        if pd.notna(p["price"])
-                        else "Price unavailable"
-                    )
+                st.markdown(
+                    f'<div class="tiletitle">'
+                    f'{p["title"][:58]}'
+                    f'{"…" if len(p["title"]) > 58 else ""}'
+                    f'</div>'
 
-                    st.markdown(
-                        f'<div class="tiletitle">'
-                        f'{display_title}'
-                        f'</div>'
-                        f'<div class="tileprice">'
-                        f'{price}'
-                        f'<span class="tilerating">'
-                        f'{stars(p["rating"])}'
-                        f'</span>'
-                        f'</div>'
-                        f'<div class="tilecat">'
-                        f'{p["search_keyword"]}'
-                        f'</div>',
-                        unsafe_allow_html=True
-                    )
+                    f'<div class="tileprice">'
+                    f'${p["price"]:.0f}'
+                    f'<span class="tilerating">'
+                    f'{stars(p["rating"])}'
+                    f'</span>'
+                    f'</div>'
 
-            st.markdown(
-                "<div style='height:1.4rem'></div>",
-                unsafe_allow_html=True
-            )
+                    f'<div class="tilecat">'
+                    f'{p["search_keyword"]}'
+                    f'</div>',
+                    unsafe_allow_html=True
+                )
+
+        st.markdown(
+            "<div style='height:1.4rem'></div>",
+            unsafe_allow_html=True
+        )
 
 
-    # ──────────────────────────────────────────────────────────
-    # Footer
-    # ──────────────────────────────────────────────────────────
+    # ── Footer ───────────────────────────────────────────────
+
     st.markdown(
         '<div class="foot">'
         'Built by <b>Ahsan Rizvi</b> '
         '&nbsp;<span class="accent">·</span>&nbsp; '
         'YSD Training Program, Batch 05<br>'
-        'Data collected from public Amazon listings with '
-        'a purpose-built Playwright pipeline. '
+        'Data collected from public Amazon listings '
+        'with a purpose-built Playwright pipeline. '
         'Not affiliated with Amazon.'
         '</div>',
         unsafe_allow_html=True
@@ -981,12 +1000,30 @@ if view == "Catalogue":
 # ──────────────────────────────────────────────────────────────
 # SINGLE PRODUCT VIEW
 # ──────────────────────────────────────────────────────────────
-selected_title = st.sidebar.selectbox(
+
+st.markdown(
+    '<div class="control-bar">',
+    unsafe_allow_html=True
+)
+
+st.markdown(
+    '<div class="control-label">Select Product</div>',
+    unsafe_allow_html=True
+)
+
+selected_title = st.selectbox(
     "Product",
     filtered["title"].tolist(),
     format_func=lambda t:
-        t[:60] + ("…" if len(t) > 60 else "")
+        t[:90] + ("…" if len(t) > 90 else ""),
+    label_visibility="collapsed"
 )
+
+st.markdown(
+    '</div>',
+    unsafe_allow_html=True
+)
+
 
 product = filtered[
     filtered["title"] == selected_title
@@ -994,13 +1031,13 @@ product = filtered[
 
 
 # ──────────────────────────────────────────────────────────────
-# Product header
+# Product Header
 # ──────────────────────────────────────────────────────────────
+
 img_col, info_col = st.columns(
     [1, 2],
     gap="large"
 )
-
 
 with img_col:
 
@@ -1017,6 +1054,7 @@ with info_col:
         f'<div class="ptitle">'
         f'{product["title"]}'
         f'</div>'
+
         f'<div class="brandline">'
         f'{product["brand"] or "Brand not listed"}'
         f' &nbsp;·&nbsp; '
@@ -1082,11 +1120,12 @@ with info_col:
 
 
     st.markdown(
-        f'<div class="meta" style="margin-top:.9rem">'
+        f'<div class="meta" '
+        f'style="margin-top:.9rem">'
         f'ASIN {product["asin"]}'
         f' &nbsp;·&nbsp; '
         f'<a href="https://www.amazon.com/dp/'
-        f'{product["asin"]}">'
+        f'{product["asin"]}" target="_blank">'
         f'View on Amazon ›'
         f'</a>'
         f'</div>',
@@ -1095,8 +1134,9 @@ with info_col:
 
 
 # ──────────────────────────────────────────────────────────────
-# Product details
+# Product Details
 # ──────────────────────────────────────────────────────────────
+
 bullets = [
     b
     for b in (product["bullet_points"] or [])
@@ -1120,8 +1160,9 @@ st.markdown(
 
 
 # ──────────────────────────────────────────────────────────────
-# Feature tabs
+# Feature Tabs
 # ──────────────────────────────────────────────────────────────
+
 tab_a, tab_b, tab_c, tab_d = st.tabs([
     "Similar products",
     "Review sentiment",
@@ -1131,8 +1172,9 @@ tab_a, tab_b, tab_c, tab_d = st.tabs([
 
 
 # ══════════════════════════════════════════════════════════════
-# FEATURE A — SIMILAR PRODUCT RECOMMENDATION
+# FEATURE A — SIMILAR PRODUCTS
 # ══════════════════════════════════════════════════════════════
+
 with tab_a:
 
     fa = load_feature_a()
@@ -1150,9 +1192,8 @@ with tab_a:
     )
 
 
-    # ──────────────────────────────────────────────────────────
-    # This product
-    # ──────────────────────────────────────────────────────────
+    # ── Similar to current product ──────────────────────────
+
     if mode == "This product":
 
         if product["asin"] not in asins:
@@ -1163,7 +1204,9 @@ with tab_a:
 
         else:
 
-            idx = asins.index(product["asin"])
+            idx = asins.index(
+                product["asin"]
+            )
 
             cat_map = dict(
                 zip(
@@ -1209,6 +1252,7 @@ with tab_a:
                         df["asin"] == asins[i]
                     ].iloc[0]
 
+
                     c1, c2 = st.columns(
                         [1, 6],
                         gap="medium"
@@ -1218,6 +1262,7 @@ with tab_a:
                     with c1:
 
                         if r["main_image_url"]:
+
                             st.image(
                                 r["main_image_url"],
                                 width=76
@@ -1233,38 +1278,33 @@ with tab_a:
                             r["brand"]
                             and r["brand"] == product["brand"]
                         ):
-
                             tags.append(
                                 f'same brand · {r["brand"]}'
                             )
 
 
-                        if (
-                            pd.notna(r["price"])
-                            and pd.notna(product["price"])
-                        ):
-
-                            diff = (
-                                abs(
-                                    r["price"]
-                                    - product["price"]
-                                )
-                                / max(
-                                    product["price"],
-                                    .01
-                                )
+                        diff = (
+                            abs(
+                                r["price"]
+                                - product["price"]
                             )
-
-                            tags.append(
-                                "similar price"
-                                if diff <= .20
-                                else (
-                                    "lower price"
-                                    if r["price"]
-                                    < product["price"]
-                                    else "higher price"
-                                )
+                            / max(
+                                product["price"],
+                                .01
                             )
+                        )
+
+
+                        tags.append(
+                            "similar price"
+                            if diff <= .20
+                            else (
+                                "lower price"
+                                if r["price"]
+                                < product["price"]
+                                else "higher price"
+                            )
+                        )
 
 
                         tag_html = "".join(
@@ -1277,11 +1317,13 @@ with tab_a:
                             f'<div class="rowtitle">'
                             f'{r["title"][:95]}'
                             f'</div>'
+
                             f'<div class="rowmeta">'
                             f'${r["price"]:.2f}'
                             f' &nbsp;·&nbsp; '
                             f'match {score:.2f}'
                             f'</div>'
+
                             f'<div style="margin-top:.4rem">'
                             f'{tag_html}'
                             f'</div>',
@@ -1295,9 +1337,8 @@ with tab_a:
                     )
 
 
-    # ──────────────────────────────────────────────────────────
-    # Description search
-    # ──────────────────────────────────────────────────────────
+    # ── Free-text similarity ─────────────────────────────────
+
     else:
 
         query = st.text_input(
@@ -1335,6 +1376,7 @@ with tab_a:
                     df["asin"] == asins[i]
                 ].iloc[0]
 
+
                 c1, c2 = st.columns(
                     [1, 6],
                     gap="medium"
@@ -1344,6 +1386,7 @@ with tab_a:
                 with c1:
 
                     if r["main_image_url"]:
+
                         st.image(
                             r["main_image_url"],
                             width=76
@@ -1356,6 +1399,7 @@ with tab_a:
                         f'<div class="rowtitle">'
                         f'{r["title"][:95]}'
                         f'</div>'
+
                         f'<div class="rowmeta">'
                         f'{r["search_keyword"]}'
                         f' &nbsp;·&nbsp; '
@@ -1382,6 +1426,7 @@ with tab_a:
 # ══════════════════════════════════════════════════════════════
 # FEATURE B — REVIEW SENTIMENT
 # ══════════════════════════════════════════════════════════════
+
 with tab_b:
 
     reviews = product["reviews"]
@@ -1406,17 +1451,24 @@ with tab_b:
 
         total = len(sentiments)
 
-        pos = counts.get("positive", 0)
-        neu = counts.get("neutral", 0)
-        neg = counts.get("negative", 0)
+        pos, neu, neg = (
+            counts.get(k, 0)
+            for k in [
+                "positive",
+                "neutral",
+                "negative"
+            ]
+        )
 
 
         cat_sent = [
             star_sentiment(r)
+
             for _, p in df[
                 df["search_keyword"]
                 == product["search_keyword"]
             ].iterrows()
+
             for r in p["reviews"]
         ]
 
@@ -1438,21 +1490,26 @@ with tab_b:
 
             st.markdown(
                 f'<div class="panel">'
+
                 f'<div class="panelhead">'
                 f'This product · {total} reviews'
                 f'</div>'
+
                 f'<span class="pill pos">'
                 f'{pos} positive · '
                 f'{pos / total * 100:.0f}%'
                 f'</span>'
+
                 f'<span class="pill neu">'
                 f'{neu} neutral · '
                 f'{neu / total * 100:.0f}%'
                 f'</span>'
+
                 f'<span class="pill neg">'
                 f'{neg} negative · '
                 f'{neg / total * 100:.0f}%'
                 f'</span>'
+
                 f'</div>',
                 unsafe_allow_html=True
             )
@@ -1462,19 +1519,24 @@ with tab_b:
 
             st.markdown(
                 f'<div class="panel">'
+
                 f'<div class="panelhead">'
                 f'{product["search_keyword"]} · '
                 f'{len(cat_sent):,} reviews'
                 f'</div>'
+
                 f'<span class="pill pos">'
                 f'{cs.get("positive", 0):.0f}% positive'
                 f'</span>'
+
                 f'<span class="pill neu">'
                 f'{cs.get("neutral", 0):.0f}% neutral'
                 f'</span>'
+
                 f'<span class="pill neg">'
                 f'{cs.get("negative", 0):.0f}% negative'
                 f'</span>'
+
                 f'</div>',
                 unsafe_allow_html=True
             )
@@ -1520,14 +1582,15 @@ with tab_b:
 
 
             with st.expander(
-                f'{r.get("title", "Review")[:75]} · {s}'
+                f'{r.get("title", "Review")[:75]}'
+                f'  ·  {s}'
             ):
 
                 st.caption(
                     f'{r.get("reviewer_name", "Anonymous")}'
                     f' · {r.get("rating", "")}'
                     + (
-                        " · verified purchase"
+                        "  · verified purchase"
                         if r.get("verified_purchase")
                         else ""
                     )
@@ -1555,8 +1618,9 @@ with tab_b:
 
 
 # ══════════════════════════════════════════════════════════════
-# FEATURE C — THUMBNAIL GROUPING
+# FEATURE C — VISUAL GROUPING
 # ══════════════════════════════════════════════════════════════
+
 with tab_c:
 
     clusters = load_feature_c()
@@ -1582,6 +1646,7 @@ with tab_c:
         members = clusters[
             clusters["cluster"] == cid
         ]
+
 
         dominant = (
             members["category"]
@@ -1619,19 +1684,28 @@ with tab_c:
         st.markdown(
             f'<div class="verdict" '
             f'style="margin-bottom:1.2rem">'
+
             f'<div class="lbl">'
             f'Visual group {cid}'
             f'</div>'
+
             f'<div class="tier" '
             f'style="font-size:1.5rem">'
+
             f'{dominant.index[0]} '
+
             f'<span style="font-size:.9rem;'
-            f'font-weight:600;'
-            f'color:#658094">'
-            f'{purity:.0f}% of {len(members)} products'
+            f'font-weight:600;color:#658094">'
+
+            f'{purity:.0f}% of '
+            f'{len(members)} products'
+
             f'</span>'
+
             f'</div>'
+
             f'{note}'
+
             f'</div>',
             unsafe_allow_html=True
         )
@@ -1704,14 +1778,16 @@ with tab_c:
 
 
 # ══════════════════════════════════════════════════════════════
-# FEATURE D — PRICE TIER CLASSIFICATION
+# FEATURE D — PRICE TIER
 # ══════════════════════════════════════════════════════════════
+
 with tab_d:
 
     fd = load_feature_d()
 
 
     row_in = pd.DataFrame([{
+
         "text_features":
             f"{product['title']} "
             f"{product['brand']} "
@@ -1726,26 +1802,20 @@ with tab_d:
             len(product["title"]),
 
         "bullet_count":
-            len(
-                product["bullet_points"] or []
-            ),
+            len(product["bullet_points"] or []),
 
         "has_brand":
             1 if product["brand"] else 0,
 
         "rating":
-            (
-                product["rating"]
-                if pd.notna(product["rating"])
-                else df["rating"].median()
-            ),
+            product["rating"]
+            if pd.notna(product["rating"])
+            else df["rating"].median(),
 
         "review_count":
-            (
-                product["review_count"]
-                if pd.notna(product["review_count"])
-                else df["review_count"].median()
-            ),
+            product["review_count"]
+            if pd.notna(product["review_count"])
+            else df["review_count"].median(),
     }])
 
 
@@ -1784,16 +1854,20 @@ with tab_d:
 
         st.markdown(
             f'<div class="verdict">'
+
             f'<div class="lbl">'
             f'Predicted from description'
             f'</div>'
+
             f'<div class="tier">'
             f'{pred}'
             f'</div>'
+
             f'<div class="band">'
             f'Using title, brand, bullet points, '
             f'rating and review count — never the price.'
             f'</div>'
+
             f'</div>',
             unsafe_allow_html=True
         )
@@ -1805,8 +1879,11 @@ with tab_d:
             '<span class="agree">'
             'Matches the price-based tier'
             '</span>'
+
             if pred == actual
+
             else
+
             '<span class="disagree">'
             'Differs from the price-based tier'
             '</span>'
@@ -1815,18 +1892,23 @@ with tab_d:
 
         st.markdown(
             f'<div class="verdict">'
+
             f'<div class="lbl">'
             f'Actual, from price'
             f'</div>'
+
             f'<div class="tier">'
             f'{actual}'
             f'</div>'
+
             f'<div class="band">'
-            f'{verdict}<br>'
+            f'{verdict}'
+            f'<br>'
             f'In {product["search_keyword"]}: '
             f'budget up to ${q33:.2f}, '
             f'mid-range up to ${q67:.2f}.'
             f'</div>'
+
             f'</div>',
             unsafe_allow_html=True
         )
@@ -1843,13 +1925,14 @@ with tab_d:
 # ──────────────────────────────────────────────────────────────
 # Footer
 # ──────────────────────────────────────────────────────────────
+
 st.markdown(
     '<div class="foot">'
     'Built by <b>Ahsan Rizvi</b> '
     '&nbsp;<span class="accent">·</span>&nbsp; '
     'YSD Training Program, Batch 05<br>'
-    'Data collected from public Amazon listings with '
-    'a purpose-built Playwright pipeline. '
+    'Data collected from public Amazon listings '
+    'with a purpose-built Playwright pipeline. '
     'Not affiliated with Amazon.'
     '</div>',
     unsafe_allow_html=True
