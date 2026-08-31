@@ -11,11 +11,6 @@ import plotly.graph_objects as go
 from pathlib import Path
 from sklearn.metrics.pairwise import cosine_similarity
 
-# NOTE ON STREAMLIT VERSION
-# This file uses st.dialog (modal popups, Streamlit >= 1.31) and
-# st.link_button (Streamlit >= 1.27). If either call errors out on your
-# installed version, run `pip install -U streamlit` first.
-
 # ============================================================
 # CONFIGURATION & PATHS
 # ============================================================
