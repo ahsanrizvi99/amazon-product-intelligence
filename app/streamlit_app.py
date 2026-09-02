@@ -26,7 +26,6 @@ st.set_page_config(
 )
 
 
-
 def md(html_str: str):
     cleaned = "\n".join(line.strip() for line in html_str.strip().splitlines())
     st.markdown(cleaned, unsafe_allow_html=True)
@@ -205,11 +204,6 @@ div[data-testid="stDataFrame"] { border: 1px solid var(--line); border-radius: 1
 
 /* ============================================================
    PRODUCT DETAIL MODAL — smooth, premium entrance
-   Streamlit doesn't publish stable class/testid names for
-   st.dialog's internal DOM, so these selectors target the ones
-   commonly used in recent releases. If your installed version
-   renders the dialog without this animation, it still opens and
-   closes correctly — it just skips the extra motion.
    ============================================================ */
 div[data-testid="stDialog"] { animation: piOverlayFade .22s ease-out; }
 div[data-testid="stDialog"] [role="dialog"],
@@ -258,6 +252,12 @@ def load_feature_a():
     except FileNotFoundError:
         return None
 
+@st.cache_resource
+def load_feature_b():
+    try:
+        return joblib.load(MODEL_DIR / "feature_b_sentiment_model.joblib")
+    except FileNotFoundError:
+        return None
 
 @st.cache_data
 def load_feature_c():
@@ -308,8 +308,6 @@ def render_product_card(product, extra_meta=""):
 
 # ============================================================
 # PRODUCT DETAIL POPUP
-# Triggered from anywhere in the app by calling
-# show_product_details(asin) inside an `if st.button(...):` block.
 # ============================================================
 @st.dialog("Product Details")
 def show_product_details(asin):
@@ -491,7 +489,6 @@ if app_mode == "Overview":
         )
         view_df = view_df[mask]
 
-    # Reset to page 1 whenever the search term changes
     if st.session_state.get("_last_search") != search_q:
         st.session_state["overview_page"] = 0
         st.session_state["_last_search"] = search_q
@@ -499,7 +496,7 @@ if app_mode == "Overview":
     PAGE_SIZE = 20
     N_COLS = 5
     total = len(view_df)
-    total_pages = max(1, -(-total // PAGE_SIZE))  # ceil division
+    total_pages = max(1, -(-total // PAGE_SIZE))
     page = max(0, min(st.session_state.get("overview_page", 0), total_pages - 1))
     start = page * PAGE_SIZE
     page_df = view_df.iloc[start:start + PAGE_SIZE]
@@ -716,6 +713,83 @@ elif app_mode == "Feature B: Sentiment":
     st.caption("Sentiment from star ratings, which reached macro-F1 0.887 against "
                "180 manually labelled reviews — ahead of the trained text classifier (0.577).")
 
+    st.divider()
+    with st.container(border=True):
+        md('<div class="panel-head" style="text-align:left;">Try it yourself</div>')
+        md('<div style="color:var(--muted); font-size:0.85rem; margin-bottom:0.8rem;">'
+           'Write a review and see how the trained text classifier reads it — '
+           'this works even with no star rating attached.</div>')
+        user_review = st.text_area(
+            "Your review",
+            placeholder="e.g. Battery life is disappointing and it stopped charging after two weeks.",
+            label_visibility="collapsed",
+            height=100,
+        )
+        if st.button("Analyze sentiment", type="primary"):
+            if not user_review.strip():
+                st.warning("Write a review first.")
+            else:
+                fb = load_feature_b()
+                if fb is None:
+                    st.error("Sentiment model file not found — expected "
+                             "models/feature_b_sentiment_model.joblib.")
+                else:
+                    pipeline = fb
+                    pred_label = pipeline.predict([user_review])[0]
+                    proba = pipeline.predict_proba([user_review])[0]
+                    classes = list(pipeline.classes_)
+                    conf = dict(zip(classes, proba))
+                    top_conf = conf[pred_label] * 100
+
+                    tag_css = {"positive": "green", "neutral": "orange", "negative": "red"}.get(pred_label, "blue")
+                    md(f'<div style="margin-top:0.9rem;">'
+                       f'<span class="tag-pill tag-{tag_css}" style="font-size:0.9rem; padding:6px 14px;">'
+                       f'{pred_label.upper()}</span>'
+                       f'<span style="color:var(--muted); font-size:0.82rem; margin-left:0.6rem;">'
+                       f'{top_conf:.0f}% confidence</span></div>')
+
+                    bar_rows = ""
+                    colors = {"positive": "#16866a", "neutral": "#e5a83a", "negative": "#b64b55"}
+                    for cls in classes:
+                        pct = conf[cls] * 100
+                        bar_rows += f"""
+                        <div style="margin-top:0.6rem;">
+                            <div style="display:flex; justify-content:space-between; font-size:0.75rem; color:var(--muted);">
+                                <span>{cls.capitalize()}</span><span>{pct:.0f}%</span>
+                            </div>
+                            <div style="background:var(--line); border-radius:999px; height:8px; overflow:hidden;">
+                                <div style="width:{pct}%; background:{colors.get(cls, '#5aa9e6')}; height:100%;"></div>
+                            </div>
+                        </div>
+                        """
+                    md(f'<div style="margin-top:0.9rem;">{bar_rows}</div>')
+
+                    tfidf_b = pipeline.steps[0][1]
+                    words = set(re.findall(r"[a-zA-Z']+", user_review.lower()))
+                    vocab = tfidf_b.vocabulary_
+                    
+                    matched = sorted(
+                        [(w, tfidf_b.idf_[vocab[w]]) for w in words if w in vocab],
+                        key=lambda x: x[1],
+                        reverse=True,
+                    )[:8]
+
+                    if matched:
+                        chip_html = "".join(
+                            f'<span class="tag-pill tag-blue" style="margin-top:6px; display:inline-block;">'
+                            f'{esc(w)} <span style="opacity:0.7; font-weight:normal; margin-left:4px;">{score:.2f}</span>'
+                            f'</span>'
+                            for w, score in matched
+                        )
+                        md(f'<div style="margin-top:1rem; font-size:0.78rem; color:var(--muted);">'
+                           f'Words the model weighted most heavily (IDF score):</div>'
+                           f'<div style="margin-top:4px; padding-bottom:1rem;">{chip_html}</div>')
+                    else:
+                        md('<div style="padding-bottom:1rem; margin-top:1rem;">'
+                           '<span style="color:var(--muted); font-size:0.8rem;">'
+                           'None of these words were in the model\'s trained vocabulary — '
+                           'it\'s relying on rarer or unseen terms.</span></div>')
+
 # ============================================================
 # FEATURE C — VISUAL GROUPS
 # ============================================================
@@ -860,6 +934,7 @@ elif app_mode == "Feature D: Price Tier":
             col_a, col_b = st.columns(2)
             with col_a:
                 delta_rev = ((p_rev - med_reviews) / med_reviews * 100) if med_reviews > 0 else 0
+                rev_insight = "High volume usually indicates a mass-market budget item." if p_rev > med_reviews else "Lower volume often aligns with niche or premium items."
                 md(f"""
                 <div style="background:#f0f4f9; border-radius:12px; padding:1rem;">
                     <div style="font-weight:700;">Review volume</div>
@@ -868,10 +943,14 @@ elif app_mode == "Feature D: Price Tier":
                     <div style="margin-top:0.5rem; font-size:0.85rem; color:{'#16866a' if delta_rev > 0 else '#b64b55'};">
                         {abs(delta_rev):.0f}% {'above' if delta_rev > 0 else 'below'} median
                     </div>
+                    <div style="margin-top:0.4rem; font-size:0.75rem; color:var(--ink); font-weight:600;">
+                        💡 {rev_insight}
+                    </div>
                 </div>
                 """)
             with col_b:
                 delta_len = ((p_len - med_len) / med_len * 100) if med_len > 0 else 0
+                len_insight = "Longer titles often indicate premium items detailing specific features." if p_len > med_len else "Shorter titles are common for generic or budget products."
                 md(f"""
                 <div style="background:#f0f4f9; border-radius:12px; padding:1rem;">
                     <div style="font-weight:700;">Title length</div>
@@ -880,11 +959,14 @@ elif app_mode == "Feature D: Price Tier":
                     <div style="margin-top:0.5rem; font-size:0.85rem; color:{'#16866a' if delta_len > 0 else '#b64b55'};">
                         {abs(delta_len):.0f}% {'above' if delta_len > 0 else 'below'} median
                     </div>
+                    <div style="margin-top:0.4rem; font-size:0.75rem; color:var(--ink); font-weight:600;">
+                        💡 {len_insight}
+                    </div>
                 </div>
                 """)
             md(f'<div style="margin-top:0.9rem; font-size:0.85rem; color:var(--muted);">'
                f'Classified as <b>{pred.upper()}</b> using title, brand, bullet points, '
-               f'rating and review count — never the price.</div>')
+               f'rating and review count — completely ignoring the actual price tag.</div>')
 
         st.markdown("<div style='height:1rem'></div>", unsafe_allow_html=True)
 
@@ -909,6 +991,83 @@ elif app_mode == "Feature D: Price Tier":
             </div>
         </div>
         """)
+
+        st.markdown("<div style='height:1rem'></div>", unsafe_allow_html=True)
+
+        with st.container(border=True):
+            md('<div class="panel-head" style="text-align:left;">Test the Model (Interactive)</div>')
+            md('<div style="color:var(--muted); font-size:0.85rem; margin-bottom:0.8rem;">'
+               'Modify the product details below. See if adding premium features (like a known brand or longer descriptions) '
+               'changes the model\'s price tier prediction without looking at the price.</div>')
+            
+            with st.form("price_tier_test"):
+                t_col1, t_col2 = st.columns(2)
+                with t_col1:
+                    test_title = st.text_input("Product Title", value=product["title"])
+                    test_brand = st.text_input("Brand Name", value=str(product.get("brand", "")) if pd.notna(product.get("brand")) else "")
+                with t_col2:
+                    test_reviews = st.number_input("Review Count", value=int(p_rev), min_value=0)
+                    test_rating = st.number_input("Star Rating", value=float(input_data["rating"].iloc[0]), min_value=1.0, max_value=5.0)
+                
+                test_bullets = st.text_area("Bullet Points (Combine all text)", value=" ".join(map(str, bp)))
+                
+                if st.form_submit_button("Predict Custom Tier", type="primary"):
+                    test_text_features = f"{test_title} {test_brand} {test_bullets}"
+                    
+                    test_df = pd.DataFrame([{
+                        "text_features": test_text_features,
+                        "search_keyword": product["search_keyword"],
+                        "title_length": len(test_title),
+                        "bullet_count": len(test_bullets.split('.')) if test_bullets else 0,
+                        "has_brand": 1 if test_brand.strip() else 0,
+                        "rating": test_rating,
+                        "review_count": test_reviews,
+                    }])
+                    
+                    # Get prediction and probabilities
+                    custom_pred = fd.predict(test_df)[0]
+                    custom_proba = fd.predict_proba(test_df)[0]
+                    custom_classes = list(fd.classes_)
+                    custom_conf = dict(zip(custom_classes, custom_proba))
+                    
+                    tag_color = {"budget": "green", "mid-range": "orange", "premium": "blue"}.get(custom_pred, "blue")
+                    
+                    # Generate progress bars for the confidence scores
+                    bar_rows = ""
+                    bar_colors = {"budget": "#16866a", "mid-range": "#e5a83a", "premium": "#2e78b7"}
+                    tier_order = ["budget", "mid-range", "premium"]
+                    
+                    for cls in tier_order:
+                        if cls in custom_conf:
+                            pct = custom_conf[cls] * 100
+                            bar_rows += f"""
+                            <div style="margin-top:0.6rem; text-align:left;">
+                                <div style="display:flex; justify-content:space-between; font-size:0.75rem; color:var(--muted); text-transform:uppercase;">
+                                    <span>{cls}</span><span>{pct:.0f}%</span>
+                                </div>
+                                <div style="background:var(--line); border-radius:999px; height:8px; overflow:hidden;">
+                                    <div style="width:{pct}%; background:{bar_colors.get(cls, '#5aa9e6')}; height:100%;"></div>
+                                </div>
+                            </div>
+                            """
+
+                    # Render the results, the probability bars, and the extracted numerical features
+                    md(f'<div style="margin-top:1rem; padding:1.2rem; background:var(--surface); border:1px solid var(--line-strong); border-radius:12px; text-align:center;">'
+                       f'<div style="font-size:0.8rem; font-weight:800; color:var(--muted); text-transform:uppercase; margin-bottom:0.4rem;">Model Predicts</div>'
+                       f'<span class="tag-pill tag-{tag_color}" style="font-size:1.2rem; padding:8px 18px; margin-bottom:0.8rem; display:inline-block;">{custom_pred.upper()}</span>'
+                       
+                       f'<div style="margin-top:0.5rem; border-top:1px solid var(--line); padding-top:0.8rem;">'
+                       f'<div style="font-size:0.75rem; font-weight:700; color:var(--muted); margin-bottom:0.5rem; text-align:left;">CONFIDENCE SCORES:</div>'
+                       f'{bar_rows}'
+                       f'</div>'
+                       
+                       f'<div style="margin-top:1.2rem; padding-top:0.8rem; border-top:1px solid var(--line); font-size:0.75rem; color:var(--muted);">'
+                       f'<b>Features extracted & passed to model:</b><br>'
+                       f'Title Length: {test_df["title_length"][0]} chars &nbsp;·&nbsp; '
+                       f'Est. Bullets: {test_df["bullet_count"][0]} &nbsp;·&nbsp; '
+                       f'Brand Listed: {"Yes" if test_df["has_brand"][0] else "No"}'
+                       f'</div>'
+                       f'</div>')
 
         st.caption("Random Forest on non-price attributes. Test macro-F1 0.429 against a "
                    "0.171 baseline — separates budget from premium reasonably; "
