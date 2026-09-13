@@ -1,207 +1,402 @@
 # 🛒 Amazon Marketplace Product Intelligence Platform
 
-![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)
-![Streamlit](https://img.shields.io/badge/Streamlit-App-FF4B4B?logo=streamlit&logoColor=white)
-![scikit--learn](https://img.shields.io/badge/scikit--learn-ML%20Pipelines-F7931E?logo=scikitlearn&logoColor=white)
-![Playwright](https://img.shields.io/badge/Playwright-Scraper-2EAD33?logo=playwright&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python\&logoColor=white)
+![Streamlit](https://img.shields.io/badge/Streamlit-App-FF4B4B?logo=streamlit\&logoColor=white)
+![scikit-learn](https://img.shields.io/badge/scikit--learn-ML%20Pipelines-F7931E?logo=scikitlearn\&logoColor=white)
+![Playwright](https://img.shields.io/badge/Playwright-Scraper-2EAD33?logo=playwright\&logoColor=white)
 ![Status](https://img.shields.io/badge/Status-In%20Development-orange)
-![YSD](https://img.shields.io/badge/YSD%20Training%20Program-Batch%2005-6C63FF)
 
-**YSD Training Program – Batch 05**
+An end-to-end marketplace intelligence platform that collects Amazon product and review data, processes the data into a modeling-ready dataset, and provides four independent machine-learning-driven analytical features through a Streamlit application.
 
-An end-to-end marketplace intelligence platform that scrapes live Amazon product and review data, turns it into four independent ML-driven analytical features, and serves everything through a single Streamlit application.
+## 📌 Overview
+
+The platform combines web scraping, data preprocessing, machine learning, computer vision, natural language processing, and interactive visualization into a single workflow.
+
+The system consists of four major stages:
+
+1. **Data Collection**
+   A Playwright-based scraper collects product and review information from Amazon using 28 predefined search keywords.
+
+2. **Data Preparation**
+   Raw data is cleaned, deduplicated, imputed, language-processed, and transformed into a dataset suitable for downstream analysis.
+
+3. **Machine Learning Features**
+
+   * **Feature A — Similar Product Recommendation:** Finds related products using TF-IDF, sentence embeddings, and hybrid retrieval.
+   * **Feature B — Review Sentiment Analysis:** Classifies review sentiment and produces product-level and category-level summaries.
+   * **Feature C — Visual Product Grouping:** Groups visually similar product thumbnails using CLIP embeddings and clustering.
+   * **Feature D — Price Tier Classification:** Predicts budget, mid-range, or premium product tiers using non-price product attributes.
+
+4. **Streamlit Application**
+   A unified dashboard allows users to browse products and interact with all four analytical features.
 
 ---
+# 👨‍💻 Author
 
-## 📌 What This Project Does
-
-The platform automatically collects product and customer review data from Amazon and provides analytical insights through a single Streamlit app. It covers the full pipeline — scraping, cleaning, modeling, and deployment:
-
-1. **Data Collection Pipeline** — Playwright-driven scraper that collects fresh product and review data across 28 assigned search keywords.
-2. **Data Preparation & Analysis** — cleans, deduplicates, imputes, and translates the collected data into a modeling-ready dataset.
-3. **Four Analytical Features:**
-   - **A — Similar Product Recommendation:** recommends related products using TF-IDF, sentence embeddings, and a hybrid retrieval model.
-   - **B — Review Sentiment:** classifies reviews as positive, neutral, or negative and rolls them up into per-product and per-category summaries.
-   - **C — Thumbnail Grouping:** groups product images into visually coherent clusters using CLIP embeddings.
-   - **D — Price Tier Classification:** predicts budget / mid-range / premium tiers from product attributes — without ever looking at the price.
-4. **Streamlit Application** — product browsing, product detail views, and interactive access to all four features.
+**Ahsan Rizvi**
 
 ---
 
 ## 🏗️ System Architecture
 
-The pipeline runs in four stages, from raw HTML on Amazon to an interactive dashboard:
-
-```
+```text
 Amazon Search & Product Pages
-        │  (Playwright scraper, polite rate limiting)
-        ▼
-Raw Data (JSON / CSV) ── 1,028 products · 11K+ reviews
-        │  (dedup, price imputation, language detection + translation)
-        ▼
-Cleaned Dataset (products_cleaned.json/csv)
-        │
-        ├──▶ Feature A — TF-IDF + Sentence Embeddings ──▶ Similarity model
-        ├──▶ Feature B — TF-IDF + Logistic Regression ──▶ Sentiment model
-        ├──▶ Feature C — CLIP ViT-B/32 + KMeans ────────▶ Visual clusters
-        └──▶ Feature D — TF-IDF + Random Forest ────────▶ Price-tier model
-        │
-        ▼
-Streamlit Application (app/streamlit_app.py)
+            │
+            │ Playwright scraper
+            │ Polite rate limiting
+            ▼
+      Raw JSON / CSV Data
+   1,028 products · 11K+ reviews
+            │
+            │ Cleaning
+            │ Deduplication
+            │ Price imputation
+            │ Language detection + translation
+            ▼
+     Cleaned Dataset
+  products_cleaned.json / CSV
+            │
+            ├───────────────┬──────────────────┬──────────────────┐
+            ▼               ▼                  ▼                  ▼
+      Feature A          Feature B          Feature C          Feature D
+   Recommendation       Sentiment          Visual Groups      Price Tier
+            │               │                  │                  │
+      TF-IDF +           TF-IDF +          CLIP ViT-B/32      TF-IDF +
+      Embeddings        Logistic Regression    + KMeans       Random Forest
+            │               │                  │                  │
+            └───────────────┴──────────────────┴──────────────────┘
+                                    │
+                                    ▼
+                         Streamlit Application
+                         app/streamlit_app.py
 ```
 
 ---
 
-## 📊 Data Pipeline
+## 📊 Dataset
 
-| Stage | Detail |
-|---|---|
-| **Search keywords** | 28, spanning electronics, kitchen, fashion, and lifestyle categories |
-| **Products collected (raw)** | 1,028 |
-| **Products after cleaning** | 1,005 |
-| **Reviews flattened** | 11,288 |
-| **Prices imputed (missing)** | 149 of 1,005 (flagged, excluded from tier-boundary calculation) |
-| **Non-English reviews** | detected and machine-translated during cleaning |
-| **Product images downloaded** | 1,004 of 1,005 |
+The current pipeline produced the following dataset:
 
-Every request (search and product page) is logged to `logs/scraping_log.csv` with timestamp, outcome, and any error — used to monitor scraper health across the 28-keyword run.
+| Metric                  |                                       Value |
+| ----------------------- | ------------------------------------------: |
+| Search keywords         |                                          28 |
+| Raw products collected  |                                       1,028 |
+| Products after cleaning |                                       1,005 |
+| Flattened reviews       |                                      11,288 |
+| Prices imputed          |                                 149 / 1,005 |
+| Images downloaded       |                               1,004 / 1,005 |
+| Language processing     | Non-English reviews detected and translated |
 
----
+The 28 search keywords cover categories including electronics, kitchen, fashion, and lifestyle.
 
-## 🔍 Feature A — Similar Product Recommendation
+### Scraping Logs
 
-Three retrieval approaches were built on top of a combined title + brand + bullet-point text field, then benchmarked head-to-head:
+Scraping requests are logged in:
 
-| Method | Precision@5 (28 queries, human-judged) |
-|---|---|
-| **Hybrid (TF-IDF + embeddings)** | **0.864** |
-| TF-IDF (5,000 features, 1–2 grams) | 0.850 |
-| Sentence embeddings (`all-MiniLM-L6-v2`) | 0.821 |
+```text
+logs/scraping_log.csv
+```
 
-211 unique query/result pairs were manually judged for relevance (80.6% found relevant) to compute Precision@5. TF-IDF was shipped to production since it matched the hybrid model's precision within noise while avoiding an embedding model at inference time. The app also supports free-text search against the same index.
-
-![Feature A — Similar Products](screenshots/feature_a.png)
+The log records timestamps, outcomes, and errors to help monitor scraping activity and diagnose pipeline issues.
 
 ---
 
-## 💬 Feature B — Review Sentiment Analysis
+# 🔍 Feature A — Similar Product Recommendation
 
-Reviews were weakly labeled from star ratings (positive/neutral/negative), then checked against a 180-review manually labeled gold set to see how well that heuristic — and several trained classifiers — actually held up:
+This feature recommends products that are similar to a selected product or user-provided text query.
 
-| Model | Accuracy | Macro-F1 |
-|---|---|---|
-| **Star-rating baseline** | **0.889** | **0.887** |
-| TF-IDF + Logistic Regression (leakage-free) | 0.633 | 0.577 |
-| VADER | 0.533 | 0.456 |
-| Transformer (`cardiffnlp/twitter-roberta-base-sentiment`) | 0.678 | 0.623 |
+The system uses a combined product representation containing:
 
-The star-rating-derived label outperformed every trained text classifier against the manual gold set, so it's what powers the sentiment shown in the app, with per-product and per-category positive/neutral/negative breakdowns. The trained TF-IDF classifier is kept as an artifact for scoring future reviews that may arrive without a star rating.
+* Product title
+* Brand
+* Bullet points
 
-![Feature B — Review Sentiment](screenshots/feature_b.png)
+Three retrieval approaches were evaluated:
 
----
+| Method                                   | Precision@5 |
+| ---------------------------------------- | ----------: |
+| **Hybrid: TF-IDF + Sentence Embeddings** |   **0.864** |
+| TF-IDF                                   |       0.850 |
+| Sentence Embeddings (`all-MiniLM-L6-v2`) |       0.821 |
 
-## 🖼️ Feature C — Thumbnail Grouping
+Evaluation was performed on 28 queries using human judgment.
 
-Product thumbnails were embedded with **CLIP (ViT-B/32)** and clustered to group visually similar products, independent of their search category:
+### Production Model
 
-| Method | Clusters | Silhouette | Notes |
-|---|---|---|---|
-| **KMeans (k=25)** | 25 | 0.174 | Selected — clean, fully-assigned clusters |
-| Agglomerative | 25 | 0.164 | Comparable, slightly lower silhouette |
-| DBSCAN | 19 | 0.373 | Best silhouette, but left 853/1,004 products unassigned as noise |
+Although the hybrid approach achieved the highest measured precision, **TF-IDF was selected for production** because it achieved comparable performance with lower computational overhead during inference.
 
-k=25 was chosen via a silhouette sweep across k=5–40. Cluster quality was cross-checked against the original 28 search categories: **ARI 0.79 / NMI 0.87**, confirming the visual clusters largely track real product categories while still surfacing meaningful cross-category groupings (e.g., visually similar accessories from unrelated keywords).
-
-![Feature C — Thumbnail Grouping](screenshots/feature_c.png)
+The application also supports free-text similarity queries against the TF-IDF index.
 
 ---
 
-## 🏷️ Feature D — Price Tier Classification
+# 💬 Feature B — Review Sentiment Analysis
 
-Budget / mid-range / premium tiers are defined **within each category** using price terciles (so "premium" means something different for a phone case than for a DSLR camera), then predicted using only non-price signals — title/brand/bullet text, category, rating, and review count — to avoid leaking the price into the prediction:
+This feature analyzes customer reviews and categorizes them as:
 
-| Model (5-fold CV, selected on training data only) | CV Macro-F1 | Test Accuracy | Test Macro-F1 |
-|---|---|---|---|
-| **Random Forest** | **0.509** | 0.421 | 0.406 |
-| Gradient Boosting | 0.498 | — | — |
-| Logistic Regression | 0.482 | — | — |
-| Baseline (most frequent class) | — | 0.346 | 0.171 |
+* Positive
+* Neutral
+* Negative
 
-Random Forest was selected by cross-validation and evaluated once on a held-out test set. A macro-F1 of 0.41 against a 0.17 baseline shows genuine (if modest) signal in product text and metadata for price positioning — reflecting how much price within a category is driven by factors beyond what a listing's text reveals.
+Reviews were initially assigned weak labels using star ratings. A manually labeled set of 180 reviews was then used as a gold-standard benchmark.
 
-![Feature D — Price Tier Classification](screenshots/feature_d.png)
+### Model Comparison
 
----
+| Model                                                     |  Accuracy |  Macro-F1 |
+| --------------------------------------------------------- | --------: | --------: |
+| **Star-rating baseline**                                  | **0.889** | **0.887** |
+| Transformer (`cardiffnlp/twitter-roberta-base-sentiment`) |     0.678 |     0.623 |
+| TF-IDF + Logistic Regression                              |     0.633 |     0.577 |
+| VADER                                                     |     0.533 |     0.456 |
 
-## 💻 Streamlit Application
+### Production Strategy
 
-The app ties all four features together into one browsing experience:
+The star-rating heuristic performed best on the manually labeled benchmark and is therefore used for the dashboard's primary sentiment visualizations.
 
-- **Overview** — browse the full product catalog with category filtering.
-- **Feature A: Similarity** — search by an existing product or free text, with similarity scores and shared-term explanations.
-- **Feature B: Sentiment** — per-product sentiment breakdown with filterable, expandable individual reviews.
-- **Feature C: Visual Groups** — browse by visual cluster or find the cluster for a given product.
-- **Feature D: Price Tier** — predicted tier for any product, with the model's confidence.
+The TF-IDF + Logistic Regression model is retained as an additional model for scoring future review text that does not have a star rating.
 
 ---
 
-## 🚀 Setup
+# 🖼️ Feature C — Visual Product Grouping
+
+This feature identifies visually similar products independently of their textual categories.
+
+Product thumbnails are converted into **CLIP ViT-B/32 embeddings**, which are then clustered using multiple clustering algorithms.
+
+### Clustering Comparison
+
+| Method                   | Clusters | Silhouette Score | Result                   |
+| ------------------------ | -------: | ---------------: | ------------------------ |
+| **KMeans**               |   **25** |            0.174 | **Selected**             |
+| Agglomerative Clustering |       25 |            0.164 | Comparable               |
+| DBSCAN                   |       19 |        **0.373** | Poor assignment coverage |
+
+DBSCAN achieved the highest silhouette score but failed to assign 853 of the 1,004 products to clusters.
+
+KMeans was therefore selected because it produced complete assignments across the dataset while maintaining useful visual groupings.
+
+The selected clustering configuration achieved:
+
+* **ARI:** 0.79
+* **NMI:** 0.87
+
+These results indicate strong alignment with the original search categories while also revealing cross-category visual relationships.
+
+---
+
+# 🏷️ Feature D — Price Tier Classification
+
+This feature predicts whether a product belongs to a:
+
+* **Budget**
+* **Mid-range**
+* **Premium**
+
+tier.
+
+## Label Generation
+
+Price tiers are generated using **category-specific price terciles**.
+
+Importantly, the actual product price is **not used as a model input**.
+
+The classifier instead uses:
+
+* Product title
+* Brand
+* Bullet points
+* Category
+* Rating
+* Review count
+
+This makes the task a prediction problem based on product presentation and metadata rather than direct price lookup.
+
+### Model Comparison
+
+| Model                  | 5-Fold CV Macro-F1 | Test Accuracy | Test Macro-F1 |
+| ---------------------- | -----------------: | ------------: | ------------: |
+| **Random Forest**      |          **0.509** |     **0.421** |     **0.406** |
+| Gradient Boosting      |              0.498 |             — |             — |
+| Logistic Regression    |              0.482 |             — |             — |
+| Most-Frequent Baseline |                  — |         0.346 |         0.171 |
+
+Random Forest performed best among the evaluated models.
+
+The results indicate that non-price textual and metadata features contain some information about a product's price positioning, although the classification task remains challenging.
+
+---
+
+# 💻 Streamlit Application
+
+The Streamlit application brings all four features together in an interactive dashboard.
+
+### Overview
+
+Provides:
+
+* Product catalog browsing
+* Product filtering
+* Product-level information
+
+### Feature A — Similarity
+
+Provides:
+
+* Similar product recommendations
+* Similarity scores
+* Free-text product search
+
+### Feature B — Sentiment
+
+Provides:
+
+* Product-level sentiment summaries
+* Review-level sentiment filtering
+* Sentiment visualizations
+
+### Feature C — Visual Groups
+
+Provides:
+
+* Visual cluster browsing
+* Thumbnail-based product grouping
+
+### Feature D — Price Tier
+
+Provides:
+
+* Real-time price-tier prediction
+* Prediction confidence information
+
+---
+
+# 🚀 Installation & Usage
+
+## Prerequisites
+
+* Python **3.10+**
+* Git
+* A compatible browser environment for Playwright
+
+## 1. Clone the Repository
 
 ```bash
+git clone https://github.com/ahsanrizvi99/amazon-product-intelligence.git
+cd amazon-product-intelligence
+```
+
+## 2. Create a Virtual Environment
+
+### Windows
+
+```powershell
 python -m venv venv
-venv\Scripts\Activate.ps1
+.\venv\Scripts\Activate.ps1
+```
+
+### Linux / macOS
+
+```bash
+python3 -m venv venv
+source venv/bin/activate
+```
+
+## 3. Install Dependencies
+
+```bash
 pip install -r requirements.txt
 ```
 
-Run the application:
+## 4. Run the Application
 
 ```bash
 streamlit run app/streamlit_app.py
 ```
 
+The Streamlit interface will then be available locally through the URL provided by Streamlit.
+
 ---
 
-## 📁 Project Structure
+# 📁 Repository Structure
 
 ```text
-src/scraper/    Data collection pipeline (Playwright)
-data/raw/       Raw collected data
-data/cleaned/   Cleaned, modeling-ready dataset
-notebooks/      Data cleaning + feature A–D development notebooks
-models/         Saved model artifacts and evaluation results per feature
-product_images/ Downloaded product thumbnails
-app/            Streamlit application
-screenshots/    App screenshots used in this README
-logs/           Scraping request logs
+amazon-product-intelligence/
+│
+├── src/
+│   └── scraper/             # Playwright-based data collection
+│
+├── data/
+│   ├── raw/                 # Raw scraped data
+│   └── cleaned/             # Cleaned and processed datasets
+│
+├── notebooks/               # Data cleaning and feature development
+│
+├── models/                  # Saved model artifacts and evaluation results
+│
+├── product_images/          # Downloaded product thumbnails
+│
+├── app/
+│   └── streamlit_app.py     # Streamlit application
+│
+├── screenshots/             # Screenshots for documentation
+│
+├── logs/
+│   └── scraping_log.csv     # Scraping activity and error logs
+│
+├── requirements.txt         # Python dependencies
+└── README.md                # Project documentation
 ```
 
 ---
 
-## ⚙️ Constraints
+# ⚙️ System Constraints
 
-- Publicly accessible pages only.
-- No login or CAPTCHA bypassing.
-- Modest request rates, with a randomized polite delay between requests.
-- No personal data beyond publicly displayed reviewer names.
-- All project questions and clarifications are documented.
+The scraper and data pipeline operate under the following constraints:
 
----
-
-## 🔗 Project Resources
-
-- **Redmine Task #639881:** [redmine.bjitgroup.com/redmine/issues/639881](https://redmine.bjitgroup.com/redmine/issues/639881)
-- **GitHub Repository:** [github.com/ahsanrizvi99/amazon-product-intelligence](https://github.com/ahsanrizvi99/amazon-product-intelligence)
-- **Questions & Clarifications Log:** [Google Sheet](https://docs.google.com/spreadsheets/d/1LAtvyeIXl7Z8YFuDk5qBSWRmln5VghG0RbLc5PFR2iY/edit?gid=420372137#gid=420372137)
+* Data extraction is limited to publicly accessible pages.
+* No CAPTCHA bypassing is used.
+* No authenticated sessions are used.
+* Scraping requests use randomized polite delays to reduce the likelihood of rate limiting.
+* No personally identifiable information is intentionally stored beyond publicly displayed reviewer names.
 
 ---
 
-## 👨‍💻 Author
+# 📈 Key Results
 
-**Ahsan Rizvi**
+The project combines four different machine-learning tasks with distinct evaluation strategies:
 
-AI Engineer Trainee — YSD Training Program, Batch 05
+| Feature         | Selected Approach     | Main Result                                |
+| --------------- | --------------------- | ------------------------------------------ |
+| Similarity      | TF-IDF                | Precision@5 = **0.850**                    |
+| Sentiment       | Star-rating heuristic | Accuracy = **0.889**, Macro-F1 = **0.887** |
+| Visual grouping | CLIP + KMeans         | ARI = **0.79**, NMI = **0.87**             |
+| Price tier      | Random Forest         | Test Macro-F1 = **0.406**                  |
 
-Trainee ID: 30219
+The system therefore demonstrates an end-to-end workflow from web data collection through preprocessing, model evaluation, and interactive deployment.
 
+---
 
+# 📜 License
+
+This project is released under the **Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)** license.
+
+Under this license, you may:
+
+* **Share** — copy and redistribute the material in any medium or format.
+* **Adapt** — remix, transform, and build upon the material.
+
+Subject to:
+
+* **Attribution:** Appropriate credit must be given to the original author, along with a link to the repository and an indication of any changes.
+* **NonCommercial:** The material may not be used for commercial purposes without explicit permission.
+
+---
+
+# 📚 Citation
+
+If you use this project in research or another project, please cite:
+
+```text
+Rizvi, A. (2026).
+Amazon Marketplace Product Intelligence Platform.
+GitHub Repository.
+```
